@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://jankobo.github.io/sitemap.xml
+Sitemap: https://jankobo.github.io/feed.xml
