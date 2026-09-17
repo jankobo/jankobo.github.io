@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'none'; object-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; img-src 'self' data: blob: https://carrier.goatcounter.com; font-src 'self'; connect-src 'self' ws: data: https://carrier.goatcounter.com; manifest-src 'self'; worker-src 'self' blob:; form-action 'none'"
+    />
+    <!-- same-origin: 바깥으로는 여전히 아무것도 안 보내고(하드닝 유지), 우리 origin 안에서는
+         리퍼러를 싣는다. 종전 `no-referrer`는 게임 → /rules.html·/simulator.html·/ko/learn/ 이동을
+         전부 「직접 방문」으로 찍어 내부 흐름 측정을 자기 손으로 죽이고 있었다(2026-08-29 실브라우저
+         실측: 룰북 탭의 document.referrer가 ""). 근거·전후 실측은 docs/harness/analytics-seo.md 「요구 25」.
+         ⚠ 이 값을 no-referrer로 되돌리거나 unsafe-url로 넓히지 말 것 — referrer-policy.test.ts가 잠근다. -->
+    <meta name="referrer" content="same-origin" />
+    <meta name="google-site-verification" content="CxAkQg2jS9rj2NvZppERVyWCX3BOY1lSn8YkKZxHizY" />
+    <link rel="canonical" href="https://jankobo.github.io/" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+    <meta name="theme-color" content="#0e1116" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="description" content="리치 마작 공부와 리치 마작 배우기를 위한 학습기 작공방(雀攻房). 리치 마작 AI와 두고 복기하고, 시뮬레이터로 국면을 분석합니다. 봇과 두는 싱글 리치 마작도 브라우저에서 바로. 麻雀の攻めと守りを学ぶ立直麻雀学習ツール「雀攻房」。ブラウザでひとりでも学べます。 Jankobo, a riichi mahjong study tool: play riichi mahjong with bots, solo riichi mahjong in your browser, with replays and a position simulator. 한국어·일본어·English, 무료." />
+    <meta name="keywords" content="리치 마작 공부, 리치 마작 배우기, 리치 마작 AI, 리치 마작 복기, 리치 마작 복기하기, 리치 마작 시뮬레이터, 싱글 리치 마작, solo riichi mahjong, riichi mahjong with bots, 작공방, 雀攻房, Jankobo" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="작공방 · 雀攻房" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:title" content="작공방(雀攻房) — 초중급자를 위한 리치 마작 학습기 / 立直麻雀学習ツール" />
+    <meta property="og:description" content="리치 마작 공부와 리치 마작 배우기를 위한 학습기 작공방(雀攻房). 리치 마작 AI와 두고 복기하고, 시뮬레이터로 국면을 분석합니다. 봇과 두는 싱글 리치 마작도 브라우저에서 바로. 麻雀の攻めと守りを学ぶ立直麻雀学習ツール「雀攻房」。ブラウザでひとりでも学べます。 Jankobo, a riichi mahjong study tool: play riichi mahjong with bots, solo riichi mahjong in your browser, with replays and a position simulator. 한국어·일본어·English." />
+    <meta property="og:url" content="https://jankobo.github.io/" />
+    <meta property="og:image" content="https://jankobo.github.io/og.jpg?v=5" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="작공방(雀攻房) — 네온 골목의 리치 마작 패" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="작공방(雀攻房) — 초중급자를 위한 리치 마작 학습기 / 立直麻雀学習ツール" />
+    <meta name="twitter:description" content="리치 마작 공부와 리치 마작 배우기를 위한 학습기 작공방(雀攻房). 리치 마작 AI와 두고 복기하고, 시뮬레이터로 국면을 분석합니다. 봇과 두는 싱글 리치 마작도 브라우저에서 바로. 麻雀の攻めと守りを学ぶ立直麻雀学習ツール「雀攻房」。ブラウザでひとりでも学べます。 Jankobo, a riichi mahjong study tool: play riichi mahjong with bots, solo riichi mahjong in your browser, with replays and a position simulator. 한국어·일본어·English." />
+    <meta name="twitter:image" content="https://jankobo.github.io/og.jpg?v=5" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href="/assets/fonts/SpaceGrotesk-500.woff2" as="font" type="font/woff2" crossorigin />
+    <title>작공방(雀攻房) — 초중급자를 위한 리치 마작 학습기 / 立直麻雀学習ツール</title>
+    <style>
+      /* 정적 SEO 본문은 크롤러용 — 인라인으로 즉시 화면 밖에 숨겨 부팅 전 깜빡임(FOUC) 방지.
+         display:none 대신 visually-hidden이라 크롤러/스크린리더는 읽음.
+
+         ⚠ **`font-family`를 시스템 서체로 못 박는다**(2026-08-28). 이 블록엔 ko·ja 문단이
+         통째로 들어 있고, `display:none`이 아니라 «클립»이라 브라우저가 실제로 그린다 —
+         그래서 본문 서체를 상속하면 **영어 화면도 CJK 서체 396,732 B를 받았다**
+         (실측: `qa/font-transfer.mjs`). 1×1로 잘린 자리라 자형이 아무에게도 안 보이고,
+         크롤러는 텍스트 노드를 읽지 서체를 읽지 않으므로 **SEO 계약은 무접촉**이다. */
+      .seo-intro {
+        font-family: system-ui, sans-serif;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["WebApplication", "LearningResource"],
+        "name": "작공방 (雀攻房)",
+        "alternateName": ["작공방", "雀攻房", "ジャンコウボウ", "Jankobo", "일발", "一発", "Ippatsu"],
+        "url": "https://jankobo.github.io/",
+        "image": "https://jankobo.github.io/og.jpg?v=5",
+        "inLanguage": ["ko", "ja", "en"],
+        "applicationCategory": "EducationalApplication",
+        "learningResourceType": ["Tutorial", "Practice problem set", "Reference"],
+        "educationalLevel": "Beginner",
+        "teaches": ["리치 마작 규칙", "역과 점수 계산", "수비와 안전패"],
+        "genre": ["Riichi Mahjong", "리치 마작", "立直麻雀"],
+        "keywords": "리치 마작 공부, 리치 마작 배우기, 리치 마작 AI, 리치 마작 복기, 리치 마작 복기하기, 리치 마작 시뮬레이터, 싱글 리치 마작, solo riichi mahjong, riichi mahjong with bots, 작공방, 雀攻房, Jankobo",
+        "operatingSystem": "Web",
+        "description": "마작의 공격과 방어를 공부하는 리치 마작 학습기. 리치 마작 공부와 리치 마작 배우기를 위해, 혼자서도 리치 마작 AI 봇을 상대로 두고 복기하며 시뮬레이터로 국면을 따져 역·점수·수비를 배운다. 麻雀の攻めと守りを学ぶ立直麻雀の学習ツール。ひとりでもボットを相手に打ちながら役・点数・守備を学べる。 A riichi (Japanese) mahjong study tool for attack and defense — learn yaku, scoring, and defense against bots, even on your own. Free, no install. Korean, Japanese, and English supported.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/main-C_rCzLbt.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/assist-discard-D64F4MPE.js">
+    <link rel="modulepreload" crossorigin href="/assets/src-Ck4uAwwK.js">
+    <link rel="modulepreload" crossorigin href="/assets/tokens-DIC2xNQ2.js">
+    <link rel="modulepreload" crossorigin href="/assets/tile-face-DOU9Ao1V.js">
+    <link rel="modulepreload" crossorigin href="/assets/config-q0KPpQMY.js">
+    <link rel="modulepreload" crossorigin href="/assets/glossary-FcqkJhlC.js">
+    <link rel="modulepreload" crossorigin href="/assets/number-field-CbKGqjkh.js">
+    <link rel="stylesheet" crossorigin href="/assets/tokens-BOALLjbJ.css">
+    <link rel="stylesheet" crossorigin href="/assets/main-C1hIF5an.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- 정적 SEO 콘텐츠: #app 밖 형제라 shell()의 replaceChildren()가 지우지 않음 →
+         JS 렌더 후에도 DOM에 남아 Googlebot(렌더링 크롤러)·무JS 크롤러 모두 읽음.
+         .seo-intro 인라인 visually-hidden으로 사용자에겐 안 보임. -->
+    <main class="seo-intro">
+      <h1>작공방(雀攻房) — 초중급자를 위한 리치 마작 학습기</h1>
+      <p lang="ko">
+        작공방(雀攻房)은 마작의 공격과 방어를 공부하는 공간입니다. 브라우저에서 바로 여는 리치 마작 학습기로,
+        리치 마작 공부를 막 시작한 분도, 리치 마작 배우기를 이어 가는 분도 쓸 수 있습니다.
+        혼자서도 리치 마작 AI 봇과 1:3으로 두는 싱글 리치 마작으로 연습하고, 끝난 대국은 리치 마작 복기하기 화면에서
+        한 수씩 되짚고, 리치 마작 시뮬레이터(국면 분석기)로 무엇을 버릴지 따져 봅니다.
+        그렇게 리치·쯔모·역·점수 계산을 자연스럽게 배울 수 있고,
+        한국어·일본어·영어(English)를 지원합니다. 설치 없이 무료로 쓰세요.
+      </p>
+      <p lang="ja">
+        雀攻房（ジャンコウボウ）は麻雀の攻めと守りを学ぶ場所です。ブラウザですぐ開ける立直（リーチ）麻雀の学習ツールで、
+        ひとりでもAIボットと対局しながらリーチ・ツモ・役・点数計算を自然に学べます。
+        韓国語・日本語・英語に対応。インストール不要、無料で使えます。
+      </p>
+      <p lang="en">
+        Jankobo (雀攻房) is a place to study attack and defense in riichi (Japanese) mahjong, a free
+        study tool you can open right in your browser. Play solo riichi mahjong, or riichi mahjong with bots,
+        facing riichi mahjong AI opponents 1-vs-3. Review finished hands in the replay viewer, check your discards
+        in the riichi mahjong simulator (position analyzer), and learn riichi, tsumo, yaku, and score calculation naturally.
+        Available in Korean, Japanese, and English. No install required.
+      </p>
+      <!-- tabindex=-1: 시각적으로 숨긴 SEO 블록의 링크가 키보드 포커스에 잡혀 보이지 않는 채로
+           프로덕션으로 이동시키는 문제 방지(#qa). 크롤러 인덱싱에는 영향 없음. -->
+      <p><a href="https://jankobo.github.io/" tabindex="-1">시작하기 / はじめる / Open</a></p>
+    </main>
+    <!-- GoatCounter 방문자 집계(쿠키 없음·프라이버시 친화). 단일 페이지라 로드당 1뷰. -->
+    <script data-goatcounter="https://carrier.goatcounter.com/count"
+            async src="https://gc.zgo.at/count.js"></script>
+  </body>
+</html>

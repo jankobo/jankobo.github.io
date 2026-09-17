@@ -1,0 +1,11 @@
+{
+  "name": "작공방 雀攻房",
+  "short_name": "작공방",
+  "description": "혼자 배우는 리치 마작",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#212b36",
+  "theme_color": "#0e1116",
+  "orientation": "landscape-primary",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

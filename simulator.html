@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>리치 마작 시뮬레이터, 무엇을 버릴까 국면 분석기 | 何切る・局面アナライザー | Riichi Mahjong Simulator | 작공방 雀攻房</title>
+<meta name="keywords" content="리치 마작 시뮬레이터, 리치 마작 공부, 무엇을 버릴까, 마작 국면 분석기, riichi mahjong simulator, 何切る">
+<meta name="description" content="리치 마작 시뮬레이터. 손패와 버림패, 도라를 입력하면 유효패와 점수, 그리고 무엇을 버릴지(패효율과 안전도)를 알려주는 마작 국면 분석기. 4인과 3인 지원. 牌姿を入力して受け入れ・点数・何切るを確認できる局面アナライザー(四麻/三麻)。 Riichi mahjong position analyzer: outs, score, and what to discard.">
+<link rel="canonical" href="https://jankobo.github.io/simulator.html">
+<link rel="icon" href="/icon.svg">
+<!-- 디자인 토큰은 **앱과 같은 파일 하나**다(2026-09-12 요구: 「다른 화면과 동일한 방식의 디자인」).
+     종전 이 자리엔 `:root` **사본**이 있었고 그 사본은 「Ink & Lightning」(청슬레이트 + 라임)에
+     멈춰 있었다 — 앱은 2026-08-27에 「옻칠과 펠트」로 갈아탔는데 이 페이지만 안 따라왔다.
+     사본엔 «자가 없어서» 그 어긋남이 아무 데서도 안 빨개졌다. 그래서 사본을 지우고 링크로 바꾼다.
+     ⚠ 여기에 `--surface-*`·`--accent*`·`--text-*`·`--border-*`·`--font-*`를 **다시 선언하지 말 것** —
+     `mpa-design-tokens.test.ts`가 두 MPA 페이지의 사본 재발을 막는다. -->
+<style>
+  /* 이 페이지만의 «지역» 값(접두사가 --sim-인 것은 앱 토큰이 아니라는 표시다).
+     종전 `--surface-deep`은 이름이 앱 서피스 사다리를 흉내 내 사본처럼 읽혔다. */
+  :root { --sim-deep: var(--surface-sunken); }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  /* 스크롤바 테마 — 얇은 라임 accent, 둥근 썸, 투명 트랙(패널·페이지 공통).
+     ⚠ **스크롤할 때만 보인다**(요구 53, 2026-09-06 #user) — style.css의 «사본»이다(이 페이지는
+     그 파일을 안 읽는다). 색만 투명으로 두고 자리는 유지한다(막대가 뜰 때 안 밀린다 — CLS 0).
+     `.is-scrolling`을 다는 자는 src/scrollbar-autohide.ts 하나이고 simulator.ts가 건다. */
+  * { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+  *::-webkit-scrollbar { width: 9px; height: 9px; }
+  *::-webkit-scrollbar-track { background: transparent; }
+  *::-webkit-scrollbar-thumb { background: transparent; border-radius: 999px; border: 2px solid transparent; background-clip: padding-box; }
+  .is-scrolling { scrollbar-color: var(--accent-glow) transparent; }
+  .is-scrolling::-webkit-scrollbar-thumb { background: var(--accent-line); background-clip: padding-box; }
+  .is-scrolling::-webkit-scrollbar-thumb:hover { background: var(--accent-glow); background-clip: padding-box; }
+  body { margin: 0; background: var(--bg-app); background-attachment: fixed; color: var(--text-body); font-family: var(--font-sans); line-height: 1.55; font-size: var(--step-0); word-break: keep-all; overflow-wrap: break-word; }
+  /* 필름 그레인 — 앱 본체(style.css)와 같은 질감·같은 불투명도. 정적이라 런타임 비용 0. */
+  body::after { content: ""; position: fixed; z-index: 200; inset: 0; pointer-events: none; opacity: .035; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  /* 1680 → 1920(#user 2026-07-28 「작탁 타일을 더 크게, 그리드를 키워도 좋다」): 좌우 컬럼 최대폭이
+     290/420으로 이미 캡돼 있어 늘어난 폭은 **전부 중앙(작탁)** 으로 간다 — 작탁이 884→1124px가 되고
+     그만큼 --seat-tw(강 타일)가 커진다. */
+  .wrap { max-width: 1920px; margin: 0 auto; padding: 10px 16px 12px; }
+  header.top { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 2px 0 8px; border-bottom: 1px solid var(--border-strong); }
+  /* 크롬 압축(#user 무스크롤): 소개문·그리드 마진·푸터 여백을 줄여 ~110px를 되찾는다. */
+  .intro-note { margin: 4px 0 0; color: var(--text-muted); font-size: 12px; }
+  .logo { font-family: var(--font-display); font-size: var(--step-1); font-weight: 600; color: var(--text-strong); letter-spacing: var(--tracking-tight); }
+  .logo em { color: var(--accent); font-style: normal; }
+  .langs { margin-left: auto; display: flex; gap: 6px; }
+  .langbtn, .back, button, select { font: inherit; }
+  .langbtn, .back { background: var(--surface-raised); color: var(--text-body); border: 1px solid var(--border-strong); border-radius: 999px; padding: 5px 12px; font-size: 12.5px; }
+  /* 설정/액션 컨트롤은 알약이 아니라 박스형 카드(#user) — 좌우 패널 모두 같은 형태를 쓴다. */
+  .seg button, .action, select { background: var(--surface-raised); color: var(--text-body); border: 1px solid var(--border-strong); border-radius: 8px; padding: 6px 12px; font-size: 12.5px; box-shadow: 0 1px 0 rgb(0 0 0 / 18%); }
+  .seg button:hover:not(:disabled), .action:hover:not(:disabled) { border-color: var(--accent); background: var(--sim-deep); }
+  .langbtn, .seg button, .action { cursor: pointer; }
+  .langbtn.on, .seg button.on, .action.primary { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .seg button:disabled, .action:disabled { opacity: .42; cursor: default; }
+  .seg-value { display: inline-grid; place-items: center; min-width: 30px; padding: 6px 10px; color: var(--text-strong); font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .back { color: var(--accent); text-decoration: none; border-color: var(--accent-line); }
+  .back:hover, .action:hover, .seg button:hover, .langbtn:hover { border-color: var(--accent); }
+  /* 데스크탑: 설정(+보드 스탯) | 보드(작탁+손패만) | 입력(팔레트·후로·빠른입력·액션·결과) 3컬럼.
+     중앙에서 스탯·결과를 걷어내 작탁을 세로로 키우고도 페이지 세로 스크롤이 늘지 않게 한다(#user). */
+  /* 좌우 컬럼 최대폭을 vw에 연동 — 고정 max(290/420)면 1400px 부근에서 컬럼이 한꺼번에 넓어지며
+     작탁이 752px→636px로 되레 줄어드는 역전이 생긴다. min()으로 묶어 폭에 대해 단조 증가시킨다. */
+  .grid { display: grid; grid-template-columns: minmax(190px, min(290px, 18vw)) minmax(0, 1fr) minmax(260px, min(420px, 25vw)); grid-template-areas: "settings board input"; gap: 14px; margin-top: 10px; align-items: start; }
+  #panel-settings { grid-area: settings; }
+  .table-shell { grid-area: board; }
+  #panel-input { grid-area: input; }
+  /* 3컬럼 하한은 1200px — 절대배치 작탁이 4좌석을 겹침 없이 담으려면 작탁 폭 ≥ ~570px가 필요하고,
+     그 아래(종전 1080px 하한)에서는 작탁이 366px까지 좁아져 좌우 좌석이 중앙 콘솔을 덮었다(기존 결함). */
+  /* 좌우 패널은 뷰포트에 스티키 — 보드를 스크롤해도 설정·팔레트가 고정(내부만 스크롤). */
+  @media (min-width: 1200px) {
+    #panel-settings, #panel-input { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
+    /* 결과는 우측 컬럼의 남는 세로를 전부 받되(flex:1), 좁아지면 자체 스크롤 —
+       팔레트가 스크롤 밖으로 밀려나지 않도록 스크롤을 결과 안에 가둔다. */
+    #panel-input { display: flex; flex-direction: column; }
+    #panel-input > #sim-result { flex: 1 1 auto; min-height: 170px; overflow-y: auto; padding-right: 4px; }
+    /* 좁은 좌측 컬럼에서 스탯 4개는 2×2로 접는다(4열이면 62px씩 = 숫자가 잘림). */
+    #panel-settings .board-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 1199px) {
+    /* minmax(0,1fr) — `1fr`의 min은 auto(=min-content)라, 영어 모드처럼 어떤 자식의 min-content가
+       화면보다 넓으면 **단일 컬럼 자체가 뷰포트를 넘어** 페이지에 가로 스크롤이 생겼다(390/360px 실측).
+       루트 grid 아이템 min-width:0 규칙과 같은 부류. */
+    .grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "settings" "input" "board"; }
+    .grid > * { min-width: 0; }
+    /* 단일 컬럼(모바일): 결과는 입력 패널(위쪽) 안에 있고, 보드에서는 손패를 시각 작탁 위로. */
+    .table-shell { display: flex; flex-direction: column; }
+    .table-shell > .hand-rack { order: 1; margin-top: 0; }
+    .table-shell > .mahjong-table { order: 2; margin-top: 12px; }
+  }
+  .card { background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: 10px; padding: 11px 12px; }
+  .card h2, .card h3 { margin: 0 0 7px; color: var(--text-strong); font-size: 15px; }
+  .subtle { color: var(--text-body); font-size: 12.5px; }
+  .palette-target { margin: 0 0 6px; font-size: 12.5px; color: var(--text-body); }
+  .palette-target .pt-dot { color: var(--accent); }
+  .palette-target b { color: var(--accent); }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 6px 0; }
+  .row.tight { gap: 5px; }
+  .row label { min-width: 72px; color: var(--text-strong); font-size: 13px; font-weight: 700; }
+  .seg { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+  .seg.compact button { padding: 4px 10px; }
+  select { border-radius: 8px; padding: 5px 10px; }
+  .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+  .stat { background: var(--sim-deep); border: 1px solid var(--border-strong); border-radius: 8px; padding: 6px 9px; min-width: 0; }
+  .stat b { display: block; color: var(--accent); font-size: 16px; line-height: 1.15; font-variant-numeric: tabular-nums; }
+  .stat span { color: var(--text-muted); font-size: 11px; }
+  .palette { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 3px; margin-top: 6px; }
+  .pal { background: none; border: 1px solid transparent; border-radius: 6px; padding: 1px; min-width: 0; cursor: pointer; }
+  .pal .tile { width: 100%; display: block; }
+  .pal:hover { border-color: var(--accent-line); background: var(--accent-soft); }
+  .pal:disabled { opacity: .24; cursor: default; border-color: transparent; background: none; }
+  /* 북 빼기 — 자패 줄(4번째 줄) 오른쪽 끝에 별도 표시(#user). 3인일 때만 렌더한다. -2/-1은 열 수와
+     무관하게 항상 마지막 열이라 8열·7열 모바일에서도 넘치지 않는다. */
+  .pal-kita { grid-column: -2 / -1; position: relative; display: flex; align-items: center; justify-content: center; background: var(--sim-deep); border: 1px solid color-mix(in srgb, var(--warn) 55%, transparent); border-radius: 6px; cursor: pointer; padding: 2px; }
+  .pal-kita .tile { width: 82%; }
+  /* 우상단 작은 화살표로 '빼기'임을 시각적으로 구분(툴팁은 '북 빼기'). */
+  .pal-kita::after { content: "↑"; position: absolute; top: -2px; right: 1px; color: var(--warn); font-size: 10px; font-weight: 900; line-height: 1; }
+  .pal-kita:hover:not(:disabled) { border-color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, transparent); }
+  .pal-kita:disabled { opacity: .3; cursor: default; }
+  .surface { background: var(--sim-deep); border: 1px dashed var(--border-strong); border-radius: 10px; padding: 10px; min-height: 74px; }
+  .surface.empty::before { color: var(--text-muted); font-size: 13px; }
+  .handline { display: flex; flex-wrap: wrap; gap: 3px; align-items: flex-end; }
+  /* 손패도 작탁 폭 연동(#user 2026-07-28) — 14장이 한 줄에 들어가는 상한 (tableW − 59)/14 아래로
+     묶는다(3컬럼: tableW ≈ 0.57vw − 86 → 4vw − 10px가 그 아래). 상한 56px은 폭이 더 안 자라는
+     1680px 이상 구간용. flex-wrap이라 넘쳐도 잘리진 않지만 한 줄 유지가 읽기 기준이다. */
+  .handline.big { --tw: clamp(38px, calc(4vw - 10px), 56px); }
+  .handline.small { --tw: 29px; }
+  .pond { display: flex; flex-wrap: wrap; gap: 3px; min-height: 37px; }
+  /* 버림패(강)는 실제 작탁처럼 6열 고정 — flex-wrap은 컨테이너 폭에 따라 줄당 장수가 흔들린다(#user "1줄에 6개").
+     트랙 max가 --tw라 좁은 측면 좌석에서는 타일이 줄어들 뿐, 줄당 6장은 항상 유지된다.
+     도라/뒷도라 표시패(.center-dora .pond)도 같은 이유로 5열 고정 그리드다(아래 .center-dora 절). */
+  .seat .pond { display: grid; grid-template-columns: repeat(6, minmax(0, var(--tw, 32px))); justify-content: start; align-content: start; gap: 3px; }
+  .seat .pond .tile { width: 100%; }
+  .section { margin-top: 10px; }
+  details.section > summary { cursor: pointer; list-style: none; color: var(--text-strong); font-weight: 700; font-size: 13px; padding: 3px 0; user-select: none; }
+  details.section > summary::-webkit-details-marker { display: none; }
+  details.section > summary::before { content: "▸"; color: var(--text-muted); margin-right: 6px; font-size: 11px; }
+  details.section[open] > summary::before { content: "▾"; }
+  details.section[open] > summary { margin-bottom: 6px; }
+  .section-title { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .section-title strong { color: var(--text-strong); }
+  .tile { position: relative; display: inline-block; width: var(--tw, 32px); aspect-ratio: 3 / 4; filter: drop-shadow(0 2px 2px rgb(0 0 0 / 35%)); flex: none; }
+  button.tile { background: none; border: none; padding: 0; cursor: pointer; }
+  .tile .tf { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+  .tile .tg { position: absolute; left: 11%; top: 11%; width: 78%; height: 78%; object-fit: contain; }
+  .tile.win::after { content: "▲"; position: absolute; left: 50%; transform: translateX(-50%); bottom: -15px; color: var(--accent); font-size: 11px; }
+  .tile.dead { opacity: .45; }
+  /* 안깡 양끝 뒷면(#user 스크린샷 제보 — 작혼/실물 관례 [뒷면][앞면][앞면][뒷면]). 기존 뒷면
+     표현이 없어 신설 — 앞면 텍스처 이미지 없이 단색+테두리만으로 뒷면임을 명확히 한다.
+     크기는 .tile 기존 --tw/aspect-ratio 그대로(자식이 없어도 박스 치수는 유지된다). */
+  .tile.back { background: linear-gradient(160deg, var(--surface-raised), var(--sim-deep)); border: 1px solid var(--accent-line); border-radius: 3px; box-sizing: border-box; }
+  .handline .tile.win { margin-left: 13px; }
+  /* **고르려는 패를 표시한다**(2026-09-04 요구 34-17 #user 「보유패에 마우스 호버하거나 (모바일
+     기준)클릭했을 때 해당 패를 별도 표시해서 무엇을 고르고자 하는지 명확하게 플레이어가 알 수
+     있도록」). 여기서 손패를 누르면 «그 자리에서» 버려지므로 남는 표시가 없다 — 그래서 표시는
+     누르기 «전»의 것이다: 호버(마우스) · 포커스(키보드) · 누르는 동안(굵은 포인터).
+     ⚠ 링은 `.is-ron-tile`과 **같은 문법**이다(box-shadow 두 겹) — 새 어휘를 만들지 않는다.
+     ⚠ 강·후로가 아니라 **손패 줄에만** 건다: 강을 누르는 것은 「지운다」라 「고른다」가 아니다. */
+  #sim-hand .tile:hover,
+  #sim-hand .tile:focus-visible,
+  #sim-hand .tile:active { box-shadow: 0 0 0 2px var(--accent), 0 0 0 4px var(--accent-line); border-radius: 3px; }
+  #sim-hand .tile:hover { transform: translateY(-3px); }
+  /* 강 화료패 지정(#user 제보 — 재고 소진 재현): 강 클릭은 보통 제거지만 arm 모드에서는 지정으로
+     바뀐다. 강 그리드(6열·gap 3px)라 .tile.win의 -15px 배지는 아래 줄과 겹친다 — 대신
+     .tile.north-discard와 같은 -3px 코너 배지 geometry를 accent 톤으로 재사용한다. */
+  .tile.is-ron-tile { box-shadow: 0 0 0 2px var(--accent), 0 0 0 4px var(--accent-line); border-radius: 3px; }
+  .tile.is-ron-tile::after { content: "▲"; position: absolute; right: -3px; bottom: -3px; display: grid; place-items: center; min-width: 13px; height: 13px; border-radius: 50%; background: var(--accent); color: var(--sim-deep); font-size: 8px; font-weight: 900; }
+  .tile-text-row { flex-wrap: nowrap; }
+  /* 빠른 입력 한 줄 + 액션 2×2(+비우기) 그리드 — 종전엔 5개가 제멋대로 감겨 2~3줄을 먹었다(#user). */
+  .quick-row { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+  .action-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; margin-top: 6px; }
+  .action-bar .action { width: 100%; padding: 7px 8px; text-align: center; }
+  /* 마지막 대국 국면 가져오기(#user) — 버튼 + 라벨/경과 한 줄. */
+  /* 세 번째 칸(마지막 상황 불러오기)이 라벨이 길어 넓게 — 되돌리기/다시 실행 축소는 #user 승인. */
+  .action-bar-3 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.7fr); }
+  .action-bar .action:disabled { opacity: .45; cursor: default; }
+  .import-live-note { display: block; margin-top: 4px; color: var(--text-body); font-size: 12px; line-height: 1.5; font-variant-numeric: tabular-nums; }
+  /* 로고 옆 ? — 이 도구가 무엇인지 말풍선으로(#user: 상단 고정 문단 제거). */
+  .logo-help { margin-left: 8px; width: 22px; height: 22px; padding: 0; font-size: 12px; font-weight: 700; line-height: 1; color: var(--text-body); background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: 50%; cursor: pointer; vertical-align: middle; }
+  .logo-help:hover, .logo-help[aria-expanded="true"] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+  .what-pop { position: absolute; z-index: 60; max-width: min(420px, 92vw); margin-top: 6px; padding: 10px 13px; color: var(--text-strong); font-size: 13px; line-height: 1.6; background: var(--surface-raised); border: 1px solid var(--accent-line); border-radius: 10px; box-shadow: 0 10px 30px rgb(0 0 0 / 45%); }
+  .what-pop[hidden] { display: none; }
+  /* 패널 제목 「?」 말풍선(attachPanelHelp) — 패널이 absolute의 기준이고, 폭은 패널 안쪽에 맞춘다. */
+  .panel.has-help { position: relative; }
+  .panel-help-pop { left: 6px; right: 6px; }
+  .action-bar .action.danger { grid-column: 1 / -1; border-color: color-mix(in srgb, var(--danger) 42%, transparent); color: var(--danger); }
+  .action-bar .action.danger:hover:not(:disabled) { border-color: var(--danger); }
+  /* '입력' 제목 줄 오른쪽 끝에 결과 복사·비우기(#user) — 액션바에서 이 줄로 옮겼다. */
+  .input-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 7px; }
+  .input-head h2 { margin: 0; }
+  .input-head-actions { display: flex; gap: 6px; flex: none; }
+  .input-head-actions .action { padding: 5px 10px; font-size: 12px; }
+  .input-head-actions .action.danger { border-color: color-mix(in srgb, var(--danger) 42%, transparent); color: var(--danger); }
+  #btn-clear { background: var(--surface-app); }
+  .input-head-actions .action.danger:hover:not(:disabled) { border-color: var(--danger); }
+  #tile-text-input { flex: 1; min-width: 0; background: var(--sim-deep); color: var(--text-strong); border: 1px solid var(--border-strong); border-radius: 8px; padding: 6px 10px; font: inherit; font-size: 13px; }
+  .hand-controls { align-items: center; }
+  #hand-help { margin: 0; flex: 1; min-width: 0; font-size: 10.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .help-btn { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border-strong); background: var(--sim-deep); color: var(--text-body); font-weight: 800; font-size: 13px; line-height: 1; padding: 0; cursor: pointer; }
+  .help-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .help-dialog { max-width: min(440px, 92vw); border: 1px solid var(--accent-line); border-radius: 12px; background: var(--surface-raised); color: var(--text-body); padding: 16px; box-shadow: 0 20px 60px rgb(0 0 0 / 45%); }
+  .help-dialog::backdrop { background: rgb(0 0 0 / 55%); }
+  .help-dialog h3 { margin: 0 0 10px; color: var(--accent); font-size: 15px; }
+  .help-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 9px 0; font-size: 13px; }
+  .help-row .tile { width: 26px; }
+  .help-code { background: var(--sim-deep); border: 1px solid var(--border-strong); border-radius: 5px; padding: 1px 6px; color: var(--accent); font-family: ui-monospace, monospace; font-size: 12.5px; }
+  .help-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; margin-top: 12px; }
+  .intro-list { margin: 4px 0 12px; padding-left: 18px; display: grid; gap: 8px; font-size: 13.5px; color: var(--text-body); }
+  .intro-list b { color: var(--accent); }
+  /* 단계별 사용법 투어 — 대상을 하나씩 스포트라이트(#user). 오버레이가 클릭을 가로채 안내 중 오조작 방지. */
+  .tour-overlay { position: fixed; inset: 0; z-index: 120; }
+  .tour-overlay[hidden] { display: none; }
+  .tour-overlay.no-target { background: var(--scrim); }
+  .tour-spot { position: absolute; border-radius: 10px; border: 2px solid var(--accent); box-shadow: 0 0 0 9999px var(--scrim), 0 0 14px 2px var(--accent-glow); transition: top .22s ease, left .22s ease, width .22s ease, height .22s ease; pointer-events: none; }
+  .tour-overlay.no-target .tour-spot { display: none; }
+  .tour-tip { position: absolute; width: min(340px, calc(100vw - 28px)); background: var(--surface-raised); border: 1px solid var(--accent-line); border-radius: 12px; box-shadow: 0 20px 60px rgb(0 0 0 / 50%); padding: 14px 16px; }
+  .tour-step { color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .12em; font-variant-numeric: tabular-nums; }
+  .tour-title { margin: 4px 0 6px; color: var(--text-strong); font-size: 16px; }
+  .tour-body { margin: 0; color: var(--text-body); font-size: 13.5px; line-height: 1.6; }
+  .tour-body b { color: var(--accent); }
+  .tour-actions { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+  .tour-actions .spacer { flex: 1; }
+  .tour-btn { background: var(--sim-deep); color: var(--text-body); border: 1px solid var(--border-strong); border-radius: 8px; padding: 6px 13px; font: inherit; font-size: 12.5px; cursor: pointer; }
+  .tour-btn:hover:not(:disabled) { border-color: var(--accent); }
+  .tour-btn:disabled { opacity: .4; cursor: default; }
+  .tour-btn.primary { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .tour-skip { color: var(--text-muted); background: none; border: none; font: inherit; font-size: 12px; cursor: pointer; padding: 4px; }
+  .tour-skip:hover { color: var(--text-body); }
+  .result { display: grid; gap: 8px; }
+  .panel { border: 1px solid var(--border-strong); background: rgb(0 0 0 / 11%); border-radius: 10px; padding: 9px 10px; }
+  .panel h3 { color: var(--accent); font-size: 15px; margin: 0 0 8px; }
+  .yline, .waitrow, .recrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 4px 0; border-bottom: 1px dashed var(--border-subtle); }
+  .yline:last-child, .waitrow:last-child, .recrow:last-child { border-bottom: none; }
+  .yline span:last-child { margin-left: auto; color: var(--text-strong); font-weight: 700; }
+  .chip { display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--border-strong); border-radius: 999px; padding: 4px 9px; font-size: 12.5px; color: var(--text-strong); }
+  .chip.good { border-color: var(--accent-line); color: var(--accent); background: var(--accent-soft); }
+  .chip.warn { border-color: color-mix(in srgb, var(--warn) 42%, transparent); color: var(--warn); }
+  .chip.danger { border-color: color-mix(in srgb, var(--danger) 42%, transparent); color: var(--danger); }
+  .muted { color: var(--text-body); }
+  .total { color: var(--text-strong); font-weight: 800; font-size: 17px; }
+  .payment { color: var(--text-muted); font-size: 13px; }
+  .rules-note { border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 10px 10px 0; padding: 10px 12px; margin-top: 12px; }
+  .score-controls { display: grid; gap: 6px; margin-top: 8px; }
+  .score-row { display: grid; grid-template-columns: minmax(54px, 72px) minmax(0, 1fr) auto; gap: 8px; align-items: center; }
+  .score-row span { color: var(--text-strong); font-size: 12.5px; font-weight: 700; }
+  .score-row input { width: 100%; min-width: 0; background: var(--sim-deep); color: var(--text-strong); border: 1px solid var(--border-strong); border-radius: 8px; padding: 6px 8px; font: inherit; font-size: 13px; font-variant-numeric: tabular-nums; }
+  .mini-toggle { background: var(--sim-deep); color: var(--text-muted); border: 1px solid var(--border-strong); border-radius: 999px; padding: 4px 8px; font-size: 11.5px; cursor: pointer; white-space: nowrap; }
+  .mini-toggle.on { color: var(--accent); border-color: var(--accent-line); background: var(--accent-soft); }
+  .score-spacer { min-width: 44px; }
+  /* 국 결과 상세(화료자·방총자·상대 점수·유국 텐파이) — 세그먼트 아래 접혀 붙는다. */
+  .outcome-detail { display: flex; flex-direction: column; gap: 5px; margin-top: 2px; }
+  .outcome-detail:empty { display: none; }
+  .outcome-line { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+  /* 상세 라벨(화료자·화료 방식·방총자·화료패 지정…)은 다른 행 라벨과 같은 밝기(#user 2026-07-17). */
+  .outcome-line > span:first-child { min-width: 52px; color: var(--text-strong); font-size: 11.5px; }
+  /* 국 결과 상세 버튼(화료자·방법·텐파이)은 설정 세그먼트와 같은 박스형 카드로 통일(#user 일관성). */
+  .outcome-line button { background: var(--surface-raised); color: var(--text-body); border: 1px solid var(--border-strong); border-radius: 8px; padding: 4px 10px; font: inherit; font-size: 12.5px; box-shadow: 0 1px 0 rgb(0 0 0 / 18%); cursor: pointer; }
+  .outcome-line button:hover:not(:disabled) { border-color: var(--accent); background: var(--sim-deep); }
+  .outcome-line button.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .outcome-line button:disabled { opacity: .42; cursor: default; }
+  .outcome-points { width: 82px; background: var(--sim-deep); color: var(--text-strong); border: 1px solid var(--border-strong); border-radius: 6px; padding: 3px 6px; font: inherit; font-size: 12px; text-align: right; font-variant-numeric: tabular-nums; }
+  /**
+   * # number 칸의 스피너를 숨기고 −/+ 스텝퍼를 세운다 (요구 42, 2026-09-06 #user)
+   *
+   * #user 스크린샷의 그 자리가 「화료 점수」다. 칸 «안»의 ▲▼는 12px짜리 두 반쪽이라 못 누른다.
+   *
+   * ⚠ **`src/style.css`의 «사본»이다** — 이 페이지는 별도 MPA라 앱 CSS를 안 읽는다(인라인 style만).
+   *   한쪽만 고치면 한 화면에서만 스피너가 돌아온다. 골격 자체(`attachStepper`)는 하나를 나눠 쓴다.
+   * ⚠ **`.num-field .num-step`이라야 한다** — 한 겹짜리 `.num-step`(0,1,0)은 `.outcome-line button`
+   *   (0,1,1)에 져서 스텝퍼가 조용히 일반 버튼 모양으로 돌아간다.
+   */
+  input[type="number"] { appearance: textfield; -moz-appearance: textfield; }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  .num-field { display: inline-flex; align-items: center; gap: 4px; }
+  .num-field .num-step { flex: none; min-width: 32px; min-height: 32px; padding: 0; background: var(--sim-deep); color: var(--text-strong); border: 1px solid var(--border-strong); border-radius: 6px; font: inherit; font-size: 15px; line-height: 1; cursor: pointer; }
+  .num-field .num-step:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+  .num-field .num-step:disabled { opacity: .42; cursor: default; }
+  .num-field-compact { gap: 2px; }
+  .num-field-compact .num-step { min-width: 24px; min-height: 24px; font-size: 13px; }
+  .placement-table { display: grid; grid-template-columns: auto 1fr auto auto; gap: 2px 8px; align-items: center; margin-top: 6px; font-size: 12.5px; }
+  .placement-table .pl-rank { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .placement-table .pl-score { color: var(--text-strong); font-variant-numeric: tabular-nums; }
+  .placement-table .pl-delta { font-variant-numeric: tabular-nums; font-size: 11.5px; }
+  .placement-table .pl-delta.up { color: var(--accent); }
+  .placement-table .pl-delta.down { color: var(--danger); }
+  .placement-table .is-player { color: var(--accent); font-weight: 700; }
+  .focus-target { cursor: pointer; outline: 1px solid transparent; outline-offset: 2px; transition: outline-color .12s ease, border-color .12s ease, background-color .12s ease; }
+  .focus-target:hover { outline-color: var(--accent-line); }
+  .focus-target.active { outline-color: var(--accent); border-color: var(--accent-line); background-color: var(--accent-soft); }
+  .meld-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+  .meld-chip { display: inline-flex; align-items: center; gap: 6px; background: rgb(0 0 0 / 13%); border: 1px solid var(--border-strong); border-radius: 8px; padding: 5px 7px; color: var(--text-body); cursor: pointer; }
+  .meld-chip:hover { border-color: var(--danger); }
+  .meld-label { color: var(--accent); font-weight: 800; font-size: 12px; }
+  /* ⚠ 눕힘 보정량(`--called-dy`)과 가깡 스택 방향(`--stack-dy`)을 **여기 한 자리**에 둔다 —
+     아래 두 규칙이 같은 수를 읽어야 바닥면이 안 갈린다(대면은 둘 다 부호가 반대다). */
+  .meld-tiles { display: inline-flex; align-items: center; gap: 2px; --tw: 25px; --called-dy: calc(var(--tw, 25px) / 6); --stack-dy: calc(var(--tw, 25px) * -1); }
+  /* 출처 방향 눕힘 패(#user 2026-07-17 — 출처 텍스트 대체). 회전해도 bbox는 세로 그대로라
+     좌우 마진으로 회전 폭(높이−너비 = --tw/3)을 확보한다.
+     바닥 정렬(#user 스크린샷 제보 2026-07-18 — 행 세로 중앙에 뜬 것처럼 보였다): 회전 후
+     페인트 높이는 원래 너비(--tw)뿐이라 레이아웃 박스(세로 --tw*4/3, aspect-ratio 3/4)
+     한가운데에 그려져 위아래로 뜬다. translateY는 rotate보다 **먼저** 써야(합성 순서상
+     나중에 적용돼) 회전된 결과를 화면 기준 수직으로 밀어낸다 — 순서를 바꾸면 세로 이동이
+     회전에 휩쓸려 가로 이동이 된다. 이동량(박스 높이−너비)/2 = --tw/6은 margin-inline과
+     같은 유도식(레이아웃 치수는 불변, 시각 위치만 보정). */
+  .meld-tiles .tile.called { transform: translateY(var(--called-dy)) rotate(90deg); margin-inline: calc(var(--tw, 25px) / 6); }
+  /* 대면(對面) 후로만 가져온 패를 **위쪽**으로(#user 2026-07-29 — 인게임 taimen-hud와 동일 관례):
+     대면의 눕힌 패는 π 회전 시점상 우리 기준 행의 위 가장자리에 붙는다. 기본 규칙의 바닥 정렬을
+     같은 유도식의 반대 부호(−--tw/6)로 뒤집는다 — margin-inline·회전각은 기본 규칙 그대로 상속.
+     ⚠ 가깡 스택의 방향도 함께 뒤집는다(--stack-dy) — 대면은 우리 기준 «아래»로 쌓여야 그쪽
+     시점의 「위」가 된다. 한쪽만 뒤집으면 추가 패가 본체를 파고든다. */
+  #sim-meld-opp1 .meld-tiles { --called-dy: calc(var(--tw, 25px) / -6); --stack-dy: var(--tw, 25px); }
+  /* 가깡 — 네 번째 패는 부른 패 «위»에 얹힌다(#user 2026-09-16 「우측에 추가되는 문제」).
+     오른쪽에 붙이면 네 장짜리 밍깡과 구별이 안 된다.
+     ⚠⚠ **줄의 높이를 늘리지 않는다**(#user 2026-09-17 「눕혀진 패가 아래로 밀려진다」).
+     첫 판은 두 장을 세로 묶음으로 쌓았는데, 그러면 묶음 높이가 --tw*2가 되어 줄이 그만큼
+     커지고, `align-items: center`인 **세워진 패들이 떠올라** 눕힌 패의 바닥면과 어긋난다.
+     실물 후로는 세운 패와 눕힌 패의 **바닥면이 평행**하다 — 그게 이 규칙이 지키는 것이다.
+     그래서 본체는 종전 한 장짜리와 «똑같이» 흐름에 두고(위 기본 규칙을 그대로 상속),
+     추가 패만 **절대배치**로 그 위에 겹친다. 줄의 높이는 한 장짜리와 바이트가 같다.
+     ⚠ 추가 패의 이동량은 «본체의 보정량 − 패 한 장»이다(--called-dy + --stack-dy). 본체와
+     같은 변수를 읽으므로 대면 규칙이 바뀌어도 둘이 함께 간다 — 사본을 만들지 말 것. */
+  .meld-tiles .meld-stack { position: relative; display: inline-flex; }
+  .meld-tiles .meld-stack > .tile.called + .tile.called {
+    position: absolute; inset-block-start: 0; inset-inline-start: 0;
+    transform: translateY(calc(var(--called-dy) + var(--stack-dy))) rotate(90deg);
+  }
+  /* 후로 박스 소유자 라벨(#user 2026-07-17 「누구의 후로 박스인지」). */
+  .meld-owner { flex: none; align-self: center; color: var(--text-body); font-size: 10px; letter-spacing: .03em; }
+  .meld-empty { color: var(--text-muted); font-size: 12.5px; }
+  .surface.empty::before, .meld-list.empty::before { content: attr(data-empty); color: var(--text-muted); font-size: 12.5px; }
+  .meld-list { display: flex; flex-wrap: wrap; gap: 6px; min-height: 36px; }
+  .seat-kita-btn { margin-left: 0; min-width: 20px; height: 20px; border-radius: 6px; border: 1px solid color-mix(in srgb, var(--warn) 42%, transparent); background: var(--sim-deep); color: var(--warn); font-weight: 800; font-size: 12px; line-height: 1; padding: 0; cursor: pointer; flex: none; }
+  .seat-kita-btn:hover { border-color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, transparent); }
+  .seat-kita-btn.hidden { display: none; }
+  /* 좌석 메타는 **한 줄**에 이름·자풍·점수·리치·후로(·北)를 담는다 — 감기면 카드가 24px 높아져
+     작탁 겹침 계약(min-height ↔ 강 4행 ↔ 콘솔)이 깨진다(실측). 이름만 줄어들게 해서 폭을 흡수한다. */
+  /* ⚠ 간격 4 → 2 · `container-type`은 요구 42이 더한 것이다 — 스텝퍼가 이 줄에 36px을 요구해서
+     이름이 밀려 나갔다(실측: 1366에서 49.9 → 13.9px). 아래 `@container`가 「안 들어가면 스텝퍼를
+     접는다」를 **줄 자신의 폭으로** 판정한다. 뷰포트 대역으로 적으면 콘솔·좌석 치수가 바뀔 때마다
+     거짓이 된다(이 파일의 치수는 전부 연립 제약이다). 줄 폭은 카드가 정하므로 순환은 없다. */
+  /* ⚠ **`gap`은 여기 없다** — 아래 `.seat-meta { display: flex … }`(같은 특정도·뒤 순서)가 이긴다.
+     여기 적으면 조용히 무시된다(요구 42에서 실제로 물렸다: 간격을 3으로 줄여도 실측이 안 변했다). */
+  .seat-meta { flex-wrap: nowrap; container-type: inline-size; }
+  .seat-name { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .wind-badge { flex: none; min-width: 20px; height: 20px; font-size: 11px; }
+  .seat-score-input { flex: none; width: 44px; min-width: 0; padding: 2px 4px; background: var(--sim-deep); color: var(--text-strong); border: 1px solid var(--border-strong); border-radius: 6px; font: inherit; font-size: 11px; font-variant-numeric: tabular-nums; text-align: right; }
+  .seat-score-input::-webkit-outer-spin-button, .seat-score-input::-webkit-inner-spin-button { appearance: none; margin: 0; }
+  .seat-score-input:focus { border-color: var(--accent); outline: none; }
+  /**
+   * 좌석 점수의 −/+ (요구 42) — **이 줄만 18×18**이다(공용 compact 24px보다 작다). `.seat-meta`는
+   * 한 줄 계약이고, 감기면 좌석 카드가 한 행 높아져 작탁 겹침 계약(min-height ↔ 강 4행 ↔ 콘솔)이
+   * 깨진다. 입력도 54 → 44px로 줄여 그 몫을 스텝퍼에 준다(4인 점수 다섯 자리가 여전히 들어간다).
+   *
+   * ⚠ **줄이 못 담으면 스텝퍼를 접는다** — 이 줄의 「남는 폭」은 곧 `.seat-name`이라, 접지 않으면
+   *   좌석 이름이 «잘린다»(1200px에서 0px, 1366px에서 22~30px — 한국어 「대면」 한 단어도 못 담는다).
+   *   4인 줄 상수 실측 **153px** = 23(자풍) + 82(스텝퍼 `18+1+44+1+18`) + 20 + 20(리치·후로)
+   *   + 8(간격 넷 × 2). 3인은 北 칩 하나(+23·간격 2)를 더 이어 **178px**이다.
+   *
+   * ⚠⚠ **하한은 「안 사라진다」가 아니라 «안 잘린다»여야 한다**(2026-09-06 적대 검증 — #user 스크린샷:
+   *   1366×900 한국어에서 「대..」「상…」「하…」). 종전 게이트(4인 176 · 3인 201)는 이름 24px만
+   *   지켜서 **줄임표가 그대로 났다.** 이름은 좌석 카드의 정체성이라 스텝퍼보다 «먼저»다 —
+   *   게이트를 **4인 200 · 3인 225**로 올린다(이름 폭 하한 ≈ 47px, 가장 긴 라벨 「Across」 49px과
+   *   같은 자리). 그러면 1366·1440은 접히고 1920·폰 가로·폰 세로 상하는 보인다.
+   */
+  .seat-meta .num-field { flex: none; gap: 1px; }
+  .seat-meta .num-step { flex: none; width: 18px; min-width: 18px; height: 18px; min-height: 18px; padding: 0; font-size: 12px; border-radius: 5px; }
+  @container (max-width: 200px) {
+    .seat-meta .num-step { display: none; }
+  }
+  /* 3인은 北 칩 하나(+23·간격 2)를 더 이고 있다 — 그 좌석만 게이트를 25px 위로 올린다.
+     `:has()`가 없는 브라우저는 이 규칙만 잃는다(4인 게이트는 그대로) — 컨테이너 쿼리를 아는
+     브라우저는 전부 `:has()`도 안다(Chrome 105 · Safari 16 · Firefox 121 이후는 둘 다). */
+  @container (max-width: 225px) {
+    .seat-meta:has(.seat-kita-btn:not(.hidden)) .num-step { display: none; }
+  }
+  .seat-riichi-btn, .seat-meld-btn { min-width: 20px; height: 20px; padding: 0 4px; border-radius: 5px; border: 1px solid var(--border-strong); background: var(--sim-deep); color: var(--text-muted); font-size: 10px; font-weight: 700; line-height: 1; cursor: pointer; flex: none; }
+  .seat-riichi-btn:hover:not(:disabled), .seat-meld-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .seat-riichi-btn.on, .seat-meld-btn.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .seat-riichi-btn:disabled { opacity: .4; cursor: default; }
+  /* 후로 영역은 좌석 정보 박스에서 분리해 작탁 네 모서리에 둔다(#user 3x3 표: 각 좌석의 대각 모서리).
+     대면(상단)→좌상 · 하가(우측)→우상 · 상가(좌측)→좌하 · 플레이어(하단)→우하.
+     비어 있고 대상도 아니면 렌더 안 함(높이 0). 절대배치 → 중앙 좌석/콘솔 오버랩 계약과 독립. */
+  .seat-melds { display: flex; flex-wrap: wrap; gap: 4px; }
+  .seat-melds.hidden { display: none; }
+  .seat-melds.active { outline: 1px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+  /* 빈 후로 존의 진입 고스트 칩(#user — 버림패처럼 작탁 표면에서 바로 추가). 클릭은 존 표면이 처리. */
+  .meld-zone-ghost { padding: 3px 10px; color: var(--text-body); font-size: 11px; border: 1px dashed var(--border-strong); border-radius: 999px; cursor: pointer; }
+  .seat-melds:hover .meld-zone-ghost { color: var(--accent); border-color: var(--accent); }
+  /* 폭은 강 6열(--seat-side-w)로 캡하되 중앙 상/하 좌석과 안 겹치게 「반폭 − 상/하 좌석 반폭 − 여백」으로도
+     캡한다. 종전 상수 120px = 좌석 반폭 100(=200/2) + 여백 20이었는데, --seat-side-w가 폭 연동으로
+     자라면 그 100이 거짓이 된다 — 좌석 폭에서 직접 유도해 두 값이 어긋나지 않게 한다. */
+  .board-meld-zone { position: absolute; z-index: 3; width: min(var(--seat-side-w), calc(50% - var(--seat-side-w) / 2 - 20px)); }
+  .board-meld-tl { top: 16px; left: 16px; justify-content: flex-start; }
+  .board-meld-bl { bottom: 16px; left: 16px; justify-content: flex-start; }
+  .board-meld-tr { top: 16px; right: 16px; justify-content: flex-end; }
+  .board-meld-br { bottom: 16px; right: 16px; justify-content: flex-end; }
+  .meld-draft { width: 100%; display: flex; flex-direction: column; gap: 4px; padding: 5px 6px; background: var(--sim-deep); border: 1px dashed var(--accent-line); border-radius: 8px; }
+  /* (빈 드래프트 안내 「팔레트로 3~4장」 ::before는 삭제 — #user 2026-07-17, 무표기.) */
+  .meld-draft-tiles { display: flex; flex-wrap: wrap; gap: 3px; min-height: 30px; --tw: 24px; }
+  .meld-draft-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+  .meld-detect { color: var(--accent); font-size: 11px; font-weight: 700; margin-right: auto; }
+  .meld-from-label { color: var(--text-muted); font-size: 11px; }
+  .meld-draft-row .action { padding: 3px 9px; font-size: 11.5px; }
+  /* <dialog>의 UA 기본값은 width:fit-content다 — 타일만 든 다이얼로그는 폭이 붕괴한다.
+     팝오버·빌더는 제거됐지만(#user) 표기법 안내·인트로는 남아 있으므로 규칙은 기억해 둘 것. */
+  .meld-entry { display: inline-flex; align-items: stretch; gap: 4px; }
+  .meld-upgrade { align-self: stretch; background: var(--sim-deep); color: var(--accent); border: 1px solid var(--accent-line); border-radius: 8px; padding: 2px 8px; font-size: 11px; font-weight: 800; cursor: pointer; white-space: nowrap; }
+  .meld-upgrade:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+  .meld-upgrade:disabled { opacity: .42; cursor: default; color: var(--text-muted); border-color: var(--border-strong); }
+  .table-shell { background: linear-gradient(180deg, rgb(0 0 0 / 8%), rgb(0 0 0 / 0%)), var(--surface-raised); }
+  /* min-height는 더 이상 상수가 아니다 — 아래 「작탁 치수 연립 제약」 주석의 부등식을 그대로 calc로
+     옮겼다(--seat-tw를 바꾸면 높이가 따라온다. 종전엔 손으로 재계산해야 해서 한쪽만 고치면 겹쳤다). */
+  .mahjong-table { position: relative; min-height: calc(2 * (20px + var(--seat-card-h)) + var(--console-h)); border: 1px solid rgb(238 241 244 / 12%); border-radius: 10px; background:
+      radial-gradient(circle at center, rgb(169 197 106 / 13%) 0 21%, transparent 22%),
+      linear-gradient(145deg, #1f2b35, #2b3a47 58%, #202b35);
+    overflow: hidden; }
+  .mahjong-table::before { content: ""; position: absolute; inset: 13%; border: 1px solid rgb(238 241 244 / 10%); border-radius: 8px; pointer-events: none; }
+  /* min-width 금지: 아래 좌석 레인 계산(--seat-side-w)이 실제 렌더 폭과 어긋나 겹침이 되살아난다.
+     좁아지면 강 그리드(minmax)가 타일을 줄일 뿐 레이아웃은 깨지지 않는다. */
+  .seat { position: absolute; display: grid; gap: 6px; min-width: 0; max-width: 340px; }
+  /* 상/하 좌석은 측면 좌석 레인(16px + --seat-side-w)을 침범하지 않는 폭으로 제한한다.
+     가로로 겹치지 않으면 세로 간섭이 사라져(상단↔측면, 하단↔측면) 작탁을 덜 키우고도
+     4행 강이 들어간다 — 종전 42%/68%는 좁은 작탁에서 측면 좌석을 파고들었다. */
+  /* 좌석 카드 폭 = 강 6열(6×--tw + 5×3px gap) + 카드 패딩. 종전 고정 340px/28%는 강과 무관해
+     박스가 가로로 늘어졌다(#user). 계산식이 곧 내용 폭이므로 겹침 레인 계산도 여기서 파생된다. */
+  /* 강 타일 크기(#user 2026-07-28 「작탁 타일을 더 크게」) — 종전 상수 26px에서 **작탁 폭 연동**으로.
+     작탁 폭은 3컬럼에서 tableW ≈ 0.57vw − 86(1200~1611px) → 1680px 이후 폭 상한까지 단조 증가하고,
+     겹침 없는 최대 타일은 tw ≤ 0.06·tableW − 9.2(아래 가로 레인 부등식 역산)이고, vw 계수 3%는
+     그 아래에 놓이면서 콘솔(도라/뒷도라 한 행)이 쓸 폭도 남긴다 — 좌석과 콘솔이 같은 레인을
+     나눠 쓰므로 계수를 올리면 **표시패가 그만큼 작아진다**(1200→26 하한 · 1440→30 · 1920→38 상한 — 상한은 1920×1080에서 24장×4좌석 최대 상태가 세로 스크롤 0이 되는 값이다).
+     **하한 26px을 낮추지 말 것** — 1200px에서는 좌석 카드 하한(200px)이 이미 레인을 다 쓴다. */
+  .mahjong-table {
+    --seat-tw: clamp(26px, calc(3vw - 13px), 38px);
+    --pond-w: calc(6 * var(--seat-tw) + 15px);
+    --seat-side-w: max(calc(var(--pond-w) + 22px), 200px);
+    /* 좌석 카드 높이 = 강 4행(--seat-tw*16/3 + 9) + 메타/패딩 47 + 산마 北행 16(4인은 그만큼 여유). */
+    --seat-card-h: calc(var(--seat-tw) * 16 / 3 + 72px);
+    /* 콘솔 실측 높이(도라·뒷도라 한 행): ko/ja/en × 1200~1920 실측 143.6~164.5px(영어·좁은 콘솔에서
+       미니 스탯 라벨이 두 줄로 접힌다) — **최악값 기준**으로 168px. 콘솔 내용을 늘리면 다시 실측할 것. */
+    --console-h: 168px;
+  }
+  /* 단일 컬럼(1199px 이하, 단 801px 이상은 여전히 절대배치 작탁)에서는 작탁이 화면 폭을 거의 다 쓰므로
+     같은 vw라도 훨씬 큰 타일이 들어간다(tableW ≈ vw − 58). 아래 @media(max-width:800px)의 모바일
+     그리드가 이 값을 다시 덮으므로(--tw 25px) 순서를 뒤집지 말 것. */
+  @media (max-width: 1199px) {
+    .mahjong-table { --seat-tw: clamp(26px, calc(5.5vw - 12px), 40px); }
+    .handline.big { --tw: clamp(38px, calc(6vw - 6px), 56px); }
+  }
+  .seat .pond { --tw: var(--seat-tw); }
+  /* 상/하 좌석은 측면 좌석 레인(14 + --seat-side-w)을 침범하지 않는 폭까지만 — 종전 `var(--seat-side-w)`
+     고정은 좁은 작탁(1200px, 598px)에서 3×200 + 여백 > 598이라 **좌석끼리 겹쳤다**(세로 여유로만 가려져
+     있었고 산마·영어에서는 실제로 겹쳤다). 36px = 좌우 카드 사이 6px씩 — 이 캡이 실제로 작동하는
+     구간은 3*좌석폭 + 36 > 작탁폭, 즉 ~1266px 미만뿐이고 그 아래에서만 상/하 강 타일이 줄어든다. */
+  .seat-top, .seat-bottom { width: min(var(--seat-side-w), calc(100% - 2 * var(--seat-side-w) - 36px)); min-width: 140px; }
+  .seat-top { top: 18px; left: 50%; transform: translateX(-50%); }
+  /* 측면 좌석 앵커 14px(종전 16) — 카드를 좌석 폭(min-width:0)으로 당긴 뒤 1200px 하한에서 좌단이
+     중앙 콘솔에 1px 닿던 것을 2px 바깥으로 밀어 해소. 잘림 여유는 -17→-14로 여전히 안전. */
+  .seat-left { left: 14px; top: 50%; transform: translateY(-50%); width: var(--seat-side-w); }
+  .seat-right { right: 14px; top: 50%; transform: translateY(-50%); width: var(--seat-side-w); }
+  .seat-bottom { left: 50%; bottom: 18px; transform: translateX(-50%); }
+  .seat.hidden { display: none; }
+  /* min-width:0 필수 — grid 아이템 기본 min-width:auto(min-content)면 카드가 좌석 폭(--seat-side-w)을
+     무시하고 nowrap meta 폭까지 확장해 하가(우측) 카드가 작탁 밖으로 잘린다(3인/영어, #user).
+     0이면 카드가 좌석 폭을 존중하고 좌석명이 ellipsis로 줄어 폭을 흡수한다. */
+  .seat-card { min-width: 0; background: rgb(18 25 32 / 80%); border: 1px solid var(--border-strong); border-radius: 8px; padding: 8px 10px; backdrop-filter: blur(6px); }
+  /* gap은 4px — nowrap 6칸(이름·자풍·점수·리치·副·北)이 좌석 폭을 넘겨 하가(우측) 카드가
+     작탁 밖으로 잘리던 문제(3인, #user). 8px면 3인 카드 231px로 우측 경계 14px 초과. */
+  /* 간격 4 → 2(요구 42) — 스텝퍼가 이 줄에 든 몫을 좌석 이름에 돌려준다. */
+  .seat-meta { display: flex; align-items: center; justify-content: space-between; gap: 2px; margin-bottom: 6px; }
+  .seat-name { color: var(--text-strong); font-weight: 800; font-size: 13px; }
+  .seat-info { display: flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .seat-kita { min-height: 16px; color: var(--warn); font-size: 11.5px; display: flex; align-items: center; flex-wrap: wrap; gap: 5px; }
+  .seat-kita.empty { display: none; }
+  /* 북도라 칩 — 클릭하면 1개 취소(#user 3인). */
+  .kita-cancel { background: rgb(240 179 90 / 12%); color: var(--warn); border: 1px solid color-mix(in srgb, var(--warn) 42%, transparent); border-radius: 999px; padding: 1px 8px; font: inherit; font-size: 11px; font-weight: 700; line-height: 1.3; cursor: pointer; }
+  .kita-cancel:hover { border-color: var(--warn); background: rgb(240 179 90 / 22%); }
+  .seat-kita-note { color: var(--warn); }
+  .wind-badge { display: inline-grid; place-items: center; min-width: 23px; height: 23px; border-radius: 50%; color: var(--sim-deep); background: var(--accent); font-weight: 900; }
+  /* 콘솔 폭(#user 2026-07-28 도라/뒷도라 한 행 — 표시패 두 열이 나란히 서려면 폭이 필요하다):
+     종전 `min(210px, 28%)`의 28%는 「1200px에서 측면 좌석 레인이 남기는 자유 폭」을 손으로 맞춘
+     상수였다 — --seat-tw가 폭 연동으로 자라면 그 28%가 자유 폭을 넘어 좌석↔콘솔이 겹친다.
+     그래서 **자유 레인을 직접 계산해 그만큼 채운다**: 100% − 2*(좌석 앵커 14 + 좌석 폭) − 여백 16.
+     28%는 이제 하한(1200px 하한 폭에서 종전과 동일한 값), 300px는 상한(그 이상은 표시패가 과하게 커짐).
+     이 식 자체가 가로 연립 제약이라 좌석이 커지면 콘솔이 자동으로 물러난다. */
+  .center-console { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%);
+    width: min(300px, max(28%, calc(100% - 2 * (14px + var(--seat-side-w)) - 16px))); display: grid; gap: 6px; padding: 9px; border: 1px solid rgb(238 241 244 / 18%); border-radius: 10px; background: rgb(13 18 24 / 82%); box-shadow: 0 18px 50px rgb(0 0 0 / 28%); }
+  .round-line { display: flex; justify-content: center; gap: 6px; color: var(--text-strong); font-weight: 800; font-size: 13.5px; }
+  .center-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
+  .mini-stat { border: 1px solid var(--border-strong); border-radius: 7px; padding: 4px 3px; text-align: center; background: rgb(255 255 255 / 4%); }
+  .mini-stat b { display: block; color: var(--accent); font-size: 13px; font-variant-numeric: tabular-nums; line-height: 1.15; }
+  .mini-stat span { display: block; color: var(--text-muted); font-size: 9.5px; }
+  .center-dora { display: grid; gap: 4px; }
+  /* 도라/뒷도라는 **한 행 두 열**(#user 2026-07-28 「같은 열에 두세요」). 2026-07-17에 세로 스택으로
+     돌아갔던 이유는 「반폭 셀에서 표시패 5장째가 줄바꿈」이었는데, 그 원인은 flex-wrap이었다 —
+     아래처럼 **5열 고정 그리드**(좌석 강의 6열 문법과 같은 원리)로 두면 셀이 좁아져도 트랙만 줄고
+     줄바꿈은 구조적으로 불가능하다. 콘솔이 한 셀만큼(~60px) 낮아진 만큼을 강 타일 크기로 돌려준다. */
+  /* 열 간격 12px — 6px면 두 강이 이어 붙어 10장짜리 한 줄로 보인다(라벨만으로는 경계가 안 읽힌다). */
+  .center-dora-duo { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 12px; }
+  .center-dora-cell { display: grid; gap: 4px; min-width: 0; align-content: start; }
+  .center-dora-label { color: var(--text-muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* 표시패 강: 5열 고정(최대 5장) — 트랙 max가 --tw라 좁은 콘솔에선 타일만 줄고 항상 한 줄이다. */
+  .center-dora .pond { display: grid; grid-template-columns: repeat(5, minmax(0, var(--tw))); justify-content: start; align-content: start; min-height: 30px; --tw: 26px; }
+  .center-dora .pond .tile { width: 100%; }
+  .board-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 8px 0; }
+  .hand-rack { margin-top: 4px; }
+  .hand-rack .surface { min-height: 54px; }
+  .tile.north-discard::after { content: "北"; position: absolute; right: -4px; bottom: -4px; display: grid; place-items: center; min-width: 15px; height: 15px; border-radius: 50%; background: var(--warn); color: var(--sim-deep); font-size: 9px; font-weight: 900; }
+  [data-lang="ko"] .ja, [data-lang="ko"] .en,
+  [data-lang="ja"] .ko, [data-lang="ja"] .en,
+  [data-lang="en"] .ko, [data-lang="en"] .ja { display: none; }
+  footer { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-strong); font-size: 11.5px; color: var(--text-muted); }
+  footer a { color: var(--text-body); }
+  @media (max-width: 800px) {
+    body { font-size: 14px; }
+    .grid { grid-template-columns: 1fr; }
+    .stats, .board-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .palette { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+    .handline.big { --tw: 33px; }
+    .langs { margin-left: 0; }
+    .mahjong-table {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-areas:
+        "top top"
+        "mtl mtr"
+        "left right"
+        "mbl mbr"
+        "center center"
+        "bottom bottom";
+      gap: 8px;
+      padding: 10px;
+      overflow: visible;
+    }
+    .mahjong-table::before { display: none; }
+    .seat, .center-console, .board-meld-zone {
+      position: static;
+      inset: auto;
+      transform: none;
+      width: auto;
+      max-width: none;
+      min-width: 0;
+    }
+    /* 모바일에선 각 후로를 자기 좌석 근처 행에 둔다(절대 모서리 배치는 데스크탑 전용). */
+    .board-meld-tl { grid-area: mtl; }
+    .board-meld-tr { grid-area: mtr; }
+    .board-meld-bl { grid-area: mbl; }
+    .board-meld-br { grid-area: mbr; }
+    .seat-top { grid-area: top; }
+    .seat-left { grid-area: left; }
+    .seat-right { grid-area: right; }
+    .seat-bottom { grid-area: bottom; }
+    .center-console { grid-area: center; padding: 10px; }
+    .seat-card { min-width: 0; padding: 7px 8px; }
+    .seat-left .seat-meta, .seat-right .seat-meta { align-items: flex-start; flex-direction: column; }
+    /* 세로로 선 메타에서는 스텝퍼가 이름을 «안» 밀친다(각자 제 줄이다) — 위 컨테이너 게이트를 되연다.
+       이 좌석들은 여기서 이미 여러 줄이므로 한 줄 계약도 걸리지 않는다(요구 42). */
+    .seat-left .seat-meta .num-step, .seat-right .seat-meta .num-step { display: inline-flex; }
+    .seat-info { flex-wrap: wrap; }
+    .seat .pond { --tw: 25px; min-height: 32px; }
+    .center-dora .pond { --tw: 27px; }
+    .center-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 380px) {
+    .wrap { padding-left: 10px; padding-right: 10px; }
+    .card { padding: 10px; }
+    .palette { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+    .board-stats { gap: 6px; }
+    .stat { padding: 7px 8px; }
+    .stat b { font-size: 18px; }
+    .mahjong-table { padding: 8px; gap: 6px; }
+    .seat .pond { --tw: 26px; }
+    .handline.big { --tw: 34px; }
+  }
+  /* 버림패가 많아도 좌석 카드가 중앙 콘솔·타 좌석과 겹치지 않도록 강을 ~2행으로 캡(초과분 자체 스크롤). */
+  /* 좌석 강 = 6열 × 4행(24장, 한 국의 실질 상한)이 잘리지 않고 보인다. 행 높이는 타일
+     aspect-ratio 3/4 → --tw*4/3, 4행 = --tw*16/3 + 3*3px. 종전 52px 캡은 ~1.5행만 보여
+     "닫으면 버림패가 한 줄밖에 안 보인다"는 회귀였다(#user).
+
+     ── 작탁 치수 연립 제약 (세로) ──
+     상/하 좌석이 중앙 콘솔을 덮지 않을 조건:
+        20(seat top 18 + 테두리 1 + ε) + cardH ≤ (min-height − consoleH)/2
+     즉 min-height ≥ 2*(20 + cardH) + consoleH.  cardH = --seat-tw*16/3 + 9(강 4행) + 47(메타·패딩)
+     + 16(산마 北행) = --seat-tw*16/3 + 72 = `--seat-card-h`.
+     **이 부등식은 이제 위 .mahjong-table min-height의 calc 그 자체다** — 손 계산으로 상수를 맞추던
+     구조(2026-07-08 580 → 07-17 640)를 대체했다. --seat-tw를 바꿔도 높이가 따라오지만,
+     **--console-h(콘솔 실측 높이)는 여전히 손으로 유지하는 상수다** — 콘솔 내용을 바꿨으면 실측해서 갱신할 것.
+
+     ── 작탁 치수 연립 제약 (가로) ──
+     측면 좌석 레인이 콘솔을 덮지 않을 조건:
+        2*(14 + --seat-side-w) + consoleW ≤ tableW,  --seat-side-w = max(6*--seat-tw + 37, 200)
+     이게 --seat-tw의 vw 계수(3%)와 콘솔 폭 식(자유 레인 채우기 + 28% 하한 + 300px 상한)의 근거다.
+     콘솔 폭 식이 이 부등식을 스스로 만족시키므로 좌석이 커지면 콘솔이 물러난다 — 단 1200px(3컬럼
+     하한)에서는 좌석 하한 200px가 레인을 거의 다 써서 여유가 ~3px뿐이다(그래서 --seat-tw 하한 26px).
+     추가로 **상/하 좌석 vs 측면 좌석**은 3*--seat-side-w + 36 ≤ tableW여야 하는데, 좁은 폭에서는
+     상/하 좌석 폭 캡(.seat-top/.seat-bottom)이 그 조건을 강제한다. */
+  .mahjong-table .seat .pond { max-height: calc(var(--tw, 32px) * 16 / 3 + 9px); overflow-y: auto; }
+  /* 작탁의 플레이어 후로 표시(손패 옆) — 등록된 후로가 있을 때만. */
+  .board-melds { margin-top: 8px; }
+  .board-melds.empty { display: none; }
+</style>
+  <script type="module" crossorigin src="/assets/simulator-D6PmzoL5.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/assist-discard-D64F4MPE.js">
+  <link rel="modulepreload" crossorigin href="/assets/src-Ck4uAwwK.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-DIC2xNQ2.js">
+  <link rel="modulepreload" crossorigin href="/assets/number-field-CbKGqjkh.js">
+  <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
+  <link rel="stylesheet" crossorigin href="/assets/tokens-BOALLjbJ.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="logo">雀攻房 <em>Jankobo</em> <span class="ko">국면 분석기</span><span class="ja">局面アナライザー</span><span class="en">Position Analyzer</span><button type="button" class="logo-help" id="btn-what" aria-expanded="false" aria-label="이 도구는? / What is this?">?</button></div>
+  <div class="what-pop" id="what-pop" hidden role="tooltip">
+    <span class="ko">한 국면을 입력해 유효패와 점수, 추천 타패를 분석합니다. 턴을 이어서 진행하진 않습니다.</span>
+    <span class="ja">一つの局面を入力して有効牌・点数・推奨打牌を分析します。ターンを続けて進めるものではありません。</span>
+    <span class="en">Analyze one board position: outs, score, and discard advice. It does not play turns forward.</span>
+  </div>
+  <div class="langs">
+    <button class="langbtn" data-l="ko">한국어</button>
+    <button class="langbtn" data-l="ja">日本語</button>
+    <button class="langbtn" data-l="en">English</button>
+  </div>
+  <button type="button" class="back" id="btn-sim-help"><span class="ko">도움말</span><span class="ja">ヘルプ</span><span class="en">Help</span></button>
+  <!-- 룰북은 «되돌아가는 길»이 아니라 옆으로 가는 길이다 — 여기 들어온 사람은 룰북에서 온 게
+       아니라 앱에서 왔다(요구 21 실측: 종전 「← 룰북으로」는 목적지가 아예 틀렸다). 화살표를 뺀다. -->
+  <a class="back" href="/rules.html"><span class="ko">룰북과 역 일람</span><span class="ja">ルールブック・役一覧</span><span class="en">Rulebook &amp; Yaku List</span></a>
+  <!-- 되돌아가는 길 — 앱이 새 탭으로 열었으면 「탭 닫기」, 직접 들어왔으면 「게임 첫 화면」.
+       판정·배선은 src/mpa-return.ts(simulator.ts가 부른다). 둘 중 하나만 보인다. -->
+  <a class="back" id="nav-back" href="/">← <span class="ko">첫 화면</span><span class="ja">タイトル画面</span><span class="en">Start screen</span></a>
+  <button type="button" class="back" id="nav-close" hidden>✕ <span class="ko">탭 닫기</span><span class="ja">タブを閉じる</span><span class="en">Close tab</span></button>
+</header>
+<div class="grid">
+  <aside class="card" id="panel-settings">
+    <h2><span class="ko">설정</span><span class="ja">設定</span><span class="en">Settings</span></h2>
+
+    <div class="board-stats">
+      <div class="stat"><b id="stat-effective">0</b><span id="stat-effective-label"></span></div>
+      <div class="stat"><b id="stat-wall">0</b><span id="stat-wall-label"></span></div>
+      <div class="stat"><b id="stat-unseen">0</b><span id="stat-unseen-label"></span></div>
+      <div class="stat"><b id="stat-kita">0</b><span id="stat-kita-label"></span></div>
+    </div>
+
+    <div class="row">
+      <label><span class="ko">룰</span><span class="ja">ルール</span><span class="en">Rules</span></label>
+      <span class="seg compact" id="ruleset-controls"></span>
+    </div>
+    <div class="row">
+      <label><span class="ko">친/자</span><span class="ja">親/子</span><span class="en">Dealer</span></label>
+      <span class="seg compact" id="dealer-controls"></span>
+    </div>
+    <div class="row">
+      <label><span class="ko">자풍</span><span class="ja">自風</span><span class="en">Seat wind</span></label>
+      <span class="seg compact" id="seat-wind-controls"></span>
+    </div>
+    <div class="row">
+      <label><span class="ko">장풍</span><span class="ja">場風</span><span class="en">Round wind</span></label>
+      <span class="seg compact" id="round-wind-controls"></span>
+    </div>
+    <!-- 종전 「화료 가정」(쯔모/론) 행은 국 결과 상세의 「화료 방식」 행으로 이전됐다(#user 2026-07-17
+         — 화료일 때만 의미). 렌더는 simulator.ts renderOutcomeControls. -->
+    <div class="row">
+      <label><span class="ko">국 결과</span><span class="ja">局結果</span><span class="en">Outcome</span></label>
+      <span class="seg compact" id="outcome-controls"></span>
+    </div>
+    <div class="outcome-detail" id="outcome-detail"></div>
+    <div class="row">
+      <label><span class="ko">본장</span><span class="ja">本場</span><span class="en">Honba</span></label>
+      <span class="seg compact" id="honba-controls"></span>
+    </div>
+    <div class="row">
+      <label><span class="ko">리치봉</span><span class="ja">供託</span><span class="en">Sticks</span></label>
+      <span class="seg compact" id="riichi-stick-controls"></span>
+    </div>
+
+  </aside>
+
+  <aside class="card" id="panel-input">
+    <div class="input-head">
+      <h2><span class="ko">입력</span><span class="ja">入力</span><span class="en">Input</span></h2>
+      <div class="input-head-actions">
+        <button type="button" class="action" id="btn-copy"><span class="ko">결과 복사</span><span class="ja">結果コピー</span><span class="en">Copy</span></button>
+        <button type="button" class="action danger" id="btn-clear"><span class="ko">비우기</span><span class="ja">クリア</span><span class="en">Clear</span></button>
+      </div>
+    </div>
+    <p class="palette-target">
+      <span class="pt-dot">●</span>
+      <span class="ko">입력 대상</span><span class="ja">入力先</span><span class="en">Adds to</span>
+      <b id="palette-target-label"></b>
+      <small class="ko">작탁의 표면을 눌러 바꿉니다</small><small class="ja">卓の面をクリックで変更</small><small class="en">click a surface on the table to change</small>
+    </p>
+    <div class="palette" id="sim-palette"></div>
+
+    <div class="quick-row">
+      <input type="text" id="tile-text-input" placeholder="123m456p77z" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="패 표기 입력 / Tile notation">
+      <button type="button" class="action" id="btn-tile-text"><span class="ko">추가</span><span class="ja">追加</span><span class="en">Add</span></button>
+      <button type="button" class="help-btn" id="btn-notation-help" aria-label="패 표기법 도움말 / Tile notation help">?</button>
+    </div>
+
+    <!-- 되돌리기 · 다시 실행 · 마지막 상황 불러오기를 한 줄로(#user). 경과 노트는 JS가 채우고, 저장분 없으면 비활성. -->
+    <div class="action-bar action-bar-3">
+      <button type="button" class="action" id="btn-undo"><span class="ko">되돌리기</span><span class="ja">戻す</span><span class="en">Undo</span></button>
+      <button type="button" class="action" id="btn-redo"><span class="ko">다시 실행</span><span class="ja">やり直し</span><span class="en">Redo</span></button>
+      <button type="button" class="action" id="btn-import-live"><span class="ko">마지막 상황 불러오기</span><span class="ja">最後の局面を読み込み</span><span class="en">Load last position</span></button>
+    </div>
+    <small class="subtle import-live-note" id="import-live-note"></small>
+
+    <div class="section result" id="sim-result"></div>
+  </aside>
+
+  <main class="card table-shell">
+    <div class="mahjong-table" id="mahjong-table">
+      <section class="seat seat-top" id="seat-opp1">
+        <div class="seat-card">
+          <div class="seat-meta">
+            <span class="seat-name" id="seat-opp1-label"></span>
+            <i class="wind-badge" id="seat-opp1-wind"></i>
+            <input type="number" step="100" class="seat-score-input" id="seat-opp1-score" data-score-seat="opp1" aria-label="대면 점수 / score">
+            <button type="button" class="seat-riichi-btn" data-riichi-seat="opp1" aria-pressed="false" aria-label="대면 리치 / riichi">立</button>
+            <button type="button" class="seat-meld-btn" data-meld-seat="opp1" aria-label="대면 후로 입력 / calls">副</button>
+            <button type="button" class="seat-kita-btn hidden" data-kita-seat="opp1" aria-label="북 빼기 / Kita">北</button>
+          </div>
+          <div class="seat-kita empty" id="seat-opp1-kita"></div>
+          <div class="pond" id="sim-opp1-discards"></div>
+        </div>
+      </section>
+      <section class="seat seat-right" id="seat-opp0">
+        <div class="seat-card">
+          <div class="seat-meta">
+            <span class="seat-name" id="seat-opp0-label"></span>
+            <i class="wind-badge" id="seat-opp0-wind"></i>
+            <input type="number" step="100" class="seat-score-input" id="seat-opp0-score" data-score-seat="opp0" aria-label="하가 점수 / score">
+            <button type="button" class="seat-riichi-btn" data-riichi-seat="opp0" aria-pressed="false" aria-label="하가 리치 / riichi">立</button>
+            <button type="button" class="seat-meld-btn" data-meld-seat="opp0" aria-label="하가 후로 입력 / calls">副</button>
+            <button type="button" class="seat-kita-btn hidden" data-kita-seat="opp0" aria-label="북 빼기 / Kita">北</button>
+          </div>
+          <div class="seat-kita empty" id="seat-opp0-kita"></div>
+          <div class="pond" id="sim-opp0-discards"></div>
+        </div>
+      </section>
+      <section class="seat seat-left" id="seat-opp2">
+        <div class="seat-card">
+          <div class="seat-meta">
+            <span class="seat-name" id="seat-opp2-label"></span>
+            <i class="wind-badge" id="seat-opp2-wind"></i>
+            <input type="number" step="100" class="seat-score-input" id="seat-opp2-score" data-score-seat="opp2" aria-label="상가 점수 / score">
+            <button type="button" class="seat-riichi-btn" data-riichi-seat="opp2" aria-pressed="false" aria-label="상가 리치 / riichi">立</button>
+            <button type="button" class="seat-meld-btn" data-meld-seat="opp2" aria-label="상가 후로 입력 / calls">副</button>
+            <button type="button" class="seat-kita-btn hidden" data-kita-seat="opp2" aria-label="북 빼기 / Kita">北</button>
+          </div>
+          <div class="seat-kita empty" id="seat-opp2-kita"></div>
+          <div class="pond" id="sim-opp2-discards"></div>
+        </div>
+      </section>
+      <section class="seat seat-bottom" id="seat-player">
+        <div class="seat-card">
+          <div class="seat-meta">
+            <span class="seat-name" id="seat-player-label"></span>
+            <i class="wind-badge" id="seat-player-wind"></i>
+            <input type="number" step="100" class="seat-score-input" id="seat-player-score" data-score-seat="player" aria-label="내 자리 점수 / score">
+            <button type="button" class="seat-riichi-btn" data-riichi-seat="player" aria-pressed="false" aria-label="내 자리 리치 / riichi">立</button>
+            <button type="button" class="seat-meld-btn" data-meld-seat="player" aria-label="내 자리 후로 입력 / calls">副</button>
+            
+          </div>
+          <div class="seat-kita empty" id="seat-player-kita"></div>
+          <div class="pond" id="sim-own-discards"></div>
+        </div>
+      </section>
+      <div class="center-console">
+        <div class="round-line"><span id="board-round"></span><span id="board-honba"></span></div>
+        <div class="center-metrics">
+          <div class="mini-stat"><b id="board-wall">0</b><span id="board-wall-label"></span></div>
+          <div class="mini-stat"><b id="board-riichi">0</b><span id="board-riichi-label"></span></div>
+          <div class="mini-stat"><b id="board-kita">0</b><span id="board-kita-label"></span></div>
+        </div>
+        <!-- 도라/뒷도라 표시패는 한 행 2열(#user 2026-07-28 「같은 열에 두세요」). 세로로 쌓으면
+             콘솔 높이(consoleH)가 ~60px 자라 min-height 연립 제약을 그만큼 밀어올린다(= 강 타일이 작아진다).
+             각 셀은 5열 고정 그리드라 좁아져도 줄바꿈 없이 타일만 줄어든다(CSS .center-dora 절 참조). -->
+        <div class="center-dora center-dora-duo">
+          <div class="center-dora-cell">
+            <span class="center-dora-label" id="dora-count"></span>
+            <div class="pond" id="sim-dora"></div>
+          </div>
+          <div class="center-dora-cell">
+            <span class="center-dora-label" id="ura-count"></span>
+            <div class="pond" id="sim-ura"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 후로 영역: 각 좌석의 대각 모서리(#user 3x3 표). 대면→좌상 · 하가→우상 · 상가→좌하 · 플레이어→우하. -->
+      <div class="seat-melds board-meld-zone board-meld-tl hidden" id="sim-meld-opp1"></div>
+      <div class="seat-melds board-meld-zone board-meld-tr hidden" id="sim-meld-opp0"></div>
+      <div class="seat-melds board-meld-zone board-meld-bl hidden" id="sim-meld-opp2"></div>
+      <div class="seat-melds board-meld-zone board-meld-br hidden" id="sim-meld-player"></div>
+    </div>
+
+    <div class="section hand-rack">
+      <div class="surface" id="sim-hand-surface"><div class="handline big" id="sim-hand"></div></div>
+      <div class="row tight hand-controls">
+        <button type="button" class="action" id="btn-win-designate"><span class="ko">화료패 지정</span><span class="ja">和了牌指定</span><span class="en">Set winning tile</span></button>
+        <span class="subtle" id="hand-count"></span>
+        <p class="subtle" id="hand-help"></p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer>
+<p class="more">
+  <span class="ko">더 알아보기: <a href="/ko/learn/">마작 혼자서도 배우기</a>, <a href="/ko/glossary/">마작 용어 사전</a></span>
+  <span class="ja">もっと詳しく: <a href="/ja/learn/">麻雀をひとりでも練習する</a></span>
+  <span class="en">More: <a href="/en/learn/">Learn riichi mahjong, even on your own</a></span>
+</p>
+</footer>
+
+</div>
+
+
+<dialog id="notation-help" class="help-dialog">
+  <div id="notation-help-body"></div>
+  <div class="help-actions">
+    <button type="button" class="action primary" id="btn-notation-close"><span class="ko">닫기</span><span class="ja">閉じる</span><span class="en">Close</span></button>
+  </div>
+</dialog>
+
+<script data-goatcounter="https://carrier.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
