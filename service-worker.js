@@ -2,9 +2,9 @@
 
 // CACHE_NAME 끝의 빌드 해시와 BUILD_ASSETS는 빌드 시 vite-plugin-sw-precache가 주입한다.
 // 개발 중(주입 전)에는 앱 셸만 캐시한다.
-const CACHE_NAME = "ippatsu-shell-mu8ma00m";
+const CACHE_NAME = "ippatsu-shell-mu8ow64r";
 const APP_SHELL = ["/", "/index.html", "/manifest.webmanifest", "/icon.svg"];
-const BUILD_ASSETS = ["/assets/assist-discard-DKBREPNx.js","/assets/board3d-lzThlOdv.js","/assets/config-AMNMM-Rv.js","/assets/glossary-BWBNJFrA.js","/assets/main-BKa_o6Un.js","/assets/main-ZX7sbaE5.css","/assets/mistake-scan.worker-CxqIwB0l.js","/assets/mpa-return-C3KhUZt6.js","/assets/number-field-CbKGqjkh.js","/assets/rules-DIpgE05F.js","/assets/simulator-CD0yPcLU.js","/assets/src-uV4piD-p.js","/assets/tile-face-DehzxdiP.js","/assets/tokens-9caP6ijL.js","/assets/tokens-BOALLjbJ.css"];
+const BUILD_ASSETS = ["/assets/assist-discard-DKBREPNx.js","/assets/board3d-xttPb5RL.js","/assets/config-D2oIcUNe.js","/assets/glossary-CakyTuoG.js","/assets/main-B3CxXCK8.js","/assets/main-DmJsNO04.css","/assets/mistake-scan.worker-CxqIwB0l.js","/assets/mpa-return-C3KhUZt6.js","/assets/number-field-CbKGqjkh.js","/assets/rules-BLeIKKNz.js","/assets/simulator-DgBpJCPr.js","/assets/src-BY7gDIrU.js","/assets/tile-face-vst9NtWK.js","/assets/tokens-BOALLjbJ.css","/assets/tokens-CDmqMDb5.js"];
 
 self.addEventListener("install", (event) => {
   // 해시된 JS/CSS 번들까지 프리캐시 → 온라인 방문 없이도 오프라인 콜드스타트가 동작한다.

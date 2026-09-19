@@ -34,6 +34,10 @@
   /* 필름 그레인 — 앱 본체(style.css)와 같은 질감·같은 불투명도. 정적이라 런타임 비용 0. */
   body::after { content: ""; position: fixed; z-index: 200; inset: 0; pointer-events: none; opacity: .035; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   .wrap { max-width: 860px; margin: 0 auto; padding: var(--space-6) var(--space-4) 80px; }
+  /* 기둥이 «둘»인 것은 목차 띠를 그 사이로 내보내려는 것이다(요구 62) — 아래 nav.toc 주석 참고.
+     세로 여백은 둘이 나눠 가져 종전과 같다(머리는 아래 패딩 0, 본문은 위 패딩 0). */
+  .wrap-head { padding-bottom: 0; }
+  .wrap-body { padding-top: 0; }
   header.top { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-2) 0 var(--space-4); border-bottom: 1px solid var(--border-strong); }
   .logo { font-family: var(--font-display); font-size: var(--step-2); font-weight: 600; color: var(--text-strong); letter-spacing: var(--tracking-tight); }
   .logo em { color: var(--accent); font-style: normal; }
@@ -49,11 +53,26 @@
   .readbar { position: fixed; top: 0; left: 0; height: 3px; width: 100%; transform: scaleX(0); transform-origin: 0 50%; will-change: transform; background: var(--accent); z-index: 50; }
   /* sticky와 가로 스크롤(overflow)을 같은 요소에 두면 iOS Safari에서 sticky가 풀린다
      — 바깥(nav)이 sticky, 안쪽(.toc-scroll)이 스크롤 컨테이너 */
-  nav.toc { position: -webkit-sticky; position: sticky; top: 0; z-index: 40; margin: 18px 0 6px; padding: 12px 0 10px; background: var(--surface-app); }
-  .toc-scroll { display: flex; flex-wrap: wrap; gap: 8px; }
-  nav.toc a { font-size: var(--step-00); font-family: var(--font-display); color: var(--text-body); text-decoration: none; background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 5px var(--space-3); }
+  /* 목차는 **모든 폭에서 한 줄**이다(요구 62, 2026-09-20 #user 「두 줄로 나오는 것이 싫다」).
+     ⚠ nav가 `.wrap` «밖»(body 직계)인 것은 그래서다 — 860px 기둥 안에서 `100vw`로 탈출하면
+     세로 스크롤바 폭만큼 문서가 가로로 넘친다(`100vw`는 막대를 포함한다). 그 넘침을
+     `overflow-x: clip`으로 덮으면 ②「가로 넘침 0」이 **무엇을 심어도 초록**이 된다(narrow 사보타주가 죽는다).
+     body 직계면 `width: 100%`가 곧 막대를 뺀 폭이라 함정 자체가 없다. */
+  nav.toc { position: -webkit-sticky; position: sticky; top: 0; z-index: 40; margin: 18px 0 6px; background: var(--surface-app); }
+  /* 1120px: en 알약 줄 918 + 틈 8 + 「Collapse all」 85 = 1011에 좌우 패딩 32를 더한 값 위(실측 2026-09-20).
+     1280 이상에서 ko·ja·en 셋 다 스크롤 없이 들어가는 것이 계약이다(qa/rulebook-design.mjs ⑧ⓓ). */
+  .toc-inner { display: flex; align-items: center; gap: 8px; max-width: 1120px; margin: 0 auto; padding: 12px var(--space-4) 10px; }
+  .toc-scroll { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+  .toc-scroll::-webkit-scrollbar { display: none; }
+  /* 「오른쪽에 더 있다」 힌트. **넘칠 때만** 건다(rules-calc.ts `syncTocFade`) — 안 넘치는데 끝 알약이
+     흐려지면 그 페이드가 거짓말이 된다. 왼쪽은 이미 굴린 뒤에만. */
+  .toc-scroll.fade-e { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent); }
+  .toc-scroll.fade-s { -webkit-mask-image: linear-gradient(to right, transparent, #000 24px); mask-image: linear-gradient(to right, transparent, #000 24px); }
+  .toc-scroll.fade-s.fade-e { -webkit-mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent); mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent); }
+  nav.toc a { flex: none; font-size: var(--step-00); font-family: var(--font-display); color: var(--text-body); text-decoration: none; background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 5px var(--space-3); white-space: nowrap; }
   nav.toc a:hover { border-color: var(--accent); color: var(--accent); }
-  .toc-all { margin-left: auto; font-size: var(--step-000); font-family: var(--font-display); color: var(--text-muted); background: none; border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 5px var(--space-3); cursor: pointer; }
+  /* 띠 «밖»에 서서 늘 보인다(요구 62) — 굴러 사라지면 「모두 접기」에 닿는 길이 폰에서 없어진다. */
+  .toc-all { flex: none; font-size: var(--step-000); font-family: var(--font-display); color: var(--text-muted); background: none; border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 5px var(--space-3); cursor: pointer; white-space: nowrap; }
   .toc-all:hover { border-color: var(--accent); color: var(--accent); }
   h2 { color: var(--accent); font-family: var(--font-display); font-size: var(--step-1); font-weight: 600; letter-spacing: var(--tracking-tight); margin: 0; scroll-margin-top: 96px; }
   h3 { color: var(--text-strong); font-family: var(--font-display); font-size: var(--step-0); font-weight: 600; margin: var(--space-6) 0 var(--space-2); scroll-margin-top: 96px; }
@@ -222,10 +241,7 @@
     /* 계산기 팔레트 탭 타깃 확대(#user QA — 29×36px가 44px 가이드 미달): 7열 + 여백 확대. */
     .calc-palette { grid-template-columns: repeat(7, 1fr); gap: 6px; max-width: none; }
     .pal { padding: 4px; min-height: 44px; }
-    /* 모바일: 색인은 한 줄 가로 스크롤(스티키가 화면을 덜 차지하도록) — overflow는 내부 래퍼에만 */
-    .toc-scroll { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
-    .toc-scroll::-webkit-scrollbar { display: none; }
-    nav.toc a { flex: none; }
+    /* 목차 한 줄 규칙은 요구 62에서 «기본»으로 올라갔다(위 nav.toc 묶음) — 여기 사본을 되살리지 말 것. */
     h2, h3 { scroll-margin-top: 64px; }
     .yaku-list-wrap { overflow-x: visible; }
     .yaku-list,
@@ -275,18 +291,18 @@
   main a { color: var(--accent); }
   main a:visited { color: var(--accent); }
 </style>
-  <script type="module" crossorigin src="/assets/rules-DIpgE05F.js"></script>
+  <script type="module" crossorigin src="/assets/rules-BLeIKKNz.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-DKBREPNx.js">
-  <link rel="modulepreload" crossorigin href="/assets/src-uV4piD-p.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-9caP6ijL.js">
-  <link rel="modulepreload" crossorigin href="/assets/tile-face-DehzxdiP.js">
-  <link rel="modulepreload" crossorigin href="/assets/glossary-BWBNJFrA.js">
+  <link rel="modulepreload" crossorigin href="/assets/src-BY7gDIrU.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-CDmqMDb5.js">
+  <link rel="modulepreload" crossorigin href="/assets/tile-face-vst9NtWK.js">
+  <link rel="modulepreload" crossorigin href="/assets/glossary-CakyTuoG.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
   <link rel="stylesheet" crossorigin href="/assets/tokens-BOALLjbJ.css">
 </head>
 <body>
 <div class="readbar" id="readbar" aria-hidden="true"></div>
-<div class="wrap">
+<div class="wrap wrap-head">
 
 <header class="top">
   <div class="logo">雀攻房 <em>Jankobo</em> <span class="ko">룰북</span><span class="ja">ルールブック</span><span class="en">Rulebook</span></div>
@@ -297,9 +313,15 @@
   </div>
 </header>
 
+</div>
+
+<!-- ⚠ 목차는 `.wrap`(860px) «밖»에 산다 — 알약 11개가 어느 폭에서도 안 꺾이게 하려면 띠가 뷰포트
+     폭을 써야 하고, 기둥 안에서 `100vw`로 탈출하면 세로 막대 폭만큼 문서가 가로로 넘친다(위 CSS 주석).
+     그래서 기둥을 둘(`wrap-head`·`wrap-body`)로 나눠 그 사이에 둔다. -->
 <nav class="toc">
 <!-- 목차 순서는 본문 절 순서와 «같아야» 한다(rules-page.test.ts가 대조한다).
      「역 만들기」가 맨 앞인 것은 2026-09-12 #user 요구다. -->
+<div class="toc-inner">
 <div class="toc-scroll">
   <a href="#try"><span class="ko">역 만들기</span><span class="ja">役を作る</span><span class="en">Hand builder</span></a>
   <a href="#tiles"><span class="ko">패의 종류</span><span class="ja">牌の種類</span><span class="en">Tiles</span></a>
@@ -312,9 +334,12 @@
   <a href="#score"><span class="ko">점수</span><span class="ja">点数</span><span class="en">Scoring</span></a>
   <a href="#yaku"><span class="ko">역 일람</span><span class="ja">役一覧</span><span class="en">Yaku list</span></a>
   <a href="#details"><span class="ko">세부 룰</span><span class="ja">細則</span><span class="en">Rule details</span></a>
-  <button type="button" class="toc-all" id="toc-all" aria-controls="rulebook-sections"><span class="ko">모두 접기</span><span class="ja">すべて閉じる</span><span class="en">Collapse all</span></button>
+</div>
+<button type="button" class="toc-all" id="toc-all" aria-controls="rulebook-sections"><span class="ko">모두 접기</span><span class="ja">すべて閉じる</span><span class="en">Collapse all</span></button>
 </div>
 </nav>
+
+<div class="wrap wrap-body">
 
 <main id="rulebook-sections">
 
