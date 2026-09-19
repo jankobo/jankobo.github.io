@@ -4,8 +4,57 @@
   <link rel="self" type="application/atom+xml" href="https://jankobo.github.io/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://jankobo.github.io/"/>
   <id>https://jankobo.github.io/</id>
-  <updated>2026-09-17T00:00:00Z</updated>
+  <updated>2026-09-19T00:00:00Z</updated>
   <author><name>Jankobo</name></author>
+  <entry xml:lang="ko">
+    <title>마작 혼자서도 배우기: 복기·오답노트가 있는 작공방(雀攻房)</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/learn/"/>
+    <id>https://jankobo.github.io/ko/learn/</id>
+    <updated>2026-09-19T00:00:00Z</updated>
+    <summary>규칙을 몰라도 첫 판부터 시작하고, 복기에서 네 사람 손패를 전부 펴 봅니다. 방총한 순간만 모으는 오답노트까지 있는 리치 마작.</summary>
+  </entry>
+  <entry xml:lang="ja">
+    <title>麻雀をひとりでも練習｜牌譜検討と反省ノート｜雀攻房(ジャンコウボウ)</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ja/learn/"/>
+    <id>https://jankobo.github.io/ja/learn/</id>
+    <updated>2026-09-19T00:00:00Z</updated>
+    <summary>ボット相手にひとりでも打てるリーチ麻雀。検討画面では四人全員の手牌と山が開き、一手ずつ戻せます。放銃した局面だけを集めて選び直せる反省ノートもあります。</summary>
+  </entry>
+  <entry xml:lang="en">
+    <title>Learn Riichi Mahjong, Even Solo: Practice vs Bots in Your Browser | Jankobo</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/en/learn/"/>
+    <id>https://jankobo.github.io/en/learn/</id>
+    <updated>2026-09-19T00:00:00Z</updated>
+    <summary>Play riichi mahjong against bots in a browser tab, even on your own. The replay screen opens all four hands, and a notebook collects only the hands you dealt into.</summary>
+  </entry>
+  <entry xml:lang="ko">
+    <title>마작 용어 사전: 뜻과 실전 쓰임까지 담은 작공방(雀攻房)</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/glossary/"/>
+    <id>https://jankobo.github.io/ko/glossary/</id>
+    <updated>2026-09-19T00:00:00Z</updated>
+    <summary>리치 마작 용어를 뜻만이 아니라 실전에서 언제 문제가 되는지까지 적은 사전. 도움이 되는 항목에는 패 그림과 룰북 링크를 곁들였다.</summary>
+  </entry>
+  <entry xml:lang="ko">
+    <title>온라인 친구방 개인정보: 계정도 추적도 없는 작공방(雀攻房)</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/privacy/"/>
+    <id>https://jankobo.github.io/ko/privacy/</id>
+    <updated>2026-09-19T00:00:00Z</updated>
+    <summary>온라인 친구방에서는 닉네임과 접속 IP가 서버에 닿습니다. 로그에는 방 코드도 닉도 IP도 남지 않고, 기보는 각자의 브라우저에 남습니다.</summary>
+  </entry>
+  <entry xml:lang="ja">
+    <title>オンライン友達部屋の個人情報｜サーバーに届くもの｜雀攻房</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ja/privacy/"/>
+    <id>https://jankobo.github.io/ja/privacy/</id>
+    <updated>2026-09-19T00:00:00Z</updated>
+    <summary>オンライン友達部屋ではニックネームと接続元IPがサーバーに届きます。ログに部屋コードもニックネームもIPも残さず、牌譜は各自のブラウザに残ります。</summary>
+  </entry>
+  <entry xml:lang="en">
+    <title>Online Privacy: What the Friend Room Server Sees | Jankobo</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/en/privacy/"/>
+    <id>https://jankobo.github.io/en/privacy/</id>
+    <updated>2026-09-19T00:00:00Z</updated>
+    <summary>In an online friend room your nickname and connecting IP reach the server. The log keeps no room code, nickname or IP, and replays stay in your browser.</summary>
+  </entry>
   <entry>
     <title>작공방(雀攻房) — 초중급자를 위한 리치 마작 학습기 / 立直麻雀学習ツール</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/"/>
@@ -26,33 +75,5 @@
     <id>https://jankobo.github.io/simulator.html</id>
     <updated>2026-09-17T00:00:00Z</updated>
     <summary>리치 마작 시뮬레이터. 손패와 버림패, 도라를 입력하면 유효패와 점수, 그리고 무엇을 버릴지(패효율과 안전도)를 알려주는 마작 국면 분석기. 4인과 3인 지원. 牌姿を入力して受け入れ・点数・何切るを確認できる局面アナライザー(四麻/三麻)。 Riichi mahjong position analyzer: outs, score, and what to discard.</summary>
-  </entry>
-  <entry xml:lang="ko">
-    <title>마작 혼자서도 배우기: 복기·오답노트가 있는 작공방(雀攻房)</title>
-    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/learn/"/>
-    <id>https://jankobo.github.io/ko/learn/</id>
-    <updated>2026-09-17T00:00:00Z</updated>
-    <summary>규칙을 몰라도 첫 판부터 시작하고, 복기에서 네 사람 손패를 전부 펴 봅니다. 방총한 순간만 모으는 오답노트까지 있는 리치 마작.</summary>
-  </entry>
-  <entry xml:lang="ja">
-    <title>麻雀をひとりでも練習｜牌譜検討と反省ノート｜雀攻房(ジャンコウボウ)</title>
-    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ja/learn/"/>
-    <id>https://jankobo.github.io/ja/learn/</id>
-    <updated>2026-09-17T00:00:00Z</updated>
-    <summary>ボット相手にひとりでも打てるリーチ麻雀。検討画面では四人全員の手牌と山が開き、一手ずつ戻せます。放銃した局面だけを集めて選び直せる反省ノートもあります。</summary>
-  </entry>
-  <entry xml:lang="en">
-    <title>Learn Riichi Mahjong, Even Solo: Practice vs Bots in Your Browser | Jankobo</title>
-    <link rel="alternate" type="text/html" href="https://jankobo.github.io/en/learn/"/>
-    <id>https://jankobo.github.io/en/learn/</id>
-    <updated>2026-09-17T00:00:00Z</updated>
-    <summary>Play riichi mahjong against bots in a browser tab, even on your own. The replay screen opens all four hands, and a notebook collects only the hands you dealt into.</summary>
-  </entry>
-  <entry xml:lang="ko">
-    <title>마작 용어 사전: 뜻과 실전 쓰임까지 담은 작공방(雀攻房)</title>
-    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/glossary/"/>
-    <id>https://jankobo.github.io/ko/glossary/</id>
-    <updated>2026-09-17T00:00:00Z</updated>
-    <summary>리치 마작 용어를 뜻만이 아니라 실전에서 언제 문제가 되는지까지 적은 사전. 도움이 되는 항목에는 패 그림과 룰북 링크를 곁들였다.</summary>
   </entry>
 </feed>

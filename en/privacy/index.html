@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online Privacy: What the Friend Room Server Sees | Jankobo</title>
+<meta name="description" content="In an online friend room your nickname and connecting IP reach the server. The log keeps no room code, nickname or IP, and replays stay in your browser.">
+<link rel="canonical" href="https://jankobo.github.io/en/privacy/">
+<link rel="alternate" hreflang="ko" href="https://jankobo.github.io/ko/privacy/">
+<link rel="alternate" hreflang="ja" href="https://jankobo.github.io/ja/privacy/">
+<link rel="alternate" hreflang="en" href="https://jankobo.github.io/en/privacy/">
+<link rel="alternate" hreflang="x-default" href="https://jankobo.github.io/en/privacy/">
+<link rel="icon" href="/icon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Jankobo">
+<meta property="og:title" content="Online Privacy: What the Friend Room Server Sees | Jankobo">
+<meta property="og:description" content="In an online friend room your nickname and connecting IP reach the server. The log keeps no room code, nickname or IP, and replays stay in your browser.">
+<meta property="og:url" content="https://jankobo.github.io/en/privacy/">
+<meta property="og:image" content="https://jankobo.github.io/og.jpg?v=5">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Online Privacy: What the Friend Room Server Sees | Jankobo">
+<meta name="twitter:description" content="In an online friend room your nickname and connecting IP reach the server. The log keeps no room code, nickname or IP, and replays stay in your browser.">
+<meta name="twitter:image" content="https://jankobo.github.io/og.jpg?v=5">
+<style>:root{--surface-app:#1B251F;--surface-raised:#28362D;--accent:#45D29B;--accent-soft:rgb(69 210 155/12%);--text-strong:#EDEDE9;--text-body:#BEC4BF;--border-strong:rgb(226 236 230/18%);--font-sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--surface-app);color:var(--text-body);font-family:var(--font-sans);line-height:1.7;font-size:16px;word-break:keep-all;overflow-wrap:break-word}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
+header.top{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:6px 0 18px;border-bottom:1px solid var(--border-strong)}
+.logo{font-size:24px;font-weight:800;color:var(--text-strong)}.logo em{color:var(--accent);font-style:normal}
+.langs{margin-left:auto;display:flex;gap:8px}.langs a{color:var(--text-body);text-decoration:none;border:1px solid var(--border-strong);border-radius:999px;padding:5px 12px;font-size:13px}
+h1{color:var(--text-strong);font-size:28px;line-height:1.35;margin:28px 0 12px}
+h2{color:var(--text-strong);font-size:20px;margin:36px 0 10px}
+h3{color:var(--text-strong);font-size:17px;margin:26px 0 6px}
+.lead{font-size:17px;color:var(--text-strong)}
+.note{border-left:3px solid var(--border-strong);padding-left:12px;color:var(--text-body)}
+.more a,.cta{color:var(--accent)}
+.cta{display:inline-block;margin:28px 0 8px;border:1px solid var(--accent);border-radius:999px;padding:12px 24px;text-decoration:none;font-weight:700;background:var(--accent-soft)}
+.cta-top{margin:4px 0 20px;padding:9px 20px;font-size:15px}
+ul{padding-left:20px}li{margin:4px 0}
+figure{margin:20px 0}figure img{max-width:100%;height:auto;border:1px solid var(--border-strong);border-radius:8px;display:block}
+figcaption{font-size:14px;margin-top:8px;color:var(--text-body)}
+.tiles{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0}
+.tile{position:relative;display:inline-block;width:34px;height:46px}
+.tile img{position:absolute;inset:0;width:100%;height:100%}
+.crosslinks{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+.crosslinks a{color:var(--text-strong);text-decoration:none;border:1px solid var(--border-strong);border-radius:8px;padding:8px 14px;font-size:14px}
+footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--border-strong);font-size:14px}
+footer a{color:var(--accent);margin-right:14px}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://jankobo.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Online friend room privacy",
+      "item": "https://jankobo.github.io/en/privacy/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="logo" href="/"><em>一</em>発</a><nav class="langs"><a href="/ko/privacy/">한국어</a><a href="/ja/privacy/">日本語</a></nav></header>
+<main>
+<h1>Online friend room privacy</h1>
+<p class="lead">Jankobo is browser mahjong with no account and no login. A solo match runs entirely inside your browser, and the one place that needs a server is the online friend room. This page says what reaches that server and what it does not keep.</p>
+<p><a class="cta cta-top" href="/?from=privacy-en-top&utm_source=docs&utm_campaign=privacy-en-top">Play Jankobo</a></p>
+<h2>What reaches the server</h2>
+<p>When you enter an online friend room, your nickname and your connecting IP reach the server. The server runs on Cloudflare Workers. The nickname is shown as typed on the screens of the other three players at the table, and when the match ends it is kept as a name in those three players' saved replays. The connecting IP is used while the connection is open.</p>
+<h2>What the server log does not keep</h2>
+<p>The server log keeps no room code, no nickname and no connecting IP. More precisely, this server writes no application log of its own at all.</p>
+<h2>Where the replays live</h2>
+<p>A replay, the record of a finished match, is stored inside your own browser. The store is the IndexedDB the browser provides, and that replay is never uploaded to the server. The room record the server was holding is deleted 24 hours after the match ends.</p>
+<h2>No account, no login, no tracking</h2>
+<p>There is no account to register and no login. There is no tracking that follows you around and recognises you.</p>
+<p class="note">A room code is an invite link, not a secret. Anyone who knows the code can walk into that room, so share it only with the people you mean to play with.</p>
+<h2>Visit statistics</h2>
+<p>How often each screen is opened is counted by GoatCounter. It stays the same cookieless setup as before, and room codes and nicknames never go there either.</p>
+<p><a class="cta" href="/?from=privacy-en&utm_source=docs&utm_campaign=privacy-en">Play Jankobo</a></p>
+</main>
+<nav class="crosslinks"><a href="/en/learn/">Learn riichi mahjong, even on your own</a></nav>
+<footer><a href="/">Home</a><a href="/rules.html">Rulebook</a><a href="/simulator.html">Analyzer</a></footer>
+</div>
+<script data-goatcounter="https://carrier.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
