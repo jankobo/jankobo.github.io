@@ -1,0 +1,1442 @@
+[
+  {
+    "id": "busan-doyun",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "711b0cf964955d84492c039fe68c41349bb378b01c83cd00e9dccf9b7ee46eb6",
+    "url": "/assets/character-expressions/busan-doyun/greet.webp"
+  },
+  {
+    "id": "busan-doyun",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "8d4e9f7a08e18c30a9a9caeffb44a30065ffe490529fd969513a4181ec496651",
+    "url": "/assets/character-expressions/busan-doyun/riichi.webp"
+  },
+  {
+    "id": "busan-doyun",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "7a9e919eddbb0189267c7c4b7757dd61a55f135fd2f94bd282cd246e3038f325",
+    "url": "/assets/character-expressions/busan-doyun/win.webp"
+  },
+  {
+    "id": "busan-doyun",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "960d7039484d9845bcd5e9811f5ee36eee2cee1650a016d34e3b74cf0301a37b",
+    "url": "/assets/character-expressions/busan-doyun/deal-in.webp"
+  },
+  {
+    "id": "busan-doyun",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "8638c5698bf65fbda708e065da8b506854fa2e8d360004bd30ee756d88fae7a9",
+    "url": "/assets/character-expressions/busan-doyun/danger.webp"
+  },
+  {
+    "id": "busan-doyun",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "afd43c98d1c15ebd8eea87a0a44baa08d7384fc39a5cfe64c1187a9116a31683",
+    "url": "/assets/character-expressions/busan-doyun/call.webp"
+  },
+  {
+    "id": "busan-gangmin",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "538f28db50cf6bff1be8ed7cd2f19766251ea51d33578e6dd2535a6709e63f76",
+    "url": "/assets/character-expressions/busan-gangmin/greet.webp"
+  },
+  {
+    "id": "busan-gangmin",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "f2b456a60533c8a35ffeb9019f67b00376d370a72c00c05c8afa53cc6901bcbd",
+    "url": "/assets/character-expressions/busan-gangmin/riichi.webp"
+  },
+  {
+    "id": "busan-gangmin",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "13af8d8b4c30e14334856b49e8df1b8d6720a4653fa442bfd8a19c6059a75ef1",
+    "url": "/assets/character-expressions/busan-gangmin/win.webp"
+  },
+  {
+    "id": "busan-gangmin",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "23809592e0b0e66fb3d2869c0e406b150ac0308dde2d724c13beb385673243a1",
+    "url": "/assets/character-expressions/busan-gangmin/deal-in.webp"
+  },
+  {
+    "id": "busan-gangmin",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "46fe68757419981ed21d3ec73d0dff719c2a51403cace9ad3d41dcc2940b56e6",
+    "url": "/assets/character-expressions/busan-gangmin/danger.webp"
+  },
+  {
+    "id": "busan-gangmin",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "eacbbc03895464e510a236b703009cbab4854c5551a7c68222f518cf60010921",
+    "url": "/assets/character-expressions/busan-gangmin/call.webp"
+  },
+  {
+    "id": "busan-jaehee",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "5b13a84ae27ed1887e10ed96df044d7a60b11b15f025b87c1a34b9cecbb0c785",
+    "url": "/assets/character-expressions/busan-jaehee/greet.webp"
+  },
+  {
+    "id": "busan-jaehee",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b1c85ed3de4fb909f29c08defbdaffd4dfd464bd6d8a6873cf4360c2f7ab0d63",
+    "url": "/assets/character-expressions/busan-jaehee/riichi.webp"
+  },
+  {
+    "id": "busan-jaehee",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "8520790bdc31456bb675308efc33dff41ff09a459fb3e54c3e77aabe6a953ac3",
+    "url": "/assets/character-expressions/busan-jaehee/win.webp"
+  },
+  {
+    "id": "busan-jaehee",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "fbfa855fce37d93f970af4ed47a4dbc34d25bb4d50a80ada01fd0f3c565f6fe0",
+    "url": "/assets/character-expressions/busan-jaehee/deal-in.webp"
+  },
+  {
+    "id": "busan-jaehee",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b7423bf2957c1d66b3253ce7cebc55692fb3de620e204b6632bd86c321010804",
+    "url": "/assets/character-expressions/busan-jaehee/danger.webp"
+  },
+  {
+    "id": "busan-jaehee",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "c03b51cfe33bf63c115c94e175b8b707a40975bf0698768da245e1b093a62316",
+    "url": "/assets/character-expressions/busan-jaehee/call.webp"
+  },
+  {
+    "id": "busan-mira",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "207037582d9bdf8af55bd28ca5029daabca0be9f4f61c0982a7ef0e2ce6118c0",
+    "url": "/assets/character-expressions/busan-mira/greet.webp"
+  },
+  {
+    "id": "busan-mira",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "4f106fc649715d594b69f01be933ff778a44bcbbc1d74e96bf41b7985b349435",
+    "url": "/assets/character-expressions/busan-mira/riichi.webp"
+  },
+  {
+    "id": "busan-mira",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "7527ee1af9353df189bf17982906b18ff1cb760b25c06108e88647e32e9e22dd",
+    "url": "/assets/character-expressions/busan-mira/win.webp"
+  },
+  {
+    "id": "busan-mira",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b34c3c0a2b8327e4592d1f6005dce36c2adde9e6b1a6b580887dbbb2bb3369c5",
+    "url": "/assets/character-expressions/busan-mira/deal-in.webp"
+  },
+  {
+    "id": "busan-mira",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "e1f3593fa082f30dd82fdd792d04adbaa17be8dadd75814f5d76b010aac85a61",
+    "url": "/assets/character-expressions/busan-mira/danger.webp"
+  },
+  {
+    "id": "busan-mira",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "52c8ff3ed8c3d12710c105e12fa026d706c9a8b3b00ec9f0d3a56eb81ea7dc49",
+    "url": "/assets/character-expressions/busan-mira/call.webp"
+  },
+  {
+    "id": "busan-taeho",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "be01bea74564046270ae23552353412cd3096e8c092cb873e8aedfbaa69adb92",
+    "url": "/assets/character-expressions/busan-taeho/greet.webp"
+  },
+  {
+    "id": "busan-taeho",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "4192a965fda2bf72566a1ee130198afc075b891a97cf91d348c6dbb1297688c1",
+    "url": "/assets/character-expressions/busan-taeho/riichi.webp"
+  },
+  {
+    "id": "busan-taeho",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "f42112930a1bbeafd4d9bcd53526883040a79bb57b0306d4c5dada6088598b9b",
+    "url": "/assets/character-expressions/busan-taeho/win.webp"
+  },
+  {
+    "id": "busan-taeho",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "25e858dd6d66f0da492c4806c8f61582809b4621ac789ce3477f1833b3dc93d3",
+    "url": "/assets/character-expressions/busan-taeho/deal-in.webp"
+  },
+  {
+    "id": "busan-taeho",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "622c4ae6279a56e0d3d702d2afaea79f10a1d9a16a134d15ab788af78d26d58c",
+    "url": "/assets/character-expressions/busan-taeho/danger.webp"
+  },
+  {
+    "id": "busan-taeho",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "0e04f46520a5782a27b88cdeb50a0f2802ba9e41f0d864e62a2288b4e5c46988",
+    "url": "/assets/character-expressions/busan-taeho/call.webp"
+  },
+  {
+    "id": "busan-yuna",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b541c60349ec19e64d7e77225bed4e54cc169e38e457e4c7f47553c38f0e629b",
+    "url": "/assets/character-expressions/busan-yuna/greet.webp"
+  },
+  {
+    "id": "busan-yuna",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "33792157eceaaa21d6d2774148bdb4ebf4bf5e1632fea967bf6a6f02e00da480",
+    "url": "/assets/character-expressions/busan-yuna/riichi.webp"
+  },
+  {
+    "id": "busan-yuna",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "fde9b2b9518cda9b5d136f3e7084ffc01ab66e28314f077699a8b2a472d3fd4a",
+    "url": "/assets/character-expressions/busan-yuna/win.webp"
+  },
+  {
+    "id": "busan-yuna",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "64f86e58ac18ea342bd7c05cd141386c8b789a973e6df16398819bc1ad518338",
+    "url": "/assets/character-expressions/busan-yuna/deal-in.webp"
+  },
+  {
+    "id": "busan-yuna",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "762cf92a5326f0e7d623d233feca972ea250227887bb12e3c02230a63348337a",
+    "url": "/assets/character-expressions/busan-yuna/danger.webp"
+  },
+  {
+    "id": "busan-yuna",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "a7472cf47c9025adb02df359f87fa3165d0b5022dec4a4e118f9dcb38a52e603",
+    "url": "/assets/character-expressions/busan-yuna/call.webp"
+  },
+  {
+    "id": "incheon-ara",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "f6e88fd57eab7e965567b7ceec55d2305af3620cb8ebd71367c00095daddc9f0",
+    "url": "/assets/character-expressions/incheon-ara/greet.webp"
+  },
+  {
+    "id": "incheon-ara",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "692d9113eb9a16761b8accd404d93224e9fb782f3f00f38443894ff11c012116",
+    "url": "/assets/character-expressions/incheon-ara/riichi.webp"
+  },
+  {
+    "id": "incheon-ara",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "0359cb56ab4f5422a68aa25cda3c158a92140c78eba3e7252f5c184004207a93",
+    "url": "/assets/character-expressions/incheon-ara/win.webp"
+  },
+  {
+    "id": "incheon-ara",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "c0c687d7f128753e2642c4f4d29701cede3607c038f352d82bfabd266d72fa87",
+    "url": "/assets/character-expressions/incheon-ara/deal-in.webp"
+  },
+  {
+    "id": "incheon-ara",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "aba037a737fae43af50f7635aeb3bff9c3cfd1cd37af1fa992f2e361de3800be",
+    "url": "/assets/character-expressions/incheon-ara/danger.webp"
+  },
+  {
+    "id": "incheon-ara",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "dc1113c9be78047e802371e8d933cba91cbf922dcb91557f18639f77dfef1419",
+    "url": "/assets/character-expressions/incheon-ara/call.webp"
+  },
+  {
+    "id": "incheon-gunwoo",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "dda996e27f4cd55ef965d7dfb44aaad0c76ee0d1fe16f2c1165769bbe390ec7d",
+    "url": "/assets/character-expressions/incheon-gunwoo/greet.webp"
+  },
+  {
+    "id": "incheon-gunwoo",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "18b53c72212638fb985319096fad6208acb0367eabe26e40b72adc6d7e92f467",
+    "url": "/assets/character-expressions/incheon-gunwoo/riichi.webp"
+  },
+  {
+    "id": "incheon-gunwoo",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "36c6bed60f29be5c27a70e2d26886c9740bf353116090866bc50db79c5b75c4f",
+    "url": "/assets/character-expressions/incheon-gunwoo/win.webp"
+  },
+  {
+    "id": "incheon-gunwoo",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "4c0b2cffd7ef3ba4f738f841e9f735d833fb75ff31146717df46c0a6dfbe9184",
+    "url": "/assets/character-expressions/incheon-gunwoo/deal-in.webp"
+  },
+  {
+    "id": "incheon-gunwoo",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "5218076ed3d42387a847a9a7115816afe2cd0c3ff6beb4da426ace76871ce048",
+    "url": "/assets/character-expressions/incheon-gunwoo/danger.webp"
+  },
+  {
+    "id": "incheon-gunwoo",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "23e843877a493be53077b39b94eb70221c63ad0bec11c6dc26ea3c3fe12bce26",
+    "url": "/assets/character-expressions/incheon-gunwoo/call.webp"
+  },
+  {
+    "id": "incheon-jiho",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6890f0c38b15ac75a68a5fe129e107eed080e707d1dd244b068060f64c04549f",
+    "url": "/assets/character-expressions/incheon-jiho/greet.webp"
+  },
+  {
+    "id": "incheon-jiho",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "ea76e8649933d665d6f4c8a5ef9200d607a3f7c60161147d3c53b57a0f93ca9d",
+    "url": "/assets/character-expressions/incheon-jiho/riichi.webp"
+  },
+  {
+    "id": "incheon-jiho",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "60d9a50aefa772be453ac66b459e58654b3576edfa464d84eba4bbd647b4787a",
+    "url": "/assets/character-expressions/incheon-jiho/win.webp"
+  },
+  {
+    "id": "incheon-jiho",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6c79a88c0c85f7e369b284b7d26e04d0798a3cb4494c953da26fbbb673011c6d",
+    "url": "/assets/character-expressions/incheon-jiho/deal-in.webp"
+  },
+  {
+    "id": "incheon-jiho",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "deb41b9caabdac7e2d6bfcfd3b0d6d0eb496250cc4c55bd5eafca00710b1f554",
+    "url": "/assets/character-expressions/incheon-jiho/danger.webp"
+  },
+  {
+    "id": "incheon-jiho",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "884d3c723d954e5ff124037fab75406c54b6a273903f7fffc122ac0c6ccdbf75",
+    "url": "/assets/character-expressions/incheon-jiho/call.webp"
+  },
+  {
+    "id": "incheon-nari",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "87fdd3831302f6d095d75dcba1ebfcd4e95fc2f353b59c616b6eb3269275e2b3",
+    "url": "/assets/character-expressions/incheon-nari/greet.webp"
+  },
+  {
+    "id": "incheon-nari",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "30b5d44abaa936b72e82140bfadd5592a699538bfd68c162fabde694c1b6bcc5",
+    "url": "/assets/character-expressions/incheon-nari/riichi.webp"
+  },
+  {
+    "id": "incheon-nari",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "d8c0917c70be01ad1bd05f4e2ffed16c60e6b7acf4c42dc88f9b5033755e5cbb",
+    "url": "/assets/character-expressions/incheon-nari/win.webp"
+  },
+  {
+    "id": "incheon-nari",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "2b71253b64f3e1353e1556db3bda0837d231a4eda5d1e7a15a5212ea35d23958",
+    "url": "/assets/character-expressions/incheon-nari/deal-in.webp"
+  },
+  {
+    "id": "incheon-nari",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "90f88136fe8680608cc2fa7298793ca0b6de0dd8594b5f44d280a8ca049d6913",
+    "url": "/assets/character-expressions/incheon-nari/danger.webp"
+  },
+  {
+    "id": "incheon-nari",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "0a3d8c179ddf0843365594764a30ba66ec63880da5b8ccfcc44562350256f451",
+    "url": "/assets/character-expressions/incheon-nari/call.webp"
+  },
+  {
+    "id": "incheon-serin",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "d16bc4db773ac3d634b724159913a947e1b70f1290bce932fdbeaebb2ec2123c",
+    "url": "/assets/character-expressions/incheon-serin/greet.webp"
+  },
+  {
+    "id": "incheon-serin",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "382dc8dca9db1eccfe7b143c47b42ff019e7226fc3f739020e8bf4df3a75fae5",
+    "url": "/assets/character-expressions/incheon-serin/riichi.webp"
+  },
+  {
+    "id": "incheon-serin",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "64d2e5eff2c3c9f45a52b9ff19e123dee6dbbcd8b497ac79195cf359f5150563",
+    "url": "/assets/character-expressions/incheon-serin/win.webp"
+  },
+  {
+    "id": "incheon-serin",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6d941769f229b975c8558affa18a37a63a45cc463e8d13a22be5ccf4af086f4d",
+    "url": "/assets/character-expressions/incheon-serin/deal-in.webp"
+  },
+  {
+    "id": "incheon-serin",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "3ecd6a8a735ab73ddbd864779d5d82833dc324dce5478f393960787ea3493dcc",
+    "url": "/assets/character-expressions/incheon-serin/danger.webp"
+  },
+  {
+    "id": "incheon-serin",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6f8f6513947ff61fbd407325d5c83ec8d18abc8ab27b10065c1bde914d7d880c",
+    "url": "/assets/character-expressions/incheon-serin/call.webp"
+  },
+  {
+    "id": "incheon-taesung",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "71fb271aad383274fc714cb8c026aa3c246301452622e3339d15e5b90e99d7d2",
+    "url": "/assets/character-expressions/incheon-taesung/greet.webp"
+  },
+  {
+    "id": "incheon-taesung",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "14f5d22f7967bc2ce95fdacc3a317b16e96efa0a567b3e3714d6e61a1c7731ec",
+    "url": "/assets/character-expressions/incheon-taesung/riichi.webp"
+  },
+  {
+    "id": "incheon-taesung",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "c23ae36f7cb66d8e9d99c6459069dca5e5f7b9179c97b835d1552e8d78709332",
+    "url": "/assets/character-expressions/incheon-taesung/win.webp"
+  },
+  {
+    "id": "incheon-taesung",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "9e291c851fcf82d9aab254bdbf3210b71dafcdc47e423dd7ebf9f9943e77c1fb",
+    "url": "/assets/character-expressions/incheon-taesung/deal-in.webp"
+  },
+  {
+    "id": "incheon-taesung",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "c0d1b0b49a303badd4ab751a8185bd1c5b638dbf46a7a003318a7c1b70d8794c",
+    "url": "/assets/character-expressions/incheon-taesung/danger.webp"
+  },
+  {
+    "id": "incheon-taesung",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "8e3f4dfbf2d3a075e72e1d19bd57fa419d4d13c53e5371d6ef666a51fc440b97",
+    "url": "/assets/character-expressions/incheon-taesung/call.webp"
+  },
+  {
+    "id": "osaka-akari",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "f045487a536dc839081683918de2a1487abe320c9ddbb5e0d7b0446dae790b63",
+    "url": "/assets/character-expressions/osaka-akari/greet.webp"
+  },
+  {
+    "id": "osaka-akari",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "30b8c5894b825f36232795744cc469e20c5817c0958fbddb1de482088fa97f92",
+    "url": "/assets/character-expressions/osaka-akari/riichi.webp"
+  },
+  {
+    "id": "osaka-akari",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "89fac5a1f4760097d71fd4908ed839692b32a70b9538d025ee0f43dfa1a598da",
+    "url": "/assets/character-expressions/osaka-akari/win.webp"
+  },
+  {
+    "id": "osaka-akari",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "ec986f5bc083981eb68bf7573bece06b1132d6f72ade082f0dab95e83cf959d3",
+    "url": "/assets/character-expressions/osaka-akari/deal-in.webp"
+  },
+  {
+    "id": "osaka-akari",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "73bd97a159c6fdb600f47477dafbc6dc397c942425c4ee2b525758c5a291ec15",
+    "url": "/assets/character-expressions/osaka-akari/danger.webp"
+  },
+  {
+    "id": "osaka-akari",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6c0e2e96817d82e1768c5daf103cd07421431433f69b0e82ea7ddee05f7eaca5",
+    "url": "/assets/character-expressions/osaka-akari/call.webp"
+  },
+  {
+    "id": "osaka-chihiro",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "61832b61574ccdb0f4760bae3c0c0186e366a2d60192bd1472cc6707d23bffce",
+    "url": "/assets/character-expressions/osaka-chihiro/greet.webp"
+  },
+  {
+    "id": "osaka-chihiro",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "e0f671763f9021712ab45697beb34af369f26f1a17c978eba736a7cbae1042e6",
+    "url": "/assets/character-expressions/osaka-chihiro/riichi.webp"
+  },
+  {
+    "id": "osaka-chihiro",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "f1f3ad0a01e08d81cc54544d5ae6694df9f1cc62d55011d8a7be51057dedea29",
+    "url": "/assets/character-expressions/osaka-chihiro/win.webp"
+  },
+  {
+    "id": "osaka-chihiro",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "0465b12ce8f25b4807afba8b834be85c25a8c0b17163853f86096462ecf4869a",
+    "url": "/assets/character-expressions/osaka-chihiro/deal-in.webp"
+  },
+  {
+    "id": "osaka-chihiro",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "5c832662a913838cc551acb333bb568c3f1650e34c983319890fa0cdd44b281c",
+    "url": "/assets/character-expressions/osaka-chihiro/danger.webp"
+  },
+  {
+    "id": "osaka-chihiro",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "cca9975e25bed9c09673609f68681154dcf20d67bba4ca83efceb4f6e37da492",
+    "url": "/assets/character-expressions/osaka-chihiro/call.webp"
+  },
+  {
+    "id": "osaka-haruto",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "98f0fa62ef31d165596f8a81214bcddaf3ed59ace86c987db63e9dbd38e180b6",
+    "url": "/assets/character-expressions/osaka-haruto/greet.webp"
+  },
+  {
+    "id": "osaka-haruto",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "9db6e90aec0fd14980872f886b766e967387667f6a8b6bdd4be313fc34674756",
+    "url": "/assets/character-expressions/osaka-haruto/riichi.webp"
+  },
+  {
+    "id": "osaka-haruto",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "ae658f7bb869ff033cbd980bd0bc709dec6a0bee4c40072d35e533bdded16878",
+    "url": "/assets/character-expressions/osaka-haruto/win.webp"
+  },
+  {
+    "id": "osaka-haruto",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "c67e01a6819ed1df0b1c21c03bdfd64e67a91eb6b14c10f62fa78a33458ceeb6",
+    "url": "/assets/character-expressions/osaka-haruto/deal-in.webp"
+  },
+  {
+    "id": "osaka-haruto",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6f6779c972c06a1e3b600e8f8924bc4f384c659e3500a9ab3f5c19c6525ae761",
+    "url": "/assets/character-expressions/osaka-haruto/danger.webp"
+  },
+  {
+    "id": "osaka-haruto",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "d4040c563d221ce5d6201fb10c41ff14e2125f7a19b713258b632c098126dbdf",
+    "url": "/assets/character-expressions/osaka-haruto/call.webp"
+  },
+  {
+    "id": "osaka-ren",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6c9aff79c17775673dec84f454cb233aa94220fc3cb75fc9324b815f0ffc2353",
+    "url": "/assets/character-expressions/osaka-ren/greet.webp"
+  },
+  {
+    "id": "osaka-ren",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "5258d6b8dca405614b0388102ba8e4b96610d9055e518b03afcfb59b64e6a28f",
+    "url": "/assets/character-expressions/osaka-ren/riichi.webp"
+  },
+  {
+    "id": "osaka-ren",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "9c4574dcb6cc6e052d68edf433a4a4f8e8b2d273b1641b86cd30c84ec8f90c13",
+    "url": "/assets/character-expressions/osaka-ren/win.webp"
+  },
+  {
+    "id": "osaka-ren",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "3621ba7930cc08d2e6b1de20ca95e480025f8312c4926d3da4f1e2769360b166",
+    "url": "/assets/character-expressions/osaka-ren/deal-in.webp"
+  },
+  {
+    "id": "osaka-ren",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "82018d514cf94d1cc9f2fd521c97b1a0dcce3255449896de5c9a4fc0e5c716e6",
+    "url": "/assets/character-expressions/osaka-ren/danger.webp"
+  },
+  {
+    "id": "osaka-ren",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "29a0d57ea268e31ccae75eebf94a45f313813582f77bbd25adf27664c2e8b26e",
+    "url": "/assets/character-expressions/osaka-ren/call.webp"
+  },
+  {
+    "id": "osaka-ryu",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "2e512d86448e7223f564ebd0f0839b815b24d8a0ca07dcd7a8ee078f7642aadd",
+    "url": "/assets/character-expressions/osaka-ryu/greet.webp"
+  },
+  {
+    "id": "osaka-ryu",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "0a68b23c7ebed6b32e50665cee8d294e1c4728cfe3f7083fc7c427c70050afd3",
+    "url": "/assets/character-expressions/osaka-ryu/riichi.webp"
+  },
+  {
+    "id": "osaka-ryu",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "7181f96fd2b3917cf39aec2e83fa7423fd2a44b1808f3e497c4c90ae43522450",
+    "url": "/assets/character-expressions/osaka-ryu/win.webp"
+  },
+  {
+    "id": "osaka-ryu",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "05188020fa2846de8351af9bd4633d602698562e1e24cd67cbfc3c826e135455",
+    "url": "/assets/character-expressions/osaka-ryu/deal-in.webp"
+  },
+  {
+    "id": "osaka-ryu",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "d3d0320816e52998341672eb13ce0273dfd6fb2a5b27a5138e63c03fb31ae766",
+    "url": "/assets/character-expressions/osaka-ryu/danger.webp"
+  },
+  {
+    "id": "osaka-ryu",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "d25e27dd8f8283c3414809d222e980cd78e9ca9256888853e6cd2f3d5a2fdb24",
+    "url": "/assets/character-expressions/osaka-ryu/call.webp"
+  },
+  {
+    "id": "osaka-yui",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "d90fea096a75851654e6af3b52cb9f037906894bf50d3625eb658da47309f98b",
+    "url": "/assets/character-expressions/osaka-yui/greet.webp"
+  },
+  {
+    "id": "osaka-yui",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b6a6652a2133a8340733e3600f6817885a99da6b6966949edeea570b5675b1f5",
+    "url": "/assets/character-expressions/osaka-yui/riichi.webp"
+  },
+  {
+    "id": "osaka-yui",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "f3c129556d17fae1de0e5a114f3eeb6cea4e6bee6e6e6c52febd6455741f861d",
+    "url": "/assets/character-expressions/osaka-yui/win.webp"
+  },
+  {
+    "id": "osaka-yui",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b0efb055912a070214abefa9ca4e5ad9458c9f5933267a9c2fdaff4591180bdb",
+    "url": "/assets/character-expressions/osaka-yui/deal-in.webp"
+  },
+  {
+    "id": "osaka-yui",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "9da49dab89e0b3a7d66e5de498fef34a757e0c0062a8b75f60af57c25d2d6221",
+    "url": "/assets/character-expressions/osaka-yui/danger.webp"
+  },
+  {
+    "id": "osaka-yui",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "9738185a2fc23cef7abf3ef3183b072177186b77675e0c778be8bbfbb5d3237e",
+    "url": "/assets/character-expressions/osaka-yui/call.webp"
+  },
+  {
+    "id": "seoul-dohyun",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "bbfc8a494216b481c14d3796f5afbd4e32088c0f1d149feec610e5beec612580",
+    "url": "/assets/character-expressions/seoul-dohyun/greet.webp"
+  },
+  {
+    "id": "seoul-dohyun",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "46907a80a0183627462a773a2ca2d438ebaf8829ad65b1f95129842fee23981f",
+    "url": "/assets/character-expressions/seoul-dohyun/riichi.webp"
+  },
+  {
+    "id": "seoul-dohyun",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "cb01917f0d7d54131e2011a6dd9e22ebefa2b587fdfda820a7cdf21c62638553",
+    "url": "/assets/character-expressions/seoul-dohyun/win.webp"
+  },
+  {
+    "id": "seoul-dohyun",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "fa2ff806853dfdd327f027b9d5b28b28efa4ecf5272ff730e7ee3c38ec0c625e",
+    "url": "/assets/character-expressions/seoul-dohyun/deal-in.webp"
+  },
+  {
+    "id": "seoul-dohyun",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "94cbbd747ddddffbbd514f3791402a9ff522a4662f53ea897cbe167c885b2fad",
+    "url": "/assets/character-expressions/seoul-dohyun/danger.webp"
+  },
+  {
+    "id": "seoul-dohyun",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "4f6ea7abc05394b4ea4fcb50d4c544caa7ffcf11a6a23ded8b9f5649fb8bc96d",
+    "url": "/assets/character-expressions/seoul-dohyun/call.webp"
+  },
+  {
+    "id": "seoul-hyeon",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "c03b1096c73e2848cb2afe81383a50408bcab3dbd4bf6d400c50ab2c5dc5c4a6",
+    "url": "/assets/character-expressions/seoul-hyeon/greet.webp"
+  },
+  {
+    "id": "seoul-hyeon",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "47c103def41f7111dd5d1b7edcb8175c7beb4e7665b837e53b736a20047bada7",
+    "url": "/assets/character-expressions/seoul-hyeon/riichi.webp"
+  },
+  {
+    "id": "seoul-hyeon",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "effdb2d82d9fbbf98e909d808520d145e2215bcd139214cda61c83afdb0b0062",
+    "url": "/assets/character-expressions/seoul-hyeon/win.webp"
+  },
+  {
+    "id": "seoul-hyeon",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "1b9059563b85bd8281749956e4b0b05229dd53720d261f8107d2b5012a4990ea",
+    "url": "/assets/character-expressions/seoul-hyeon/deal-in.webp"
+  },
+  {
+    "id": "seoul-hyeon",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b8fd93fd0d28cab6f7708b5c4cdb61a631cffa76f3a174717a96844358b0b062",
+    "url": "/assets/character-expressions/seoul-hyeon/danger.webp"
+  },
+  {
+    "id": "seoul-hyeon",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "2da196d0c96ebca9a33ef4a700b0874c386bd7e10eb08f6a3530ccac4416ba18",
+    "url": "/assets/character-expressions/seoul-hyeon/call.webp"
+  },
+  {
+    "id": "seoul-jun",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b1657bc13ef0113fb5fc852bc6608be3d27c5d6103b566f9f7e6f073b2acd6e6",
+    "url": "/assets/character-expressions/seoul-jun/greet.webp"
+  },
+  {
+    "id": "seoul-jun",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "94b19484a5810a889d29906f967d8a2cb4631874ff4693845298b4d788171a70",
+    "url": "/assets/character-expressions/seoul-jun/riichi.webp"
+  },
+  {
+    "id": "seoul-jun",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "ebe96725b14318390efdad886188641b02af3a3c9865861bbb12a270ec3c2ad5",
+    "url": "/assets/character-expressions/seoul-jun/win.webp"
+  },
+  {
+    "id": "seoul-jun",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b09c6f72de9c8434d3007d398839ddb0be9af152f0ce56c2e64abd3366ca7bb4",
+    "url": "/assets/character-expressions/seoul-jun/deal-in.webp"
+  },
+  {
+    "id": "seoul-jun",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "16eee4f5f746c035a5ce1da84f35681161d09b0dbc2b3d90200a38d0909750db",
+    "url": "/assets/character-expressions/seoul-jun/danger.webp"
+  },
+  {
+    "id": "seoul-jun",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "e8780c0c66eec77582f3952fa33e1f31f18ecb3b1c791249e9cf05742ea3cd2c",
+    "url": "/assets/character-expressions/seoul-jun/call.webp"
+  },
+  {
+    "id": "seoul-minji",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "c38c31f0fd1a31380fedbcfb16a46f4a771f11e24038040875e7f75e7fec2838",
+    "url": "/assets/character-expressions/seoul-minji/greet.webp"
+  },
+  {
+    "id": "seoul-minji",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "8bcbca6142cdb70763b60641189600a03c07a06efb77bf00240dc83ad69666cc",
+    "url": "/assets/character-expressions/seoul-minji/riichi.webp"
+  },
+  {
+    "id": "seoul-minji",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "ced4b93179cd6e1517d60a049943865a4d0f4a66b24ae7fa03175dacad498e1f",
+    "url": "/assets/character-expressions/seoul-minji/win.webp"
+  },
+  {
+    "id": "seoul-minji",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "bf911a776f26abd5611e36d2e825c97c4b376351420a15d1a32c0d650378c844",
+    "url": "/assets/character-expressions/seoul-minji/deal-in.webp"
+  },
+  {
+    "id": "seoul-minji",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "fcf412b9e25e1649d1e7e80ac95f8cda499e54df9c27daa71ff162b566427f25",
+    "url": "/assets/character-expressions/seoul-minji/danger.webp"
+  },
+  {
+    "id": "seoul-minji",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "8d2a4f2ca4f8f46faa18e8ca67c598942c889376f4a062f595b6657131a9c5cd",
+    "url": "/assets/character-expressions/seoul-minji/call.webp"
+  },
+  {
+    "id": "seoul-seoyeon",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "0d931bf8ce3274e88dd9820add85a4035816cdbc0dd31e4e901efa23a3592ec6",
+    "url": "/assets/character-expressions/seoul-seoyeon/greet.webp"
+  },
+  {
+    "id": "seoul-seoyeon",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "ac075b0b16f5c0330f041892a808bda20214c2442bf11e93089a03e6b5a82725",
+    "url": "/assets/character-expressions/seoul-seoyeon/riichi.webp"
+  },
+  {
+    "id": "seoul-seoyeon",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "0f3f79ad031d2c27193eee10facdbc5ffe98f0b3b10ace1c4887732a35186932",
+    "url": "/assets/character-expressions/seoul-seoyeon/win.webp"
+  },
+  {
+    "id": "seoul-seoyeon",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "4d2f54c72528a176d7f8b5b2e584223a771e222bd853e70105e7fd6b19dd8aa1",
+    "url": "/assets/character-expressions/seoul-seoyeon/deal-in.webp"
+  },
+  {
+    "id": "seoul-seoyeon",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "eb262af8e8ee552f8669af6df596b840344e7c39f68818c1ff0be29881ed299b",
+    "url": "/assets/character-expressions/seoul-seoyeon/danger.webp"
+  },
+  {
+    "id": "seoul-seoyeon",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "97a2b019eec3d328d3c0e21e71e880eab6a846393f84124d1eee24a37370ac31",
+    "url": "/assets/character-expressions/seoul-seoyeon/call.webp"
+  },
+  {
+    "id": "seoul-sora",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "0c7f7a6c4d9b75bc4a287d65d000e070b2d6dc847dea6c9a1dc001dd58025ac7",
+    "url": "/assets/character-expressions/seoul-sora/greet.webp"
+  },
+  {
+    "id": "seoul-sora",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b550514c920caeab22a26a4f9e66568d60adedd45129c834d788cc526517157e",
+    "url": "/assets/character-expressions/seoul-sora/riichi.webp"
+  },
+  {
+    "id": "seoul-sora",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "7a338ef7a433f3bc97914029847d6f9fa78057aa1943e991316a3fcff720896a",
+    "url": "/assets/character-expressions/seoul-sora/win.webp"
+  },
+  {
+    "id": "seoul-sora",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "adea0eea1cad670a64fa0f6ff4d2f5acfbafa4395121b7ddd7b230f8bf26a83c",
+    "url": "/assets/character-expressions/seoul-sora/deal-in.webp"
+  },
+  {
+    "id": "seoul-sora",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6171ca65524bf9059d2d22953c78e52b160317cf8603e8c36299555995641bc6",
+    "url": "/assets/character-expressions/seoul-sora/danger.webp"
+  },
+  {
+    "id": "seoul-sora",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "eaeb6152958bcdb78bd60b7433734dedb739056fd30525207dc22bde72340972",
+    "url": "/assets/character-expressions/seoul-sora/call.webp"
+  },
+  {
+    "id": "tokyo-kai",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "a190f053291b27b3fee32455c922dfd955a8cc511d7b94187529dc18afa81eff",
+    "url": "/assets/character-expressions/tokyo-kai/greet.webp"
+  },
+  {
+    "id": "tokyo-kai",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "a42c2a3eda6aff701a77f773c7e02ab8aea660147b56bba1d9361f90ba9a657c",
+    "url": "/assets/character-expressions/tokyo-kai/riichi.webp"
+  },
+  {
+    "id": "tokyo-kai",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6b08f3d4c1fda9ee97c5eef5344fcb6f9b8d802d8ce7720b4724722c5eb05c97",
+    "url": "/assets/character-expressions/tokyo-kai/win.webp"
+  },
+  {
+    "id": "tokyo-kai",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "be75bcb98face3c0b2ba97c3880ecd2d427368ac21284ffadb7e59c3a1af0dc0",
+    "url": "/assets/character-expressions/tokyo-kai/deal-in.webp"
+  },
+  {
+    "id": "tokyo-kai",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "1453f4f2a784bcbb259bf9da6089614b2371d4ee3de0959893a9ccddfffa27a8",
+    "url": "/assets/character-expressions/tokyo-kai/danger.webp"
+  },
+  {
+    "id": "tokyo-kai",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "c7980903e54308da9436f5bd1eb5926fe81f1679b83a00abc60942026ac910ef",
+    "url": "/assets/character-expressions/tokyo-kai/call.webp"
+  },
+  {
+    "id": "tokyo-mei",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "3bb66d0651c44afe238802b49b2a6459d4dd4c539e6d8e7bd80cc88ec9ceca55",
+    "url": "/assets/character-expressions/tokyo-mei/greet.webp"
+  },
+  {
+    "id": "tokyo-mei",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "cc74b2c1285345e17b1ec2072404bdff08509b0ff3b1c00446433d7a40512abc",
+    "url": "/assets/character-expressions/tokyo-mei/riichi.webp"
+  },
+  {
+    "id": "tokyo-mei",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "16f51103d7b07654c2509f41f9e3cc0e563395bc20e342a0980ab90498532069",
+    "url": "/assets/character-expressions/tokyo-mei/win.webp"
+  },
+  {
+    "id": "tokyo-mei",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "982adef245e0c11246c5e28aaa90a4e45428f1c12f5ad2b9306657499ad97eda",
+    "url": "/assets/character-expressions/tokyo-mei/deal-in.webp"
+  },
+  {
+    "id": "tokyo-mei",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "5a94890156245b92ab4a38849865d9f9b7911faec32e67cee1042ef90fb4a24e",
+    "url": "/assets/character-expressions/tokyo-mei/danger.webp"
+  },
+  {
+    "id": "tokyo-mei",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "1e3aaa4e160a47cf79bc5a6d35cdb75c0b8684078378476173fa23b6bec300fa",
+    "url": "/assets/character-expressions/tokyo-mei/call.webp"
+  },
+  {
+    "id": "tokyo-reika",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b96bb3e8d72a40dcf8c7a71828c988594133faf1c3f49e4a5eaf55fb92b1e95a",
+    "url": "/assets/character-expressions/tokyo-reika/greet.webp"
+  },
+  {
+    "id": "tokyo-reika",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "0974647256c8ac4df0e6c0263345b039d0ac90598d548e68d93151a39fb53576",
+    "url": "/assets/character-expressions/tokyo-reika/riichi.webp"
+  },
+  {
+    "id": "tokyo-reika",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "19b5dff491c8598071ae661475cafb2ab9784669af0ec515fc33d093e27787a9",
+    "url": "/assets/character-expressions/tokyo-reika/win.webp"
+  },
+  {
+    "id": "tokyo-reika",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "a79f1f1409948527b3b51b2024e503aa9475a9e196ddd8a2a50f9cba0a9d72d5",
+    "url": "/assets/character-expressions/tokyo-reika/deal-in.webp"
+  },
+  {
+    "id": "tokyo-reika",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "4a15b5f84f10a71dd3b2616e325f552534096cd80f486f7b8f026413bfd685b5",
+    "url": "/assets/character-expressions/tokyo-reika/danger.webp"
+  },
+  {
+    "id": "tokyo-reika",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "92ec540ca43d6e34b8f79b8c119ba4006d93d768ba486db92bdfd0d3dde28831",
+    "url": "/assets/character-expressions/tokyo-reika/call.webp"
+  },
+  {
+    "id": "tokyo-rina",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "3f521951dff1995da47517735c54510b21190eb1024e1f591b0410eeb08d7a7d",
+    "url": "/assets/character-expressions/tokyo-rina/greet.webp"
+  },
+  {
+    "id": "tokyo-rina",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "f6d492be163bac8392c55fab6daad53b62729a1763061a980e0bfb3c4e8326bb",
+    "url": "/assets/character-expressions/tokyo-rina/riichi.webp"
+  },
+  {
+    "id": "tokyo-rina",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "3c45363b8334bcead928fdc9c409aeae4007d38e295984b36319ccc219860748",
+    "url": "/assets/character-expressions/tokyo-rina/win.webp"
+  },
+  {
+    "id": "tokyo-rina",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "b618dfe0321be5d2673de9c0d874c2034602186838bd2493e537ce5d528c86e3",
+    "url": "/assets/character-expressions/tokyo-rina/deal-in.webp"
+  },
+  {
+    "id": "tokyo-rina",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "76479aee3babe4fd5b5c2dba1c91754bedcdc1f58ff9c46d63114dd575c45946",
+    "url": "/assets/character-expressions/tokyo-rina/danger.webp"
+  },
+  {
+    "id": "tokyo-rina",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6e3b294ac722ef69b777ad37a638c622983645cdc6dff98b92d7306c92a7da2b",
+    "url": "/assets/character-expressions/tokyo-rina/call.webp"
+  },
+  {
+    "id": "tokyo-shun",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "97f3bc61c9b3081472f0888a22f542364e2adc305a8cf2ad8ff06370c4f42223",
+    "url": "/assets/character-expressions/tokyo-shun/greet.webp"
+  },
+  {
+    "id": "tokyo-shun",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "1045032b2a3fd7ebd522851562ca28ebab148df7287b5249667cb3dc26448e9e",
+    "url": "/assets/character-expressions/tokyo-shun/riichi.webp"
+  },
+  {
+    "id": "tokyo-shun",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6de0e14d3cd56d8caa5d8b92afd54f8fc8494176ef2c4c5e800daf5bef610498",
+    "url": "/assets/character-expressions/tokyo-shun/win.webp"
+  },
+  {
+    "id": "tokyo-shun",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "9706bab8de0f305c13b5b8185cb1c30557ab3b44b367da604b67ca99aac95f63",
+    "url": "/assets/character-expressions/tokyo-shun/deal-in.webp"
+  },
+  {
+    "id": "tokyo-shun",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "f3aa65608794e20fc9dc93fa11b685b4f618dcc8830bd8de20f3890e97865ee9",
+    "url": "/assets/character-expressions/tokyo-shun/danger.webp"
+  },
+  {
+    "id": "tokyo-shun",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "44f8ddf59a5f06eb2895bd79430e4f600cb36a5d76cd0c8cf666fcabeaa2693a",
+    "url": "/assets/character-expressions/tokyo-shun/call.webp"
+  },
+  {
+    "id": "tokyo-sota",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "2373d3a35f38ea37a675f3ac584b5183680df1b25649fea4a2b5406361bc7413",
+    "url": "/assets/character-expressions/tokyo-sota/greet.webp"
+  },
+  {
+    "id": "tokyo-sota",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "0d04d3b7017ce92f9b1b9f454ee9377ac625b3de5fded90f6a9a51011c8241e4",
+    "url": "/assets/character-expressions/tokyo-sota/riichi.webp"
+  },
+  {
+    "id": "tokyo-sota",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "7eaf60f19755b66f4327d59e6e0f839d48b8709b86875844e175d7a58396e0d0",
+    "url": "/assets/character-expressions/tokyo-sota/win.webp"
+  },
+  {
+    "id": "tokyo-sota",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "f11941ab4e9445385f7c63029ee6b36dbbfeaae5b209f4388cb442079a800618",
+    "url": "/assets/character-expressions/tokyo-sota/deal-in.webp"
+  },
+  {
+    "id": "tokyo-sota",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "685bd504c7ac584eca10062cc9bbd6335a5dcd29f8140c9b929d2234b0e95964",
+    "url": "/assets/character-expressions/tokyo-sota/danger.webp"
+  },
+  {
+    "id": "tokyo-sota",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "af3e77f8e72f5f0deb6b945e84850b91785d45347caaf15da7b7f78bee3c7a4a",
+    "url": "/assets/character-expressions/tokyo-sota/call.webp"
+  }
+]
