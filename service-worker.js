@@ -1,14 +1,25 @@
-/* global self, caches, fetch, URL, Response */
+/* global self, caches, fetch, URL, Request, Response */
 
 // CACHE_NAME 끝의 빌드 해시와 BUILD_ASSETS는 빌드 시 vite-plugin-sw-precache가 주입한다.
 // 개발 중(주입 전)에는 앱 셸만 캐시한다.
-const CACHE_NAME = "ippatsu-shell-mumqo6ib";
+const CACHE_NAME = "ippatsu-shell-munztqn6";
 const APP_SHELL = ["/", "/index.html", "/manifest.webmanifest", "/icon.svg"];
-const BUILD_ASSETS = ["/assets/assist-discard-Cu_PWE1I.js","/assets/board3d-BCPCMuZs.js","/assets/config-BtTgxqlr.js","/assets/glossary-862sD47r.js","/assets/main-CJWLKALw.css","/assets/main-DBOtRwoi.js","/assets/mistake-scan.worker-CxqIwB0l.js","/assets/mpa-return-C3KhUZt6.js","/assets/number-field-CbKGqjkh.js","/assets/rules-DIp7Pb7V.js","/assets/simulator-CT1lo6CG.js","/assets/src-DwvKJKhv.js","/assets/tile-face-DtZDaSy9.js","/assets/tokens-8J5-sZ7r.js","/assets/tokens-Bg8J1GxN.css"];
+const BUILD_ASSETS = ["/assets/assist-discard-Cu_PWE1I.js","/assets/board3d-BIjK9MUv.js","/assets/config-Bg2WDgvS.js","/assets/glossary-DEb7niXF.js","/assets/main-BFV3ESUu.css","/assets/main-C8DaV5km.js","/assets/mistake-scan.worker-CxqIwB0l.js","/assets/mpa-return-C3KhUZt6.js","/assets/number-field-CbKGqjkh.js","/assets/rules-C1zw_8Dz.js","/assets/simulator-EjrKAbNK.js","/assets/src-CEkHcmuN.js","/assets/tile-face-x6qHXxTR.js","/assets/tokens-Bg8J1GxN.css","/assets/tokens-XFclrpUk.js","/assets/tiles/Back.svg","/assets/tiles/Chun.svg","/assets/tiles/Front.svg","/assets/tiles/Haku.svg","/assets/tiles/Hatsu.svg","/assets/tiles/Man1.svg","/assets/tiles/Man2.svg","/assets/tiles/Man3.svg","/assets/tiles/Man4.svg","/assets/tiles/Man5-Dora.svg","/assets/tiles/Man5.svg","/assets/tiles/Man6.svg","/assets/tiles/Man7.svg","/assets/tiles/Man8.svg","/assets/tiles/Man9.svg","/assets/tiles/Nan.svg","/assets/tiles/Pei.svg","/assets/tiles/Pin1.svg","/assets/tiles/Pin2.svg","/assets/tiles/Pin3.svg","/assets/tiles/Pin4.svg","/assets/tiles/Pin5-Dora.svg","/assets/tiles/Pin5.svg","/assets/tiles/Pin6.svg","/assets/tiles/Pin7.svg","/assets/tiles/Pin8.svg","/assets/tiles/Pin9.svg","/assets/tiles/Shaa.svg","/assets/tiles/Sou1.svg","/assets/tiles/Sou2.svg","/assets/tiles/Sou3.svg","/assets/tiles/Sou4.svg","/assets/tiles/Sou5-Dora.svg","/assets/tiles/Sou5.svg","/assets/tiles/Sou6.svg","/assets/tiles/Sou7.svg","/assets/tiles/Sou8.svg","/assets/tiles/Sou9.svg","/assets/tiles/Ton.svg"];
+
+// 설치·셸·문서 요청이 **HTTP 캐시를 건너뛰게** 하는 모드(2026-09-30 T7 — `qa/pwa-offline.mjs` A5·A7).
+// 배포처(GitHub Pages)는 모든 응답에 `max-age=600`을 단다. 마지막 방문 뒤 10분 안에 배포가 나면 브라우저는
+// 옛 `index.html`을 아직 «신선»하다고 보고 **네트워크에 안 묻는다** — 그래서 새 서비스워커의 설치가 옛 셸을
+// 새 캐시에 담았고(실측: 새 캐시의 `/index.html`이 옛 번들 이름을 가리켰다), 옛 캐시는 활성화 때 지워지므로
+// 그 뒤 오프라인 콜드스타트는 없는 번들을 찾다 **허브조차 못 띄웠다**(번들 실패 10).
+//  · 설치: `reload` — HTTP 캐시를 안 읽고 서버에서 받는다(설치는 배포마다 한 번이다).
+//  · 셸·문서: `no-cache` — 매번 서버에 «바뀌었나»만 묻는다(ETag 304라 본문은 안 온다). 해시 번들은 내용 불변이라 그대로 둔다.
+const FRESH_INSTALL = { cache: "reload" };
+const FRESH_PAGE = { cache: "no-cache" };
 
 self.addEventListener("install", (event) => {
   // 해시된 JS/CSS 번들까지 프리캐시 → 온라인 방문 없이도 오프라인 콜드스타트가 동작한다.
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll([...APP_SHELL, ...BUILD_ASSETS])));
+  const urls = [...APP_SHELL, ...BUILD_ASSETS];
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(urls.map((u) => new Request(u, FRESH_INSTALL)))));
   self.skipWaiting();
 });
 
@@ -53,7 +64,10 @@ self.addEventListener("fetch", (event) => {
       // 정적 문서는 해시가 없어 배포로 내용이 바뀔 수 있다 → 네트워크 우선 + 자체 키로 캐시(오프라인 폴백).
       if (kind === "doc") {
         try {
-          const fresh = await fetch(request);
+          // ⚠ URL로 새로 부르지 말고 **원 요청을 복제**한다 — 탐색 요청의 `redirect: manual`이 그대로 가야
+          //   배포처의 슬래시 붙이기(301 `/ko/learn` → `/ko/learn/`)가 탐색으로 돌아간다(URL로 부르면 `follow`라
+          //   「redirected 응답을 탐색에 줬다」로 네트워크 오류가 난다 — `qa/pwa-offline.mjs` A8).
+          const fresh = await fetch(new Request(request, FRESH_PAGE));
           if (fresh.ok) void cache.put(request, fresh.clone());
           return fresh;
         } catch {
@@ -62,7 +76,7 @@ self.addEventListener("fetch", (event) => {
       }
       if (kind === "shell") {
         try {
-          const fresh = await fetch(request);
+          const fresh = await fetch(new Request(request, FRESH_PAGE));
           if (fresh.ok) void cache.put("/index.html", fresh.clone());
           return fresh;
         } catch {

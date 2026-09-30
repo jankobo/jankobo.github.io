@@ -31,6 +31,9 @@
   .is-scrolling::-webkit-scrollbar-thumb:hover { background: var(--accent-glow); }
   /* keep-all: 한국어 단어 중간 개행 금지(모바일 가독성). 넘치면 break-word로만 꺾는다. */
   body { margin: 0; background: var(--bg-app); background-attachment: fixed; color: var(--text-body); font-family: var(--font-sans); line-height: 1.65; font-size: var(--step-0); word-break: keep-all; overflow-wrap: break-word; }
+  /* 일본어는 낱말 사이 공백이 없어 keep-all이면 구두점에서만 꺾인다 — 한 구절이 통째로 다음 줄로 넘어가 오른쪽이
+     들쭉날쭉해진다(2026-09-30 T7 실측: 75% 미만으로 찬 줄 35~45%). 일본어만 보통 줄바꿈(금칙은 브라우저 기본). */
+  html:lang(ja) body { word-break: normal; }
   /* 필름 그레인 — 앱 본체(style.css)와 같은 질감·같은 불투명도. 정적이라 런타임 비용 0. */
   body::after { content: ""; position: fixed; z-index: 200; inset: 0; pointer-events: none; opacity: .035; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   .wrap { max-width: 860px; margin: 0 auto; padding: var(--space-6) var(--space-4) 80px; }
@@ -291,12 +294,12 @@
   main a { color: var(--accent); }
   main a:visited { color: var(--accent); }
 </style>
-  <script type="module" crossorigin src="/assets/rules-DIp7Pb7V.js"></script>
+  <script type="module" crossorigin src="/assets/rules-C1zw_8Dz.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-Cu_PWE1I.js">
-  <link rel="modulepreload" crossorigin href="/assets/src-DwvKJKhv.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-8J5-sZ7r.js">
-  <link rel="modulepreload" crossorigin href="/assets/tile-face-DtZDaSy9.js">
-  <link rel="modulepreload" crossorigin href="/assets/glossary-862sD47r.js">
+  <link rel="modulepreload" crossorigin href="/assets/src-CEkHcmuN.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-XFclrpUk.js">
+  <link rel="modulepreload" crossorigin href="/assets/tile-face-x6qHXxTR.js">
+  <link rel="modulepreload" crossorigin href="/assets/glossary-DEb7niXF.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
   <link rel="stylesheet" crossorigin href="/assets/tokens-Bg8J1GxN.css">
 </head>
@@ -307,9 +310,9 @@
 <header class="top">
   <div class="logo">雀攻房 <em>Jankobo</em> <span class="ko">룰북</span><span class="ja">ルールブック</span><span class="en">Rulebook</span></div>
   <div class="langs">
-    <button class="langbtn" data-l="ko">한국어</button>
-    <button class="langbtn" data-l="ja">日本語</button>
-    <button class="langbtn" data-l="en">English</button>
+    <button class="langbtn" data-l="ko" lang="ko">한국어</button>
+    <button class="langbtn" data-l="ja" lang="ja">日本語</button>
+    <button class="langbtn" data-l="en" lang="en">English</button>
   </div>
 </header>
 

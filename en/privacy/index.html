@@ -24,9 +24,10 @@
 <style>:root{--surface-app:#1B251F;--surface-raised:#28362D;--accent:#45D29B;--accent-soft:rgb(69 210 155/12%);--text-strong:#EDEDE9;--text-body:#BEC4BF;--border-strong:rgb(226 236 230/18%);--font-sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:var(--surface-app);color:var(--text-body);font-family:var(--font-sans);line-height:1.7;font-size:16px;word-break:keep-all;overflow-wrap:break-word}
+html:lang(ja) body{word-break:normal}
 .wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
 header.top{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:6px 0 18px;border-bottom:1px solid var(--border-strong)}
-.logo{font-size:24px;font-weight:800;color:var(--text-strong)}.logo em{color:var(--accent);font-style:normal}
+.logo{font-size:24px;font-weight:800;color:var(--text-strong);text-decoration:none}.logo em{color:var(--accent);font-style:normal}
 .langs{margin-left:auto;display:flex;gap:8px}.langs a{color:var(--text-body);text-decoration:none;border:1px solid var(--border-strong);border-radius:999px;padding:5px 12px;font-size:13px}
 h1{color:var(--text-strong);font-size:28px;line-height:1.35;margin:28px 0 12px}
 h2{color:var(--text-strong);font-size:20px;margin:36px 0 10px}
@@ -69,7 +70,7 @@ footer a{color:var(--accent);margin-right:14px}</style>
 </head>
 <body>
 <div class="wrap">
-<header class="top"><a class="logo" href="/"><em>J</em>ankobo</a><nav class="langs"><a href="/ko/privacy/">한국어</a><a href="/ja/privacy/">日本語</a></nav></header>
+<header class="top"><a class="logo" href="/"><em>J</em>ankobo</a><nav class="langs"><a href="/ko/privacy/" lang="ko" hreflang="ko">한국어</a><a href="/ja/privacy/" lang="ja" hreflang="ja">日本語</a></nav></header>
 <main>
 <h1>Online friend room privacy</h1>
 <p class="lead">Jankobo is browser mahjong with no account and no login. A solo match runs entirely inside your browser, and the one place that needs a server is the online friend room. This page says what reaches that server and what it does not keep.</p>
@@ -88,7 +89,7 @@ footer a{color:var(--accent);margin-right:14px}</style>
 <p><a class="cta" href="/?from=privacy-en&utm_source=docs&utm_campaign=privacy-en">Play Jankobo</a></p>
 </main>
 <nav class="crosslinks"><a href="/en/learn/">Learn riichi mahjong, even on your own</a></nav>
-<footer><a href="/">Home</a><a href="/rules.html">Rulebook</a><a href="/simulator.html">Analyzer</a></footer>
+<footer><a href="/">Home</a><a href="/rules.html?lang=en">Rulebook</a><a href="/simulator.html?lang=en">Position Analyzer</a></footer>
 </div>
 <script data-goatcounter="https://carrier.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>

@@ -32,6 +32,8 @@
   .is-scrolling::-webkit-scrollbar-thumb { background: var(--accent-line); background-clip: padding-box; }
   .is-scrolling::-webkit-scrollbar-thumb:hover { background: var(--accent-glow); background-clip: padding-box; }
   body { margin: 0; background: var(--bg-app); background-attachment: fixed; color: var(--text-body); font-family: var(--font-sans); line-height: 1.55; font-size: var(--step-0); word-break: keep-all; overflow-wrap: break-word; }
+  /* 일본어는 keep-all이면 구두점에서만 꺾인다 — 룰북과 같은 처방(2026-09-30 T7). */
+  html:lang(ja) body { word-break: normal; }
   /* 필름 그레인 — 앱 본체(style.css)와 같은 질감·같은 불투명도. 정적이라 런타임 비용 0. */
   body::after { content: ""; position: fixed; z-index: 200; inset: 0; pointer-events: none; opacity: .035; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   /* 1680 → 1920(#user 2026-07-28 「작탁 타일을 더 크게, 그리드를 키워도 좋다」): 좌우 컬럼 최대폭이
@@ -193,7 +195,9 @@
   .input-head-actions .action.danger:hover:not(:disabled) { border-color: var(--danger); }
   #tile-text-input { flex: 1; min-width: 0; background: var(--sim-deep); color: var(--text-strong); border: 1px solid var(--border-strong); border-radius: 8px; padding: 6px 10px; font: inherit; font-size: 13px; }
   .hand-controls { align-items: center; }
-  #hand-help { margin: 0; flex: 1; min-width: 0; font-size: 10.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* 안내 한 줄 — 자리가 14em보다 좁으면 **다음 줄로 내려간다**(`.row`가 flex-wrap). 종전 `flex: 1; min-width: 0`은 버튼·장수
+     글자 옆 남은 폭까지 줄어들어 세로 폰 en에서 「L…」 1.1em만 보였다(2026-09-30 T7, `screen-sweep` 굶은 말줄임). */
+  #hand-help { margin: 0; flex: 1 1 14em; min-width: 0; font-size: 10.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .help-btn { width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border-strong); background: var(--sim-deep); color: var(--text-body); font-weight: 800; font-size: 13px; line-height: 1; padding: 0; cursor: pointer; }
   .help-btn:hover { border-color: var(--accent); color: var(--accent); }
   .help-dialog { max-width: min(440px, 92vw); border: 1px solid var(--accent-line); border-radius: 12px; background: var(--surface-raised); color: var(--text-body); padding: 16px; box-shadow: 0 20px 60px rgb(0 0 0 / 45%); }
@@ -487,7 +491,9 @@
   .center-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
   .mini-stat { border: 1px solid var(--border-strong); border-radius: 7px; padding: 4px 3px; text-align: center; background: rgb(255 255 255 / 4%); }
   .mini-stat b { display: block; color: var(--accent); font-size: 13px; font-variant-numeric: tabular-nums; line-height: 1.15; }
-  .mini-stat span { display: block; color: var(--text-muted); font-size: 9.5px; }
+  /* 이름 글자는 폰 하한 10px 위로(2026-09-30 T7 — 9.5px가 `screen-sweep` 열린 위반 표의 한 줄이었다). 칸 폭이 세 칸 격자라
+     「리치봉」·「Sticks」가 한 줄에 드는지 세 모드 × 세 언어로 쟀다(`qa/static-walk.mjs` 잘림 0). */
+  .mini-stat span { display: block; color: var(--text-muted); font-size: var(--step-000); }
   .center-dora { display: grid; gap: 4px; }
   /* 도라/뒷도라는 **한 행 두 열**(#user 2026-07-28 「같은 열에 두세요」). 2026-07-17에 세로 스택으로
      돌아갔던 이유는 「반폭 셀에서 표시패 5장째가 줄바꿈」이었는데, 그 원인은 flex-wrap이었다 —
@@ -511,6 +517,8 @@
   footer a { color: var(--text-body); }
   @media (max-width: 800px) {
     body { font-size: 14px; }
+    /* 폰에선 안내가 제 줄로 내려가므로 말줄임 대신 두 줄로 다 보인다(2026-09-30 T7). */
+    #hand-help { white-space: normal; }
     .grid { grid-template-columns: 1fr; }
     .stats, .board-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .palette { grid-template-columns: repeat(8, minmax(0, 1fr)); }
@@ -598,10 +606,10 @@
   .board-melds { margin-top: 8px; }
   .board-melds.empty { display: none; }
 </style>
-  <script type="module" crossorigin src="/assets/simulator-CT1lo6CG.js"></script>
+  <script type="module" crossorigin src="/assets/simulator-EjrKAbNK.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-Cu_PWE1I.js">
-  <link rel="modulepreload" crossorigin href="/assets/src-DwvKJKhv.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-8J5-sZ7r.js">
+  <link rel="modulepreload" crossorigin href="/assets/src-CEkHcmuN.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-XFclrpUk.js">
   <link rel="modulepreload" crossorigin href="/assets/number-field-CbKGqjkh.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
   <link rel="stylesheet" crossorigin href="/assets/tokens-Bg8J1GxN.css">
@@ -616,9 +624,9 @@
     <span class="en">Analyze one board position: outs, score, and discard advice. It does not play turns forward.</span>
   </div>
   <div class="langs">
-    <button class="langbtn" data-l="ko">한국어</button>
-    <button class="langbtn" data-l="ja">日本語</button>
-    <button class="langbtn" data-l="en">English</button>
+    <button class="langbtn" data-l="ko" lang="ko">한국어</button>
+    <button class="langbtn" data-l="ja" lang="ja">日本語</button>
+    <button class="langbtn" data-l="en" lang="en">English</button>
   </div>
   <button type="button" class="back" id="btn-sim-help"><span class="ko">도움말</span><span class="ja">ヘルプ</span><span class="en">Help</span></button>
   <!-- 룰북은 «되돌아가는 길»이 아니라 옆으로 가는 길이다 — 여기 들어온 사람은 룰북에서 온 게

@@ -24,9 +24,10 @@
 <style>:root{--surface-app:#1B251F;--surface-raised:#28362D;--accent:#45D29B;--accent-soft:rgb(69 210 155/12%);--text-strong:#EDEDE9;--text-body:#BEC4BF;--border-strong:rgb(226 236 230/18%);--font-sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;background:var(--surface-app);color:var(--text-body);font-family:var(--font-sans);line-height:1.7;font-size:16px;word-break:keep-all;overflow-wrap:break-word}
+html:lang(ja) body{word-break:normal}
 .wrap{max-width:760px;margin:0 auto;padding:24px 16px 80px}
 header.top{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:6px 0 18px;border-bottom:1px solid var(--border-strong)}
-.logo{font-size:24px;font-weight:800;color:var(--text-strong)}.logo em{color:var(--accent);font-style:normal}
+.logo{font-size:24px;font-weight:800;color:var(--text-strong);text-decoration:none}.logo em{color:var(--accent);font-style:normal}
 .langs{margin-left:auto;display:flex;gap:8px}.langs a{color:var(--text-body);text-decoration:none;border:1px solid var(--border-strong);border-radius:999px;padding:5px 12px;font-size:13px}
 h1{color:var(--text-strong);font-size:28px;line-height:1.35;margin:28px 0 12px}
 h2{color:var(--text-strong);font-size:20px;margin:36px 0 10px}
@@ -69,7 +70,7 @@ footer a{color:var(--accent);margin-right:14px}</style>
 </head>
 <body>
 <div class="wrap">
-<header class="top"><a class="logo" href="/"><em>雀</em>攻房</a><nav class="langs"><a href="/ko/learn/">한국어</a><a href="/en/learn/">English</a></nav></header>
+<header class="top"><a class="logo" href="/"><em>雀</em>攻房</a><nav class="langs"><a href="/ko/learn/" lang="ko" hreflang="ko">한국어</a><a href="/en/learn/" lang="en" hreflang="en">English</a></nav></header>
 <main>
 <h1>麻雀をひとりでも練習する</h1>
 <p class="lead">雀攻房(ジャンコウボウ)はブラウザで開くリーチ麻雀の学習ツールです。相手は全員ボットで、ルールを知らないうちから打ちはじめられます。ただ、雀攻房らしさが出るのは打っている最中よりも打ち終わったあとです。検討画面では四人分の手牌と山を開いたまま一手ずつ戻せますし、放銃した局面だけを集めて選び直す画面もあります。以下は、初めて開いてから振り返りまでを画面の順に並べたものです。</p>
@@ -111,7 +112,7 @@ footer a{color:var(--accent);margin-right:14px}</style>
 <p><a class="cta" href="/?from=learn-ja&utm_source=docs&utm_campaign=learn-ja">まず一局打ってみる</a></p>
 </main>
 <nav class="crosslinks"><a href="/ja/privacy/">オンライン友達部屋の個人情報</a></nav>
-<footer><a href="/">ホーム</a><a href="/rules.html">Rulebook</a><a href="/simulator.html">Analyzer</a></footer>
+<footer><a href="/">ホーム</a><a href="/rules.html?lang=ja">ルールブック</a><a href="/simulator.html?lang=ja">局面アナライザー</a></footer>
 </div>
 <script data-goatcounter="https://carrier.goatcounter.com/count"
         async src="https://gc.zgo.at/count.js"></script>
