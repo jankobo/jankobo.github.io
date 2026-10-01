@@ -178,7 +178,7 @@
   /* 로고 옆 ? — 이 도구가 무엇인지 말풍선으로(#user: 상단 고정 문단 제거). */
   .logo-help { margin-left: 8px; width: 22px; height: 22px; padding: 0; font-size: 12px; font-weight: 700; line-height: 1; color: var(--text-body); background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: 50%; cursor: pointer; vertical-align: middle; }
   .logo-help:hover, .logo-help[aria-expanded="true"] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
-  .what-pop { position: absolute; z-index: 60; max-width: min(420px, 92vw); margin-top: 6px; padding: 10px 13px; color: var(--text-strong); font-size: 13px; line-height: 1.6; background: var(--surface-raised); border: 1px solid var(--accent-line); border-radius: 10px; box-shadow: 0 10px 30px rgb(0 0 0 / 45%); }
+  .what-pop { position: absolute; z-index: 60; max-width: min(420px, 92vw); margin-top: 6px; padding: 10px 13px; color: var(--text-strong); font-size: var(--type-body, 13px); line-height: 1.6; background: var(--surface-raised); border: 1px solid var(--accent-line); border-radius: 10px; box-shadow: 0 10px 30px rgb(0 0 0 / 45%); }
   .what-pop[hidden] { display: none; }
   /* 패널 제목 「?」 말풍선(attachPanelHelp) — 패널이 absolute의 기준이고, 폭은 패널 안쪽에 맞춘다. */
   .panel.has-help { position: relative; }
@@ -202,12 +202,12 @@
   .help-btn:hover { border-color: var(--accent); color: var(--accent); }
   .help-dialog { max-width: min(440px, 92vw); border: 1px solid var(--accent-line); border-radius: 12px; background: var(--surface-raised); color: var(--text-body); padding: 16px; box-shadow: 0 20px 60px rgb(0 0 0 / 45%); }
   .help-dialog::backdrop { background: rgb(0 0 0 / 55%); }
-  .help-dialog h3 { margin: 0 0 10px; color: var(--accent); font-size: 15px; }
-  .help-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 9px 0; font-size: 13px; }
+  .help-dialog h3 { margin: 0 0 10px; color: var(--accent); font-size: var(--type-lead, 15px); }
+  .help-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 9px 0; font-size: var(--type-body, 13px); }
   .help-row .tile { width: 26px; }
-  .help-code { background: var(--sim-deep); border: 1px solid var(--border-strong); border-radius: 5px; padding: 1px 6px; color: var(--accent); font-family: ui-monospace, monospace; font-size: 12.5px; }
+  .help-code { background: var(--sim-deep); border: 1px solid var(--border-strong); border-radius: 5px; padding: 1px 6px; color: var(--accent); font-family: ui-monospace, monospace; font-size: var(--type-caption, 12.5px); }
   .help-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; margin-top: 12px; }
-  .intro-list { margin: 4px 0 12px; padding-left: 18px; display: grid; gap: 8px; font-size: 13.5px; color: var(--text-body); }
+  .intro-list { margin: 4px 0 12px; padding-left: 18px; display: grid; gap: 8px; font-size: var(--type-body, 13.5px); color: var(--text-body); }
   .intro-list b { color: var(--accent); }
   /* 단계별 사용법 투어 — 대상을 하나씩 스포트라이트(#user). 오버레이가 클릭을 가로채 안내 중 오조작 방지. */
   .tour-overlay { position: fixed; inset: 0; z-index: 120; }
@@ -216,17 +216,17 @@
   .tour-spot { position: absolute; border-radius: 10px; border: 2px solid var(--accent); box-shadow: 0 0 0 9999px var(--scrim), 0 0 14px 2px var(--accent-glow); transition: top .22s ease, left .22s ease, width .22s ease, height .22s ease; pointer-events: none; }
   .tour-overlay.no-target .tour-spot { display: none; }
   .tour-tip { position: absolute; width: min(340px, calc(100vw - 28px)); background: var(--surface-raised); border: 1px solid var(--accent-line); border-radius: 12px; box-shadow: 0 20px 60px rgb(0 0 0 / 50%); padding: 14px 16px; }
-  .tour-step { color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .12em; font-variant-numeric: tabular-nums; }
-  .tour-title { margin: 4px 0 6px; color: var(--text-strong); font-size: 16px; }
-  .tour-body { margin: 0; color: var(--text-body); font-size: 13.5px; line-height: 1.6; }
+  .tour-step { color: var(--accent); font-size: var(--type-chip, 11px); font-weight: 800; letter-spacing: .12em; font-variant-numeric: tabular-nums; }
+  .tour-title { margin: 4px 0 6px; color: var(--text-strong); font-size: var(--type-lead, 16px); }
+  .tour-body { margin: 0; color: var(--text-body); font-size: var(--type-body, 13.5px); line-height: 1.6; }
   .tour-body b { color: var(--accent); }
   .tour-actions { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
   .tour-actions .spacer { flex: 1; }
-  .tour-btn { background: var(--sim-deep); color: var(--text-body); border: 1px solid var(--border-strong); border-radius: 8px; padding: 6px 13px; font: inherit; font-size: 12.5px; cursor: pointer; }
+  .tour-btn { background: var(--sim-deep); color: var(--text-body); border: 1px solid var(--border-strong); border-radius: 8px; padding: 6px 13px; font: inherit; font-size: var(--type-label, 12.5px); cursor: pointer; }
   .tour-btn:hover:not(:disabled) { border-color: var(--accent); }
   .tour-btn:disabled { opacity: .4; cursor: default; }
   .tour-btn.primary { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
-  .tour-skip { color: var(--text-muted); background: none; border: none; font: inherit; font-size: 12px; cursor: pointer; padding: 4px; }
+  .tour-skip { color: var(--text-muted); background: none; border: none; font: inherit; font-size: var(--type-caption, 12px); cursor: pointer; padding: 4px; }
   .tour-skip:hover { color: var(--text-body); }
   .result { display: grid; gap: 8px; }
   .panel { border: 1px solid var(--border-strong); background: rgb(0 0 0 / 11%); border-radius: 10px; padding: 9px 10px; }
@@ -606,13 +606,13 @@
   .board-melds { margin-top: 8px; }
   .board-melds.empty { display: none; }
 </style>
-  <script type="module" crossorigin src="/assets/simulator-BPXy3l6u.js"></script>
+  <script type="module" crossorigin src="/assets/simulator-CQ-j1vdP.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-Cu_PWE1I.js">
-  <link rel="modulepreload" crossorigin href="/assets/src-CCTqHDGU.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-BCTjxwA5.js">
+  <link rel="modulepreload" crossorigin href="/assets/src-B9cQHRfE.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-CBtqWln8.js">
   <link rel="modulepreload" crossorigin href="/assets/number-field-CbKGqjkh.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
-  <link rel="stylesheet" crossorigin href="/assets/tokens-Bg8J1GxN.css">
+  <link rel="stylesheet" crossorigin href="/assets/tokens-J_CjJgxY.css">
 </head>
 <body>
 <div class="wrap">

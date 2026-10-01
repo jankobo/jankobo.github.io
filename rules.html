@@ -30,7 +30,7 @@
   .is-scrolling::-webkit-scrollbar-thumb { background: var(--accent-line); }
   .is-scrolling::-webkit-scrollbar-thumb:hover { background: var(--accent-glow); }
   /* keep-all: 한국어 단어 중간 개행 금지(모바일 가독성). 넘치면 break-word로만 꺾는다. */
-  body { margin: 0; background: var(--bg-app); background-attachment: fixed; color: var(--text-body); font-family: var(--font-sans); line-height: 1.65; font-size: var(--step-0); word-break: keep-all; overflow-wrap: break-word; }
+  body { margin: 0; background: var(--bg-app); background-attachment: fixed; color: var(--text-body); font-family: var(--font-sans); line-height: 1.65; font-size: var(--type-body, var(--step-0)); word-break: keep-all; overflow-wrap: break-word; }
   /* 일본어는 낱말 사이 공백이 없어 keep-all이면 구두점에서만 꺾인다 — 한 구절이 통째로 다음 줄로 넘어가 오른쪽이
      들쭉날쭉해진다(2026-09-30 T7 실측: 75% 미만으로 찬 줄 35~45%). 일본어만 보통 줄바꿈(금칙은 브라우저 기본). */
   html:lang(ja) body { word-break: normal; }
@@ -42,12 +42,12 @@
   .wrap-head { padding-bottom: 0; }
   .wrap-body { padding-top: 0; }
   header.top { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-2) 0 var(--space-4); border-bottom: 1px solid var(--border-strong); }
-  .logo { font-family: var(--font-display); font-size: var(--step-2); font-weight: 600; color: var(--text-strong); letter-spacing: var(--tracking-tight); }
+  .logo { font-family: var(--font-display); font-size: var(--type-title, var(--step-2)); font-weight: 600; color: var(--text-strong); letter-spacing: var(--tracking-tight); }
   .logo em { color: var(--accent); font-style: normal; }
   .langs { margin-left: auto; display: flex; gap: var(--space-2); }
-  .langbtn { background: var(--surface-raised); color: var(--text-body); font-family: var(--font-display); border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 6px var(--space-3); font-size: var(--step-00); cursor: pointer; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
+  .langbtn { background: var(--surface-raised); color: var(--text-body); font-family: var(--font-display); border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 6px var(--space-3); font-size: var(--type-label, var(--step-00)); cursor: pointer; transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out); }
   .langbtn.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
-  .back { font-size: var(--step-00); font-family: var(--font-display); color: var(--accent); text-decoration: none; border: 1px solid var(--accent-line); border-radius: var(--radius-pill); padding: 6px var(--space-3); cursor: pointer; background: none; }
+  .back { font-size: var(--type-label, var(--step-00)); font-family: var(--font-display); color: var(--accent); text-decoration: none; border: 1px solid var(--accent-line); border-radius: var(--radius-pill); padding: 6px var(--space-3); cursor: pointer; background: none; }
   .back:hover { background: var(--accent-soft); }
   /* ── 상단 고정 색인 + 읽기 진행 바 ── */
   /* ⚠ 진행 바는 «변환»으로 그린다 — `width`로 되돌리지 말 것(2026-09-14 #user 「스크롤이 매우 끊긴다」).
@@ -72,16 +72,16 @@
   .toc-scroll.fade-e { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent); }
   .toc-scroll.fade-s { -webkit-mask-image: linear-gradient(to right, transparent, #000 24px); mask-image: linear-gradient(to right, transparent, #000 24px); }
   .toc-scroll.fade-s.fade-e { -webkit-mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent); mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent); }
-  nav.toc a { flex: none; font-size: var(--step-00); font-family: var(--font-display); color: var(--text-body); text-decoration: none; background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 5px var(--space-3); white-space: nowrap; }
+  nav.toc a { flex: none; font-size: var(--type-label, var(--step-00)); font-family: var(--font-display); color: var(--text-body); text-decoration: none; background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 5px var(--space-3); white-space: nowrap; }
   nav.toc a:hover { border-color: var(--accent); color: var(--accent); }
   /* 띠 «밖»에 서서 늘 보인다(요구 62) — 굴러 사라지면 「모두 접기」에 닿는 길이 폰에서 없어진다. */
-  .toc-all { flex: none; font-size: var(--step-000); font-family: var(--font-display); color: var(--text-muted); background: none; border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 5px var(--space-3); cursor: pointer; white-space: nowrap; }
+  .toc-all { flex: none; font-size: var(--type-chip, var(--step-000)); font-family: var(--font-display); color: var(--text-muted); background: none; border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 5px var(--space-3); cursor: pointer; white-space: nowrap; }
   .toc-all:hover { border-color: var(--accent); color: var(--accent); }
-  h2 { color: var(--accent); font-family: var(--font-display); font-size: var(--step-1); font-weight: 600; letter-spacing: var(--tracking-tight); margin: 0; scroll-margin-top: 96px; }
-  h3 { color: var(--text-strong); font-family: var(--font-display); font-size: var(--step-0); font-weight: 600; margin: var(--space-6) 0 var(--space-2); scroll-margin-top: 96px; }
+  h2 { color: var(--accent); font-family: var(--font-display); font-size: var(--type-heading, var(--step-1)); font-weight: 600; letter-spacing: var(--tracking-tight); margin: 0; scroll-margin-top: 96px; }
+  h3 { color: var(--text-strong); font-family: var(--font-display); font-size: var(--type-lead, var(--step-0)); font-weight: 600; margin: var(--space-6) 0 var(--space-2); scroll-margin-top: 96px; }
   p, li { color: var(--text-body); }
   strong { color: var(--text-strong); }
-  .note { font-size: var(--step-00); color: var(--text-muted); }
+  .note { font-size: var(--type-caption, var(--step-00)); color: var(--text-muted); }
   .card { background: var(--surface-panel); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); margin: var(--space-3) 0; box-shadow: var(--shadow-sm); }
   .callout { border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; padding: var(--space-3) var(--space-4); margin: var(--space-3) 0; }
   /* ── 접고 펴는 절(요구 4) ───────────────────────────────────────────────
@@ -121,10 +121,10 @@
   /* 표식 회전은 «자기 띠의 open»만 본다(자식 결합자). 자손 결합자면 절이 열린 것에도 반응한다. */
   .terms-mark { flex: none; width: 14px; display: grid; place-items: center; color: var(--text-muted); font-size: 9px; transition: transform var(--dur-fast) var(--ease-out); }
   details.terms[open] > summary .terms-mark { transform: rotate(90deg); }
-  .terms-label { display: block; font-family: var(--font-display); font-size: var(--step-000); font-weight: 700; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--text-muted); }
+  .terms-label { display: block; font-family: var(--font-display); font-size: var(--type-chip, var(--step-000)); font-weight: 700; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--text-muted); }
   .terms dl { margin: 0; padding: 0 var(--space-4) var(--space-3); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-1) var(--space-3); align-items: baseline; }
-  .terms dt { color: var(--accent); font-weight: 700; font-size: var(--step-00); white-space: nowrap; }
-  .terms dd { margin: 0; color: var(--text-body); font-size: var(--step-00); line-height: 1.5; }
+  .terms dt { color: var(--accent); font-weight: 700; font-size: var(--type-label, var(--step-00)); white-space: nowrap; }
+  .terms dd { margin: 0; color: var(--text-body); font-size: var(--type-body, var(--step-00)); line-height: 1.5; }
   @media (max-width: 560px) { .terms dl { grid-template-columns: minmax(0, 1fr); gap: 0; } .terms dd { margin-bottom: var(--space-2); } }
   /* ── 패 그림: 게임과 동일한 Front 몸체 + 글리프 2겹 합성 ── */
   .hand { display: inline-flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin: 6px 0; }
@@ -137,29 +137,29 @@
   .hand.sm { --tw: 27px; }
   .arrow { color: var(--accent); font-weight: 700; margin: 0 6px; align-self: center; }
   .tilerow { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 8px 0 14px; }
-  .lbl { min-width: 88px; font-size: 13px; color: var(--text-strong); font-weight: 700; }
+  .lbl { min-width: 88px; font-size: var(--type-caption, 13px); color: var(--text-strong); font-weight: 700; }
   /* ── 표 ── */
   .tblwrap { overflow-x: auto; margin: 10px 0; }
-  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  table { border-collapse: collapse; width: 100%; font-size: var(--type-caption, 13.5px); }
   th, td { border: 1px solid var(--border-strong); padding: 7px 10px; text-align: left; vertical-align: middle; }
   th { background: var(--surface-raised); color: var(--text-strong); white-space: nowrap; }
   td.num { text-align: center; white-space: nowrap; color: var(--text-strong); font-weight: 700; }
-  tr.sec td { background: var(--accent-soft); color: var(--accent); font-weight: 800; font-size: 14px; }
+  tr.sec td { background: var(--accent-soft); color: var(--accent); font-weight: 800; font-size: var(--type-label, 14px); }
   td .hand { margin: 0; }
   .yname { color: var(--text-strong); font-weight: 700; white-space: nowrap; }
   /* ── 판과 부 점수표(rules-calc.ts가 core 엔진 값으로 생성) ── */
   .fu-table { min-width: 660px; }
   .fu-table th, .fu-table td { text-align: center; padding: 5px 8px; white-space: nowrap; }
   .fu-table .fu-col { background: var(--accent-soft); color: var(--accent); font-weight: 800; }
-  .fu-table .fu-note { font-size: 10.5px; font-weight: 400; color: var(--text-body); line-height: 1.3; }
-  .fu-table tr.fu-side th { font-size: 12.5px; }
+  .fu-table .fu-note { font-size: var(--type-chip, 10.5px); font-weight: 400; color: var(--text-body); line-height: 1.3; }
+  .fu-table tr.fu-side th { font-size: var(--type-caption, 12.5px); }
   .fu-table .ron { color: var(--text-strong); font-weight: 700; }
-  .fu-table .tsm { font-size: 12px; color: var(--text-muted); }
+  .fu-table .tsm { font-size: var(--type-caption, 12px); color: var(--text-muted); }
   .fu-table td.man { color: var(--accent); font-weight: 700; }
   /* 만관 이상 한도표 — fu-table 골격 재사용, 컬럼별 강조. */
   .limit-table .limit-name { color: var(--accent); font-weight: 800; text-align: left; }
   .limit-table .limit-ron { color: var(--text-strong); font-weight: 700; }
-  .limit-table .limit-tsm { color: var(--text-muted); font-size: 12px; }
+  .limit-table .limit-tsm { color: var(--text-muted); font-size: var(--type-caption, 12px); }
   .fu-parts th:first-child, .fu-parts td:first-child { text-align: left; }
   .fu-parts td.num { font-weight: 700; }
   /* 부수 표 둘은 **한 열에 나란히** 선다(2026-09-15 #user). 세로로 쌓으면 둘째 표(커쯔·깡쯔)가
@@ -179,7 +179,7 @@
   .pal:disabled { opacity: .25; cursor: default; background: none; border-color: transparent; }
   .calc-opts { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 12px 0 8px; }
   .optgrp { display: inline-flex; border: 1px solid var(--border-strong); border-radius: 999px; overflow: hidden; }
-  .opt { background: var(--surface-app); color: var(--text-body); border: 1px solid var(--border-strong); border-radius: 999px; padding: 5px 13px; font-size: 13px; cursor: pointer; }
+  .opt { background: var(--surface-app); color: var(--text-body); border: 1px solid var(--border-strong); border-radius: 999px; padding: 5px 13px; font-size: var(--type-label, 13px); cursor: pointer; }
   .optgrp .opt { border: none; border-radius: 0; }
   .opt.on { color: var(--accent); background: var(--accent-soft); }
   .opt.clear { margin-left: auto; }
@@ -188,22 +188,22 @@
   .calc-melds:empty { display: none; }
   .meld-chip { display: inline-flex; align-items: center; gap: 5px; background: var(--surface-sunken); border: 1px solid var(--border-strong); border-radius: 8px; padding: 4px 7px; cursor: pointer; }
   .meld-chip:hover { border-color: var(--danger); }
-  .meld-chip .mlabel { color: var(--accent); font-weight: 800; font-size: 12px; }
+  .meld-chip .mlabel { color: var(--accent); font-weight: 800; font-size: var(--type-chip, 12px); }
   .meld-chip .tile { width: 22px; }
   .meld-draft { display: flex; flex-direction: column; gap: 8px; padding: 8px 10px; background: var(--surface-app); border: 1px dashed var(--accent-line); border-radius: 10px; }
   .meld-draft-tiles { display: flex; flex-wrap: wrap; gap: 3px; min-height: 30px; align-items: center; }
   .meld-draft-tiles .tile { width: 26px; cursor: pointer; }
-  .meld-draft-empty { color: var(--text-body); font-size: 12.5px; }
+  .meld-draft-empty { color: var(--text-body); font-size: var(--type-caption, 12.5px); }
   .meld-draft-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-  .meld-detect { color: var(--accent); font-weight: 700; font-size: 12.5px; margin-right: auto; }
-  .meld-draft .opt { padding: 4px 11px; font-size: 12.5px; }
+  .meld-detect { color: var(--accent); font-weight: 700; font-size: var(--type-caption, 12.5px); margin-right: auto; }
+  .meld-draft .opt { padding: 4px 11px; font-size: var(--type-label, 12.5px); }
   /* 장풍 선택 + 도라 표시패 칩. */
   .wind-pick { display: inline-flex; align-items: center; gap: 6px; }
-  .wind-label { color: var(--text-muted); font-size: 12px; }
+  .wind-label { color: var(--text-muted); font-size: var(--type-caption, 12px); }
   #round-wind .opt { padding: 5px 10px; }
   .calc-dora { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 8px; }
   .calc-dora:empty { display: none; }
-  .calc-dora .dora-title { color: var(--text-muted); font-size: 12px; }
+  .calc-dora .dora-title { color: var(--text-muted); font-size: var(--type-caption, 12px); }
   .dora-chip { display: inline-flex; align-items: center; background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: 8px; padding: 3px 5px; cursor: pointer; }
   .dora-chip:hover { border-color: var(--danger); }
   .dora-chip .tile { width: 22px; }
@@ -211,34 +211,34 @@
   #calc-hand { gap: 3px; }
   #calc-hand .tile { cursor: pointer; }
   #calc-hand .tile.win { margin-left: 14px; }
-  .calc-result { font-size: 14px; min-height: 22px; margin-top: 10px; }
+  .calc-result { font-size: var(--type-body, 14px); min-height: 22px; margin-top: 10px; }
   .calc-result .yline { display: flex; justify-content: space-between; gap: 12px; padding: 3px 0; border-bottom: 1px dashed var(--border-subtle); }
-  .calc-result .ytotal { margin-top: 10px; color: var(--text-strong); font-weight: 700; font-size: 15px; }
-  .calc-result .ypay { margin-top: 2px; color: var(--text-muted); font-size: 13px; }
+  .calc-result .ytotal { margin-top: 10px; color: var(--text-strong); font-weight: 700; font-size: var(--type-lead, 15px); }
+  .calc-result .ypay { margin-top: 2px; color: var(--text-muted); font-size: var(--type-caption, 13px); }
   /* 조립 중 분석(샨텐·대기패·역 힌트·울면 비교) */
-  .calc-result .chead { margin-top: 12px; font-weight: 700; color: var(--text-strong); font-size: 13px; }
+  .calc-result .chead { margin-top: 12px; font-weight: 700; color: var(--text-strong); font-size: var(--type-caption, 13px); }
   .calc-result .crow { display: flex; align-items: center; gap: 8px; padding: 4px 0; flex-wrap: wrap; }
   .calc-result .crow .tile { width: 26px; }
   .calc-result .cands { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-  .calc-result .cand { border: 1px solid var(--border-strong); border-radius: 999px; padding: 3px 10px; font-size: 12px; }
+  .calc-result .cand { border: 1px solid var(--border-strong); border-radius: 999px; padding: 3px 10px; font-size: var(--type-chip, 12px); }
   .calc-result .cand b { color: var(--accent); font-weight: 700; }
-  .calc-result .cnote { color: var(--text-muted); font-size: 12px; }
+  .calc-result .cnote { color: var(--text-muted); font-size: var(--type-caption, 12px); }
   /* 추천 순위 배지 — 보드의 숫자 배지와 같은 의미(1위는 항상 대표 추천). */
   .calc-result .crank { display: inline-flex; align-items: center; justify-content: center; min-width: 16px; height: 16px; margin: 0 2px 0 6px; padding: 0 3px; border-radius: 8px; background: var(--accent); color: var(--text-on-accent); font-size: 11px; font-weight: 700; }
-  .calc-result .cinfo { font-size: 13px; }
-  .calc-result .ynote { color: var(--text-muted); font-size: 11.5px; margin-left: 6px; }
-  .calc-result .copen { margin-top: 8px; color: var(--text-muted); font-size: 13px; border-top: 1px dashed var(--border-subtle); padding-top: 8px; }
-  .tool-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 700; }
+  .calc-result .cinfo { font-size: var(--type-caption, 13px); }
+  .calc-result .ynote { color: var(--text-muted); font-size: var(--type-chip, 11.5px); margin-left: 6px; }
+  .calc-result .copen { margin-top: 8px; color: var(--text-muted); font-size: var(--type-caption, 13px); border-top: 1px dashed var(--border-subtle); padding-top: 8px; }
+  .tool-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 12px; font-size: var(--type-label, 13px); font-weight: 700; }
   .tool-link:hover { background: var(--accent-soft); }
   /* ── 언어 전환 ── */
   [data-lang="ko"] .ja, [data-lang="ko"] .en,
   [data-lang="ja"] .ko, [data-lang="ja"] .en,
   [data-lang="en"] .ko, [data-lang="en"] .ja { display: none; }
-  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--border-strong); font-size: 12.5px; color: var(--text-muted); }
+  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--border-strong); font-size: var(--type-caption, 12.5px); color: var(--text-muted); }
   footer a { color: var(--text-body); }
   /* 대기 형태 카드의 보유패/대기패 캡션 */
   .wgrp { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 2px; }
-  .wcap { font-size: 11px; color: var(--text-muted); line-height: 1.2; }
+  .wcap { font-size: var(--type-chip, 11px); color: var(--text-muted); line-height: 1.2; }
   @media (max-width: 560px) {
     .hand { --tw: 26px; } .hand.big { --tw: 32px; } body { font-size: 14px; }
     /* 계산기 팔레트 탭 타깃 확대(#user QA — 29×36px가 44px 가이드 미달): 7열 + 여백 확대. */
@@ -294,14 +294,14 @@
   main a { color: var(--accent); }
   main a:visited { color: var(--accent); }
 </style>
-  <script type="module" crossorigin src="/assets/rules-DvbgGEPW.js"></script>
+  <script type="module" crossorigin src="/assets/rules-DCINf7it.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-Cu_PWE1I.js">
-  <link rel="modulepreload" crossorigin href="/assets/src-CCTqHDGU.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-BCTjxwA5.js">
-  <link rel="modulepreload" crossorigin href="/assets/tile-face-DjcNyJW1.js">
-  <link rel="modulepreload" crossorigin href="/assets/glossary-DHu0ROpN.js">
+  <link rel="modulepreload" crossorigin href="/assets/src-B9cQHRfE.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-CBtqWln8.js">
+  <link rel="modulepreload" crossorigin href="/assets/tile-face-CdqF6jQD.js">
+  <link rel="modulepreload" crossorigin href="/assets/glossary-DTQwAF3K.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
-  <link rel="stylesheet" crossorigin href="/assets/tokens-Bg8J1GxN.css">
+  <link rel="stylesheet" crossorigin href="/assets/tokens-J_CjJgxY.css">
 </head>
 <body>
 <div class="readbar" id="readbar" aria-hidden="true"></div>
