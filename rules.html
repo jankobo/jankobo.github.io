@@ -228,6 +228,59 @@
   .calc-result .cinfo { font-size: var(--type-caption, 13px); }
   .calc-result .ynote { color: var(--text-muted); font-size: var(--type-chip, 11.5px); margin-left: 6px; }
   .calc-result .copen { margin-top: 8px; color: var(--text-muted); font-size: var(--type-caption, 13px); border-top: 1px dashed var(--border-subtle); padding-top: 8px; }
+  /* ── 「점수 계산 자세히」(2026-10-02 #user) — 대국 정산 모달(style.css `.score-calc-*`)과 같은 단계를 이 페이지
+     토큰으로. 내용은 src/rules-score-detail.ts가 세 언어 스팬으로 그린다. 폭은 390px 폰에서도 안 넘친다
+     (표는 칸이 줄바꿈되고, 산식 줄은 라벨|값이 감싼다 — qa/rulebook-design.mjs ⑨). */
+  .calc-result .sd { margin-top: 10px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: var(--surface-raised); }
+  .calc-result summary.sd-head { display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: var(--space-2) var(--space-3); cursor: pointer; list-style: none; color: var(--accent); font-family: var(--font-display); font-weight: 700; }
+  .calc-result summary.sd-head::-webkit-details-marker { display: none; }
+  .calc-result summary.sd-head:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: var(--radius-sm); }
+  .calc-result .sd-mark { flex: none; font-size: 9px; color: var(--text-muted); transition: transform var(--dur-fast) var(--ease-out); }
+  .calc-result details.sd[open] > summary .sd-mark { transform: rotate(90deg); }
+  .calc-result .sd-body { display: flex; flex-direction: column; gap: var(--space-3); padding: 0 var(--space-3) var(--space-3); }
+  .calc-result .sd-intro { margin: 0; color: var(--text-body); font-size: var(--type-caption, 13px); }
+  .calc-result .sd-kind { color: var(--accent); }
+  .calc-result .sd-sec { display: flex; flex-direction: column; gap: 8px; min-width: 0; padding: var(--space-3); background: var(--surface-panel); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); }
+  .calc-result .sd-h { margin: 0; color: var(--accent); font-family: var(--font-display); font-size: var(--type-label, 14px); font-weight: 700; }
+  .calc-result .sd-fu { display: flex; flex-direction: column; gap: 4px; }
+  .calc-result .sd-fu-row { display: flex; align-items: center; gap: 10px; padding: 4px 10px; background: var(--surface-overlay); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); }
+  .calc-result .sd-fu-val { flex: 0 0 40px; color: var(--accent); font-family: var(--font-display); font-weight: 800; font-variant-numeric: tabular-nums; text-align: right; }
+  .calc-result .sd-fu-label { min-width: 0; color: var(--text-body); font-size: var(--type-caption, 13px); }
+  .calc-result .sd-fu-sum { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; padding: 2px 10px 0; }
+  .calc-result .sd-fu-sum strong { color: var(--text-strong); font-family: var(--font-display); font-variant-numeric: tabular-nums; }
+  .calc-result .sd-fu-raw, .calc-result .sd-arrow { color: var(--text-muted); font-size: var(--type-caption, 13px); }
+  .calc-result .sd-note { margin: 0; color: var(--text-muted); font-size: var(--type-chip, 12px); line-height: 1.5; }
+  .calc-result .sd-key { color: var(--accent); font-weight: 600; }
+  .calc-result .sd-formula { margin: 0; color: var(--text-strong); font-family: var(--font-display); font-weight: 700; overflow-wrap: anywhere; }
+  .calc-result .sd-cap { margin: 0; color: var(--text-body); font-size: var(--type-caption, 13px); overflow-wrap: anywhere; }
+  .calc-result .sd-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: var(--type-caption, 13px); }
+  .calc-result .sd-table th { padding: 4px 6px; color: var(--text-body); font-size: var(--type-chip, 11px); font-weight: 700; text-align: right; border-bottom: 1px solid var(--border-subtle); }
+  .calc-result .sd-table th:first-child { text-align: left; }
+  .calc-result .sd-table td { padding: 5px 6px; color: var(--text-body); text-align: right; border-bottom: 1px solid var(--border-subtle); white-space: nowrap; }
+  .calc-result .sd-table td.sd-td-yaku { color: var(--text-strong); font-weight: 600; text-align: left; white-space: normal; overflow-wrap: anywhere; }
+  .calc-result .sd-table td.sd-td-total { color: var(--text-strong); font-family: var(--font-display); font-weight: 800; }
+  .calc-result .sd-table tr.is-final td { border-bottom: none; color: var(--text-strong); font-weight: 700; }
+  .calc-result .sd-table tr.is-final td.sd-td-total { color: var(--accent); }
+  .calc-result .sd-limit { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; padding: 8px 12px; background: var(--surface-overlay); border: 1px solid var(--accent-line); border-radius: var(--radius-sm); }
+  .calc-result .sd-limit-name { color: var(--celebrate-deep); font-family: var(--font-display); font-size: var(--type-lead, 16px); font-weight: 800; }
+  .calc-result .sd-limit-table { display: flex; flex-direction: column; gap: 3px; }
+  .calc-result .sd-limit-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 10px; padding: 4px 10px; color: var(--text-muted); font-size: var(--type-caption, 12.5px); border: 1px solid transparent; border-radius: var(--radius-sm); font-variant-numeric: tabular-nums; }
+  .calc-result .sd-limit-row.is-current { color: var(--text-strong); background: var(--accent-soft); border-color: var(--accent-line); font-weight: 700; }
+  .calc-result .sd-help { padding: 6px 10px; background: var(--surface-overlay); border-radius: var(--radius-sm); color: var(--text-muted); font-size: var(--type-chip, 12px); }
+  .calc-result .sd-help p { margin: 0; color: var(--text-body); }
+  .calc-result .sd-help ul { margin: 4px 0 0; padding-left: 18px; }
+  .calc-result .sd-help li { color: var(--text-muted); }
+  .calc-result .sd-paymath { display: flex; flex-direction: column; gap: 8px; }
+  .calc-result .sd-paygroup { display: flex; flex-direction: column; padding: 6px 10px 3px; background: var(--surface-overlay); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); }
+  .calc-result .sd-paystep { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 10px; padding: 4px 0; color: var(--text-body); font-size: var(--type-caption, 12.5px); border-top: 1px solid var(--border-subtle); font-variant-numeric: tabular-nums; }
+  .calc-result .sd-paygroup .sd-paystep:first-child { border-top: 0; }
+  .calc-result .sd-paystep b { font-weight: 600; }
+  .calc-result .sd-paystep.is-final { color: var(--text-strong); }
+  .calc-result .sd-paystep.is-final b { color: var(--accent); font-weight: 800; }
+  .calc-result .sd-pay { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; color: var(--text-body); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .calc-result .sd-pay-sum { color: var(--text-strong); font-family: var(--font-display); font-weight: 800; }
+  .calc-result .sd-pay-sum::before { content: "="; margin-right: 6px; color: var(--text-muted); font-weight: 600; }
+  .calc-result .sd-paytail .sd-paystep.is-final b { font-family: var(--font-display); font-size: var(--type-lead, 16px); }
   .tool-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; color: var(--accent); text-decoration: none; border: 1px solid var(--accent-line); border-radius: 999px; padding: 6px 12px; font-size: var(--type-label, 13px); font-weight: 700; }
   .tool-link:hover { background: var(--accent-soft); }
   /* ── 언어 전환 ── */
@@ -294,12 +347,12 @@
   main a { color: var(--accent); }
   main a:visited { color: var(--accent); }
 </style>
-  <script type="module" crossorigin src="/assets/rules-Buw0tpNL.js"></script>
+  <script type="module" crossorigin src="/assets/rules-BylPMgr1.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-Cu_PWE1I.js">
-  <link rel="modulepreload" crossorigin href="/assets/src-CfBBC1Jg.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-BfiswZiP.js">
-  <link rel="modulepreload" crossorigin href="/assets/tile-face-CDa4oosv.js">
-  <link rel="modulepreload" crossorigin href="/assets/glossary-CGpg2oTH.js">
+  <link rel="modulepreload" crossorigin href="/assets/src-BwtClEEU.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-BTJcYowR.js">
+  <link rel="modulepreload" crossorigin href="/assets/tile-face-Djr-Y3VO.js">
+  <link rel="modulepreload" crossorigin href="/assets/score-calc-steps-BvRTKe9g.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
   <link rel="stylesheet" crossorigin href="/assets/tokens-J_CjJgxY.css">
 </head>
@@ -613,6 +666,38 @@
   <li><span class="ko"><strong>선하네(頭跳ね)</strong>: 같은 버림패에 여러 명이 론 가능해도 방총자에게 가장 가까운(하가→대가→상가) 한 명만 화료.</span><span class="ja"><strong>頭跳ね</strong>: 複数ロンは放銃者に近い1人のみ。</span><span class="en"><strong>Atamahane</strong>: if several players could ron the same tile, only the one closest in turn order wins.</span></li>
   <li><span class="ko"><strong>파오(책임지불)</strong>: 역만을 확정시켜준 사람에게 지불 책임이 갑니다. <a href="#pao">아래 상세 ↓</a></span><span class="ja"><strong>包(責任払い)</strong>: 役満を確定させた者に支払い責任が生じます。<a href="#pao">下記詳細 ↓</a></span><span class="en"><strong>Pao (liability)</strong>: whoever locks in a yakuman pays for it. <a href="#pao">Details below ↓</a></span></li>
 </ul>
+
+<h3 id="score-steps"><span class="ko">점수 계산 순서</span><span class="ja">点数計算の手順</span><span class="en">How a score is worked out</span></h3>
+<p>
+  <span class="ko">화료 점수는 언제나 같은 순서로 나옵니다. 대국 정산 화면의 「점수 계산 자세히」도 이 순서를 그대로 따라갑니다.</span>
+  <span class="ja">和了点はいつも同じ手順で決まります。対局の精算画面の「点数計算の詳細」もこの手順どおりに進みます。</span>
+  <span class="en">A winning score always comes out in the same order. The score details on the in-game settlement screen follow the same steps.</span>
+</p>
+<ol>
+  <li><span class="ko"><strong>판수</strong>: 성립한 역의 판수를 모두 더합니다. 도라, 적도라, 뒷도라는 1장마다 1판씩 더하지만 도라만으로는 화료할 수 없습니다.</span><span class="ja"><strong>翻数</strong>: 成立した役の翻を合計します。ドラ・赤ドラ・裏ドラは1枚ごとに1翻ずつ加えますが、ドラだけでは和了できません。</span><span class="en"><strong>Han</strong>: add up the han of every yaku you made. Dora, red fives and ura dora add 1 han each, but dora alone can't make a win.</span></li>
+  <li><span class="ko"><strong>부수</strong>: 기본 20부에 위 「부수 계산」의 가산을 더하고 10 단위로 올립니다. 핑후와 치또이쯔는 고정값입니다.</span><span class="ja"><strong>符</strong>: 基本20符に上の「符の計算」の加符を足し、10符単位で切り上げます。平和と七対子は固定値です。</span><span class="en"><strong>Fu</strong>: start from 20, add the items in "Counting fu" above, and round up to the next 10. Pinfu and chiitoitsu use fixed values.</span></li>
+  <li><span class="ko"><strong>기본점</strong>: 부 × 2<sup>판+2</sup>. 5판 이상이거나 이 값이 2,000을 넘으면 계산 대신 위 만관 이상 표의 기본점을 씁니다. 역만은 기본점 8,000(더블 역만은 16,000)입니다.</span><span class="ja"><strong>基本点</strong>: 符×2<sup>翻+2</sup>。5翻以上か、この値が2,000を超えると、計算の代わりに上の満貫以上の表の基本点を使います。役満は基本点8,000(ダブル役満は16,000)です。</span><span class="en"><strong>Base points</strong>: fu × 2<sup>han+2</sup>. At 5 han or more, or when this passes 2,000, use the base points from the mangan-and-above table instead. A yakuman is 8,000 base points (16,000 for a double).</span></li>
+  <li><span class="ko"><strong>나눠 내기</strong>: 기본점에 배수를 곱하고 <strong>지불하는 사람마다</strong> 100점 단위로 올립니다. 론은 방총자 혼자 자(비오야) 화료면 ×4, 친 화료면 ×6을 냅니다. 자가 쯔모하면 친이 ×2, 다른 자 둘이 ×1씩 내고, 친이 쯔모하면 자 셋이 ×2씩 냅니다.</span><span class="ja"><strong>支払いの分担</strong>: 基本点に倍数を掛け、<strong>支払う人ごとに</strong>100点単位で切り上げます。ロンは放銃者一人が、子の和了なら×4、親の和了なら×6を払います。子のツモは親が×2、残りの子2人が×1ずつ、親のツモは子3人が×2ずつ払います。</span><span class="en"><strong>Splitting the payment</strong>: multiply the base points and round up to 100 <strong>for each payer separately</strong>. On a ron the discarder alone pays ×4 for a non-dealer win, ×6 for a dealer win. On a non-dealer tsumo the dealer pays ×2 and the other two non-dealers ×1 each; on a dealer tsumo all three non-dealers pay ×2.</span></li>
+  <li><span class="ko"><strong>마지막</strong>: 본장(1개당 300점, 쯔모면 지불하는 사람마다 100점)과 공탁 리치봉을 더합니다.</span><span class="ja"><strong>最後に</strong>: 本場(1本につき300点、ツモなら支払う人ごとに100点)と供託のリーチ棒を加えます。</span><span class="en"><strong>Last</strong>: add the honba (300 each, or 100 from each payer on a tsumo) and any riichi deposits on the table.</span></li>
+</ol>
+<!-- 아래 예시의 숫자는 손으로 셈한 것이 아니다 — core score()가 이 손에 낸 값이고 rules-page.test.ts I절이
+     data-* 입력으로 다시 채점해 대조한다(값이 갈리면 빨갛다). 손을 바꾸면 data-*도 함께 바꾼다. -->
+<div class="card" id="score-steps-example" data-hand="123m345m456p789s99p" data-win="5m" data-tsumo="1" data-riichi="1" data-dealer="0">
+  <div class="tilerow"><span class="lbl"><span class="ko">예: 자(비오야) 리치 쯔모</span><span class="ja">例: 子のリーチ・ツモ</span><span class="en">Example: non-dealer riichi tsumo</span></span><span class="hand sm" data-t="123m 34m 456p 789s 99p"></span><span class="arrow">+</span><span class="hand sm" data-t="5m"></span></div>
+  <ol>
+    <li><span class="ko">판수: 리치 1판 + 핑후 1판 + 멘젠쯔모 1판 = <strong>3판</strong>(도라 없음)</span><span class="ja">翻数: 立直1翻 + 平和1翻 + 門前清自摸和1翻 = <strong>3翻</strong>(ドラなし)</span><span class="en">Han: Riichi 1 + Pinfu 1 + Menzen Tsumo 1 = <strong>3 han</strong> (no dora)</span></li>
+    <li><span class="ko">부수: 핑후 쯔모는 <strong>20부</strong> 고정(쯔모 2부를 더하지 않습니다)</span><span class="ja">符: 平和ツモは<strong>20符</strong>固定(ツモの2符を足しません)</span><span class="en">Fu: a pinfu tsumo is a fixed <strong>20 fu</strong> (the 2 fu for tsumo is not added)</span></li>
+    <li><span class="ko">기본점: 20 × 2<sup>3+2</sup> = 20 × 32 = <strong>640</strong>. 5판 미만이고 2,000 이하라 한도가 아닙니다.</span><span class="ja">基本点: 20×2<sup>3+2</sup> = 20×32 = <strong>640</strong>。5翻未満で2,000以下なので満貫ではありません。</span><span class="en">Base points: 20 × 2<sup>3+2</sup> = 20 × 32 = <strong>640</strong>. Under 5 han and not over 2,000, so no limit applies.</span></li>
+    <li><span class="ko">친: 640 × 2 = 1,280 → 100점 단위로 올려 <strong>1,300점</strong></span><span class="ja">親: 640×2 = 1,280 → 100点単位で切り上げて<strong>1,300点</strong></span><span class="en">Dealer: 640 × 2 = 1,280 → rounded up to <strong>1,300</strong></span></li>
+    <li><span class="ko">다른 자 둘: 640 × 1 = 640 → 올려 <strong>700점</strong>씩</span><span class="ja">残りの子2人: 640×1 = 640 → 切り上げて<strong>700点</strong>ずつ</span><span class="en">Each other non-dealer: 640 × 1 = 640 → rounded up to <strong>700</strong></span></li>
+    <li><span class="ko">합계: 1,300 + 700 × 2 = <strong>2,700점</strong></span><span class="ja">合計: 1,300 + 700×2 = <strong>2,700点</strong></span><span class="en">Total: 1,300 + 700 × 2 = <strong>2,700</strong></span></li>
+  </ol>
+</div>
+<p class="note">
+  <span class="ko"><a href="#try">역 만들기</a>에서 아무 손이나 만들면 같은 풀이가 나옵니다. 손이 완성되면 점수 아래의 「점수 계산 자세히」를 펼쳐 보세요. 위 예시는 리치를 켜고 쯔모인 채로 위 패를 넣고 마지막에 오만을 넣으면 그대로 나옵니다.</span>
+  <span class="ja"><a href="#try">役を作ってみる</a>でどんな手を作っても同じ解説が出ます。手が完成したら点数の下の「点数計算の詳細」を開いてみましょう。上の例は立直をオンにしてツモのまま上の牌を入れ、最後に五萬を入れるとそのまま出ます。</span>
+  <span class="en">Build any hand in the <a href="#try">hand builder</a> and you get the same breakdown. Once the hand is complete, open "Score details" under the score. For the example above, turn on riichi, keep tsumo, enter the tiles above and add the five of characters last.</span>
+</p>
 
 <h3 id="pao"><span class="ko">책임지불(파오) 자세히</span><span class="ja">包(責任払い)の詳細</span><span class="en">Pao (liability payment) in detail</span></h3>
 <p>
