@@ -62,9 +62,11 @@
      `overflow-x: clip`으로 덮으면 ②「가로 넘침 0」이 **무엇을 심어도 초록**이 된다(narrow 사보타주가 죽는다).
      body 직계면 `width: 100%`가 곧 막대를 뺀 폭이라 함정 자체가 없다. */
   nav.toc { position: -webkit-sticky; position: sticky; top: 0; z-index: 40; margin: 18px 0 6px; background: var(--surface-app); }
-  /* 1120px: en 알약 줄 918 + 틈 8 + 「Collapse all」 85 = 1011에 좌우 패딩 32를 더한 값 위(실측 2026-09-20).
-     1280 이상에서 ko·ja·en 셋 다 스크롤 없이 들어가는 것이 계약이다(qa/rulebook-design.mjs ⑧ⓓ). */
-  .toc-inner { display: flex; align-items: center; gap: 8px; max-width: 1120px; margin: 0 auto; padding: 12px var(--space-4) 10px; }
+  /* 1240px: en 알약 줄 1,056 + 「Collapse all」 92 + 틈 8 + 좌우 패딩 36 = 1,192 위에 48px(약 4%) 여유(실측 2026-10-05 T12).
+     종전 1120은 2026-09-20 실측(en 918 · 버튼 85)에 맞춘 값이었는데 데스크탑 글자(T13-a, 2026-10-01 — 알약 `--type-label` 16px)가
+     알약을 키워 en이 1,280~1,920 모든 폭에서 마지막 알약 「Rule details」를 페이드 밑으로 밀었다(⑧ⓓ 빨강). 글자를 다시 키우면
+     이 수도 다시 잰다 — 1280 이상에서 ko·ja·en 셋 다 스크롤 없이 들어가는 것이 계약이다(qa/rulebook-design.mjs ⑧ⓓ). */
+  .toc-inner { display: flex; align-items: center; gap: 8px; max-width: 1240px; margin: 0 auto; padding: 12px var(--space-4) 10px; }
   .toc-scroll { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: nowrap; gap: 8px; overflow-x: auto; scrollbar-width: none; }
   .toc-scroll::-webkit-scrollbar { display: none; }
   /* 「오른쪽에 더 있다」 힌트. **넘칠 때만** 건다(rules-calc.ts `syncTocFade`) — 안 넘치는데 끝 알약이
@@ -347,12 +349,12 @@
   main a { color: var(--accent); }
   main a:visited { color: var(--accent); }
 </style>
-  <script type="module" crossorigin src="/assets/rules-Bsm6pWmA.js"></script>
+  <script type="module" crossorigin src="/assets/rules-D4S2_p9y.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-Cu_PWE1I.js">
-  <link rel="modulepreload" crossorigin href="/assets/src-BMQhBSxa.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-CjXbQU6i.js">
-  <link rel="modulepreload" crossorigin href="/assets/tile-face-WLweOH81.js">
-  <link rel="modulepreload" crossorigin href="/assets/score-calc-steps-CTfhNAsS.js">
+  <link rel="modulepreload" crossorigin href="/assets/src-C3MpZC9Q.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-_5LTvcPF.js">
+  <link rel="modulepreload" crossorigin href="/assets/tile-face-EKHg9Inu.js">
+  <link rel="modulepreload" crossorigin href="/assets/score-calc-steps-B-S5gQiU.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
   <link rel="stylesheet" crossorigin href="/assets/tokens-J_CjJgxY.css">
 </head>
