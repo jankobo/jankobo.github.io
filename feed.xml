@@ -4,8 +4,29 @@
   <link rel="self" type="application/atom+xml" href="https://jankobo.github.io/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://jankobo.github.io/"/>
   <id>https://jankobo.github.io/</id>
-  <updated>2026-10-06T00:00:00Z</updated>
+  <updated>2026-10-07T00:00:00Z</updated>
   <author><name>Jankobo</name></author>
+  <entry xml:lang="ko">
+    <title>라이선스 안내: 비상업 목적이면 쓸 수 있는 작공방(雀攻房)</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/license/"/>
+    <id>https://jankobo.github.io/ko/license/</id>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <summary>작공방의 코드와 그림·소리는 비상업 목적이면 쓰고 고치고 나눌 수 있고 상업적 이용은 안 됩니다. 그림·소리는 CC BY-NC 4.0입니다.</summary>
+  </entry>
+  <entry xml:lang="ja">
+    <title>ライセンス案内｜非商用なら使える・直せる・配れる｜雀攻房</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ja/license/"/>
+    <id>https://jankobo.github.io/ja/license/</id>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <summary>コードはPolyForm Noncommercial、画像と音はCC BY-NC 4.0です。非商用なら使い、手を加え、配れますが、商用利用はできません。</summary>
+  </entry>
+  <entry xml:lang="en">
+    <title>License Info: Noncommercial Code, Art and Sound | Jankobo</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/en/license/"/>
+    <id>https://jankobo.github.io/en/license/</id>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <summary>Jankobo&apos;s source code is under the PolyForm Noncommercial License 1.0.0 and its art and sound under CC BY-NC 4.0. Noncommercial use and sharing are allowed.</summary>
+  </entry>
   <entry xml:lang="ko">
     <title>온라인 친구방 개인정보: 계정도 추적도 없는 작공방(雀攻房)</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/privacy/"/>
