@@ -7,6 +7,27 @@
   <updated>2026-10-07T00:00:00Z</updated>
   <author><name>Jankobo</name></author>
   <entry xml:lang="ko">
+    <title>온라인 친구방 개인정보: 계정도 추적도 없는 작공방(雀攻房)</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/privacy/"/>
+    <id>https://jankobo.github.io/ko/privacy/</id>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <summary>온라인 친구방에서는 닉네임과 접속 IP가 서버에 닿습니다. 로그에는 방 코드도 닉도 IP도 남지 않고, 기보는 각자의 브라우저에 남습니다.</summary>
+  </entry>
+  <entry xml:lang="ja">
+    <title>オンライン友達部屋の個人情報｜サーバーに届くもの｜雀攻房</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ja/privacy/"/>
+    <id>https://jankobo.github.io/ja/privacy/</id>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <summary>オンライン友達部屋ではニックネームと接続元IPがサーバーに届きます。ログに部屋コードもニックネームもIPも残さず、牌譜は各自のブラウザに残ります。</summary>
+  </entry>
+  <entry xml:lang="en">
+    <title>Online Privacy: What the Friend Room Server Sees | Jankobo</title>
+    <link rel="alternate" type="text/html" href="https://jankobo.github.io/en/privacy/"/>
+    <id>https://jankobo.github.io/en/privacy/</id>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <summary>In an online friend room your nickname and connecting IP reach the server. The log keeps no room code, nickname or IP, and replays stay in your browser.</summary>
+  </entry>
+  <entry xml:lang="ko">
     <title>라이선스 안내: 비상업 목적이면 쓸 수 있는 작공방(雀攻房)</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/license/"/>
     <id>https://jankobo.github.io/ko/license/</id>
@@ -26,27 +47,6 @@
     <id>https://jankobo.github.io/en/license/</id>
     <updated>2026-10-07T00:00:00Z</updated>
     <summary>Jankobo&apos;s source code is under the PolyForm Noncommercial License 1.0.0 and its art and sound under CC BY-NC 4.0. Noncommercial use and sharing are allowed.</summary>
-  </entry>
-  <entry xml:lang="ko">
-    <title>온라인 친구방 개인정보: 계정도 추적도 없는 작공방(雀攻房)</title>
-    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/privacy/"/>
-    <id>https://jankobo.github.io/ko/privacy/</id>
-    <updated>2026-10-06T00:00:00Z</updated>
-    <summary>온라인 친구방에서는 닉네임과 접속 IP가 서버에 닿습니다. 로그에는 방 코드도 닉도 IP도 남지 않고, 기보는 각자의 브라우저에 남습니다.</summary>
-  </entry>
-  <entry xml:lang="ja">
-    <title>オンライン友達部屋の個人情報｜サーバーに届くもの｜雀攻房</title>
-    <link rel="alternate" type="text/html" href="https://jankobo.github.io/ja/privacy/"/>
-    <id>https://jankobo.github.io/ja/privacy/</id>
-    <updated>2026-10-06T00:00:00Z</updated>
-    <summary>オンライン友達部屋ではニックネームと接続元IPがサーバーに届きます。ログに部屋コードもニックネームもIPも残さず、牌譜は各自のブラウザに残ります。</summary>
-  </entry>
-  <entry xml:lang="en">
-    <title>Online Privacy: What the Friend Room Server Sees | Jankobo</title>
-    <link rel="alternate" type="text/html" href="https://jankobo.github.io/en/privacy/"/>
-    <id>https://jankobo.github.io/en/privacy/</id>
-    <updated>2026-10-06T00:00:00Z</updated>
-    <summary>In an online friend room your nickname and connecting IP reach the server. The log keeps no room code, nickname or IP, and replays stay in your browser.</summary>
   </entry>
   <entry xml:lang="ko">
     <title>마작 혼자서도 배우기: 복기·오답노트가 있는 작공방(雀攻房)</title>
