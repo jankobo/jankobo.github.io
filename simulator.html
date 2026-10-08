@@ -605,11 +605,17 @@
   /* 작탁의 플레이어 후로 표시(손패 옆) — 등록된 후로가 있을 때만. */
   .board-melds { margin-top: 8px; }
   .board-melds.empty { display: none; }
+  .analysis-section-nav { display: none; }
+  @media (max-width: 900px) {
+    .analysis-section-nav { display: flex; position: sticky; top: 0; z-index: 12; gap: 4px; background: var(--surface-raised); padding: 4px; border: 1px solid var(--border); border-radius: 8px; }
+    .analysis-section-nav button { flex: 1; min-width: 0; min-height: 44px; display: grid; place-items: center; text-align: center; color: var(--accent); font-size: 13px; }
+    #panel-settings, #panel-input, #mahjong-table, #sim-result { scroll-margin-top: 60px; }
+  }
 </style>
-  <script type="module" crossorigin src="/assets/simulator-CQ_PmjMq.js"></script>
+  <script type="module" crossorigin src="/assets/simulator-BJT__dMO.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-Cu_PWE1I.js">
-  <link rel="modulepreload" crossorigin href="/assets/src-Czhh-zQr.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-D0cA4ORW.js">
+  <link rel="modulepreload" crossorigin href="/assets/src-BPtbDMe2.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-CUZuKD1U.js">
   <link rel="modulepreload" crossorigin href="/assets/number-field-CbKGqjkh.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
   <link rel="stylesheet" crossorigin href="/assets/tokens-J_CjJgxY.css">
@@ -637,6 +643,12 @@
   <a class="back" id="nav-back" href="/">← <span class="ko">첫 화면</span><span class="ja">タイトル画面</span><span class="en">Start screen</span></a>
   <button type="button" class="back" id="nav-close" hidden>✕ <span class="ko">탭 닫기</span><span class="ja">タブを閉じる</span><span class="en">Close tab</span></button>
 </header>
+<nav class="analysis-section-nav">
+  <button type="button" data-scroll-target="#panel-settings"><span class="ko">설정</span><span class="ja">設定</span><span class="en">Settings</span></button>
+  <button type="button" data-scroll-target="#panel-input"><span class="ko">패 입력</span><span class="ja">牌の入力</span><span class="en">Tiles</span></button>
+  <button type="button" data-scroll-target="#mahjong-table"><span class="ko">작탁</span><span class="ja">卓</span><span class="en">Table</span></button>
+  <button type="button" data-scroll-target="#sim-result"><span class="ko">분석 결과</span><span class="ja">分析結果</span><span class="en">Results</span></button>
+</nav>
 <div class="grid">
   <aside class="card" id="panel-settings">
     <h2><span class="ko">설정</span><span class="ja">設定</span><span class="en">Settings</span></h2>
