@@ -1012,7 +1012,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "c38c31f0fd1a31380fedbcfb16a46f4a771f11e24038040875e7f75e7fec2838",
+    "sourceSha256": "17a6606e5aa1321f6b59735af70f4498ac7c4396699af850d4f5d705475eae7a",
     "url": "/assets/character-expressions/seoul-minji/greet.webp"
   },
   {
@@ -1020,7 +1020,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "8bcbca6142cdb70763b60641189600a03c07a06efb77bf00240dc83ad69666cc",
+    "sourceSha256": "8dd9c9b4da54db377d9027a2de04c92ff3b484496f32059cb2e7f94cf6ae6c51",
     "url": "/assets/character-expressions/seoul-minji/riichi.webp"
   },
   {
@@ -1028,7 +1028,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "ced4b93179cd6e1517d60a049943865a4d0f4a66b24ae7fa03175dacad498e1f",
+    "sourceSha256": "6f421f5ade122ae4139c2dfca00bbfa646778a6abbb34655fb6d2e950b9a275f",
     "url": "/assets/character-expressions/seoul-minji/win.webp"
   },
   {
@@ -1036,7 +1036,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "bf911a776f26abd5611e36d2e825c97c4b376351420a15d1a32c0d650378c844",
+    "sourceSha256": "280ed180d571469d4c170f62f836836ffe939d6dfcabc488f1e08a44091ec91e",
     "url": "/assets/character-expressions/seoul-minji/deal-in.webp"
   },
   {
@@ -1044,7 +1044,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "fcf412b9e25e1649d1e7e80ac95f8cda499e54df9c27daa71ff162b566427f25",
+    "sourceSha256": "9bf830a7b3d7bfaac994ffcbabbaf9cf16a5360e845f0a611c98150bbaed69c9",
     "url": "/assets/character-expressions/seoul-minji/danger.webp"
   },
   {
@@ -1052,7 +1052,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "8d2a4f2ca4f8f46faa18e8ca67c598942c889376f4a062f595b6657131a9c5cd",
+    "sourceSha256": "121bddca49f3210c191fa117c63620d0319c23958d23a97a60f088b6e10b18b7",
     "url": "/assets/character-expressions/seoul-minji/call.webp"
   },
   {
