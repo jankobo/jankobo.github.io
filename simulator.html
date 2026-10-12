@@ -90,7 +90,7 @@
   }
   .card { background: var(--surface-raised); border: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); border-radius: calc(10 * var(--desktop-px, 1px)); padding: calc(11 * var(--desktop-px, 1px)) calc(12 * var(--desktop-px, 1px)); }
   .card h2, .card h3 { margin: 0 0 calc(7 * var(--desktop-px, 1px)); color: var(--text-strong); font-size: calc(15 * var(--desktop-px, 1px)); }
-  .subtle { color: var(--text-body); font-size: calc(12.5 * var(--desktop-px, 1px)); }
+  .subtle { color: var(--text-body); font-size: var(--type-caption, calc(14 * var(--desktop-px, 1px))); }
   .palette-target { margin: 0 0 calc(6 * var(--desktop-px, 1px)); font-size: calc(12.5 * var(--desktop-px, 1px)); color: var(--text-body); }
   .palette-target .pt-dot { color: var(--accent); }
   .palette-target b { color: var(--accent); }
@@ -174,7 +174,7 @@
   /* 세 번째 칸(마지막 상황 불러오기)이 라벨이 길어 넓게 — 되돌리기/다시 실행 축소는 #user 승인. */
   .action-bar-3 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.7fr); }
   .action-bar .action:disabled { opacity: .45; cursor: default; }
-  .import-live-note { display: block; margin-top: calc(4 * var(--desktop-px, 1px)); color: var(--text-body); font-size: calc(12 * var(--desktop-px, 1px)); line-height: 1.5; font-variant-numeric: tabular-nums; }
+  .import-live-note { display: block; margin-top: calc(4 * var(--desktop-px, 1px)); color: var(--text-body); font-size: var(--type-caption, calc(14 * var(--desktop-px, 1px))); line-height: 1.5; font-variant-numeric: tabular-nums; }
   /* 로고 옆 ? — 이 도구가 무엇인지 말풍선으로(#user: 상단 고정 문단 제거). */
   .logo-help { margin-left: calc(8 * var(--desktop-px, 1px)); width: calc(22 * var(--desktop-px, 1px)); height: calc(22 * var(--desktop-px, 1px)); padding: 0; font-size: calc(12 * var(--desktop-px, 1px)); font-weight: 700; line-height: 1; color: var(--text-body); background: var(--surface-raised); border: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); border-radius: 50%; cursor: pointer; vertical-align: middle; }
   .logo-help:hover, .logo-help[aria-expanded="true"] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
@@ -189,15 +189,15 @@
   .input-head { display: flex; align-items: center; justify-content: space-between; gap: calc(8 * var(--desktop-px, 1px)); margin-bottom: calc(7 * var(--desktop-px, 1px)); }
   .input-head h2 { margin: 0; }
   .input-head-actions { display: flex; gap: calc(6 * var(--desktop-px, 1px)); flex: none; }
-  .input-head-actions .action { padding: calc(5 * var(--desktop-px, 1px)) calc(10 * var(--desktop-px, 1px)); font-size: calc(12 * var(--desktop-px, 1px)); }
+  .input-head-actions .action { padding: calc(5 * var(--desktop-px, 1px)) calc(10 * var(--desktop-px, 1px)); font-size: var(--type-label, calc(14 * var(--desktop-px, 1px))); }
   .input-head-actions .action.danger { border-color: color-mix(in srgb, var(--danger) 42%, transparent); color: var(--danger); }
   #btn-clear { background: var(--surface-app); }
   .input-head-actions .action.danger:hover:not(:disabled) { border-color: var(--danger); }
-  #tile-text-input { flex: 1; min-width: 0; background: var(--sim-deep); color: var(--text-strong); border: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); border-radius: calc(8 * var(--desktop-px, 1px)); padding: calc(6 * var(--desktop-px, 1px)) calc(10 * var(--desktop-px, 1px)); font: inherit; font-size: calc(13 * var(--desktop-px, 1px)); }
+  #tile-text-input { flex: 1; min-width: 0; background: var(--sim-deep); color: var(--text-strong); border: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); border-radius: calc(8 * var(--desktop-px, 1px)); padding: calc(6 * var(--desktop-px, 1px)) calc(10 * var(--desktop-px, 1px)); font: inherit; font-size: var(--type-body, calc(16 * var(--desktop-px, 1px))); }
   .hand-controls { align-items: center; }
   /* 안내 한 줄 — 자리가 14em보다 좁으면 **다음 줄로 내려간다**(`.row`가 flex-wrap). 종전 `flex: 1; min-width: 0`은 버튼·장수
      글자 옆 남은 폭까지 줄어들어 세로 폰 en에서 「L…」 1.1em만 보였다(2026-09-30 T7, `screen-sweep` 굶은 말줄임). */
-  #hand-help { margin: 0; flex: 1 1 14em; min-width: 0; font-size: calc(10.5 * var(--desktop-px, 1px)); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #hand-help { margin: 0; flex: 1 1 20em; min-width: 0; font-size: var(--type-caption, calc(14 * var(--desktop-px, 1px))); white-space: normal; overflow-wrap: anywhere; }
   .help-btn { width: calc(22 * var(--desktop-px, 1px)); height: calc(22 * var(--desktop-px, 1px)); border-radius: 50%; border: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); background: var(--sim-deep); color: var(--text-body); font-weight: 800; font-size: calc(13 * var(--desktop-px, 1px)); line-height: 1; padding: 0; cursor: pointer; }
   .help-btn:hover { border-color: var(--accent); color: var(--accent); }
   .help-dialog { max-width: min(calc(440 * var(--desktop-px, 1px)), 92vw); border: calc(1 * var(--desktop-px, 1px)) solid var(--accent-line); border-radius: calc(12 * var(--desktop-px, 1px)); background: var(--surface-raised); color: var(--text-body); padding: calc(16 * var(--desktop-px, 1px)); box-shadow: 0 calc(20 * var(--desktop-px, 1px)) calc(60 * var(--desktop-px, 1px)) rgb(0 0 0 / 45%); }
@@ -617,17 +617,17 @@
     --desktop-px: clamp(1px, calc(0.200000px + min(0.041666666666666664vw, 0.07407407407407407vh)), 4px);
     font-size: clamp(100%, calc(20.000000% + min(0.6666666666666666vw, 1.1851851851851851vh)), 400%);
   }</style>
-  <script type="module" crossorigin src="/assets/simulator-V64sKB0J.js"></script>
+  <script type="module" crossorigin src="/assets/simulator-Bqrxq7Aj.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/content-readings-qRQ_zL8C.js">
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-UEqowv6C.js">
-  <link rel="modulepreload" crossorigin href="/assets/src-DeX1rtD0.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-B-3uG2aA.js">
+  <link rel="modulepreload" crossorigin href="/assets/src-CvJr8SAM.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-W45X7qY2.js">
   <link rel="modulepreload" crossorigin href="/assets/number-field-CbKGqjkh.js">
   <link rel="modulepreload" crossorigin href="/assets/save-location-ckXZKwqZ.js">
   <link rel="modulepreload" crossorigin href="/assets/document-readings-B-Lfp8Kt.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
   <link rel="stylesheet" crossorigin href="/assets/content-readings-DSH6K3yw.css">
-  <link rel="stylesheet" crossorigin href="/assets/tokens-uUbNSE56.css">
+  <link rel="stylesheet" crossorigin href="/assets/tokens-pOZD454z.css">
 </head>
 <body>
 <div class="wrap">
