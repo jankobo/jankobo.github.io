@@ -87,9 +87,9 @@
   .card { background: var(--surface-panel); border: calc(1 * var(--desktop-px, 1px)) solid var(--border-subtle); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); margin: var(--space-3) 0; box-shadow: var(--shadow-sm); }
   .callout { border-left: calc(3 * var(--desktop-px, 1px)) solid var(--accent); background: var(--accent-soft); border-radius: 0 var(--radius-lg) var(--radius-lg) 0; padding: var(--space-3) var(--space-4); margin: var(--space-3) 0; }
   /* ── 접고 펴는 절(요구 4) ───────────────────────────────────────────────
-     **기본은 «전부 펼침»이다.** 접힌 <details>의 내용은 브라우저 찾기(Ctrl+F)·앵커 점프·
-     검색엔진 본문 추출에서 사라지는데, 이 페이지는 목차·`#yaku` 같은 앵커·sitemap이 전부
-     「본문이 거기 있다」를 전제로 서 있다. 그래서 접기는 «독자가 고르는 것»이고 기본값이 아니다.
+     **기본은 «전부 접힘»이다**(2026-10-12 #user 「기본값: 모두 접기」 — 종전 「전부 펼침」을 뒤집었다).
+     종전 근거였던 앵커는 rules-calc.ts가 지킨다: 목차·`#yaku` 같은 앵커로 들어오거나 옮기면 그 절을 «열어 준다».
+     대가는 알고 고른 값이다 — 접힌 <details>의 본문은 브라우저에 따라 찾기(Ctrl+F)에 안 걸릴 수 있다.
      여는 장치는 <details>/<summary>라 키보드(Tab → Enter/Space)가 그냥 된다. `aria-expanded`는
      rules-calc.ts가 열림 상태에서 다시 찍는다(보조기술이 «지금 열렸나»를 읽는다). */
   /* ⚠ 화면 밖 절은 «그리지 않는다» — 2026-09-14 #user 「스크롤이 매우 끊긴다」의 주된 고침.
@@ -97,7 +97,7 @@
      그 전부가 다시 레이아웃·페인트에 걸린다. `content-visibility: auto`는 뷰포트 밖 절을
      통째로 건너뛴다. 실측(390×844 · CPU 4배 느리게): p50 39.2ms → 16.7ms(60fps 천장).
      ⚠ 접기(`<details>` 닫기)와 달리 **찾기·앵커·본문 추출이 그대로 산다** — 브라우저가 필요할 때
-     그려 준다. 그래서 「절의 기본은 펼침」의 근거(Ctrl+F·앵커·SEO)와 부딪치지 않는다.
+     그려 준다(절의 기본이 접힘이 된 2026-10-12 뒤에도 펼친 절에서는 그대로 먹는다).
      `contain-intrinsic-size`의 `auto`는 한 번 그린 절의 «실제» 높이를 기억해 스크롤바가 덜 튄다.
      자는 `qa/rulebook-scroll.mjs`. */
   details.sec { margin: var(--space-6) 0 0; border-top: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); content-visibility: auto; contain-intrinsic-size: auto calc(1200 * var(--desktop-px, 1px)); }
@@ -401,7 +401,7 @@
   <a href="#yaku"><span class="ko">역 일람</span><span class="ja">役一覧</span><span class="en">Yaku list</span></a>
   <a href="#details"><span class="ko">세부 룰</span><span class="ja">細則</span><span class="en">Rule details</span></a>
 </div>
-<button type="button" class="toc-all" id="toc-all" aria-controls="rulebook-sections"><span class="ko">모두 접기</span><span class="ja">すべて閉じる</span><span class="en">Collapse all</span></button>
+<button type="button" class="toc-all" id="toc-all" aria-controls="rulebook-sections" aria-expanded="false"><span class="ko">모두 펼치기</span><span class="ja">すべて開く</span><span class="en">Expand all</span></button>
 </div>
 </nav>
 
@@ -425,7 +425,7 @@
   <a class="back" id="nav-back" href="/">← <span class="ko">메인 화면으로 돌아가기</span><span class="ja">メイン画面に戻る</span><span class="en">Back to main screen</span></a>
 </p>
 
-<details class="sec" open data-terms="후로,리치,샨텐,도라,뒷도라,쯔모,론,역,국,본장,공탁,장풍,자풍">
+<details class="sec" data-terms="후로,리치,샨텐,도라,뒷도라,쯔모,론,역,국,본장,공탁,장풍,자풍">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="try"><span class="ko">역 만들기</span><span class="ja">役を作ってみる</span><span class="en">Hand builder</span></h2></summary>
 <div class="sec-body">
 <p>
@@ -466,7 +466,7 @@
 </div>
 </details>
 
-<details class="sec" open data-terms="수패,자패,만수패,통수패,삭수패,삼원패">
+<details class="sec" data-terms="수패,자패,만수패,통수패,삭수패,삼원패">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="tiles"><span class="ko">패의 종류: 모두 136장</span><span class="ja">牌の種類: 全部で136枚</span><span class="en">The tiles: 136 in all</span></h2></summary>
 <div class="sec-body">
 <p>
@@ -485,7 +485,7 @@
 </div>
 </details>
 
-<details class="sec" open data-terms="슌쯔,커쯔,화료,머리,텐파이,치또이쯔,국사무쌍">
+<details class="sec" data-terms="슌쯔,커쯔,화료,머리,텐파이,치또이쯔,국사무쌍">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="goal"><span class="ko">이기는 모양: 몸통 4 + 머리 1 + 역</span><span class="ja">和了の条件: 4面子1雀頭+役</span><span class="en">Winning: 4 sets + 1 pair + a yaku</span></h2></summary>
 <div class="sec-body">
 <p>
@@ -517,7 +517,7 @@
 </div>
 </details>
 
-<details class="sec" open data-terms="타패,오야,패산,노텐">
+<details class="sec" data-terms="타패,오야,패산,노텐">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="flow"><span class="ko">진행</span><span class="ja">進行</span><span class="en">Game flow</span></h2></summary>
 <div class="sec-body">
 <ul>
@@ -529,7 +529,7 @@
 </div>
 </details>
 
-<details class="sec" open data-terms="치,퐁,깡,멘젠,영상패,상가,대기">
+<details class="sec" data-terms="치,퐁,깡,멘젠,영상패,상가,대기">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="calls"><span class="ko">남의 패 가져오기: 치, 퐁, 깡</span><span class="ja">他家の牌をもらう: チー・ポン・カン</span><span class="en">Taking a tile from someone: chi, pon, kan</span></h2></summary>
 <div class="sec-body">
 <div class="card">
@@ -551,7 +551,7 @@
 </div>
 </details>
 
-<details class="sec" open data-terms="판,일발,쯔모기리">
+<details class="sec" data-terms="판,일발,쯔모기리">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="riichi"><span class="ko">리치</span><span class="ja">立直</span><span class="en">Riichi</span></h2></summary>
 <div class="sec-body">
 <ul>
@@ -562,7 +562,7 @@
 </div>
 </details>
 
-<details class="sec" open data-terms="양면,변짱,간짱,샤보,단기,후리텐">
+<details class="sec" data-terms="양면,변짱,간짱,샤보,단기,후리텐">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="waits"><span class="ko">대기 형태와 후리텐</span><span class="ja">待ちの形とフリテン</span><span class="en">Waits and furiten</span></h2></summary>
 <div class="sec-body">
 <p>
@@ -585,7 +585,7 @@
 </div>
 </details>
 
-<details class="sec" open data-terms="">
+<details class="sec" data-terms="">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="dora"><span class="ko">도라</span><span class="ja">ドラ</span><span class="en">Dora</span></h2></summary>
 <div class="sec-body">
 <p>
@@ -606,7 +606,7 @@
 </div>
 </details>
 
-<details class="sec" open data-terms="역패,부,기본점,하가,대가,리치봉,핑후,영상개화,파오,역만,대사희">
+<details class="sec" data-terms="역패,부,기본점,하가,대가,리치봉,핑후,영상개화,파오,역만,대사희">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="score"><span class="ko">점수</span><span class="ja">点数</span><span class="en">Scoring</span></h2></summary>
 <div class="sec-body">
 <p>
@@ -729,7 +729,7 @@
 </div>
 </details>
 
-<details class="sec" open data-terms="탕야오,이페코,량페코,찬타,혼노두,준찬타,혼일색,청일색,청노두,나가시만관,소사희,녹일색,자일색,배패">
+<details class="sec" data-terms="탕야오,이페코,량페코,찬타,혼노두,준찬타,혼일색,청일색,청노두,나가시만관,소사희,녹일색,자일색,배패">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="yaku"><span class="ko">역 일람</span><span class="ja">役一覧</span><span class="en">Yaku list</span></h2></summary>
 <div class="sec-body">
 <p class="note">
@@ -818,7 +818,7 @@
 </div>
 </details>
 
-<details class="sec" open data-terms="아토즈케">
+<details class="sec" data-terms="아토즈케">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="details"><span class="ko">적용 세부 룰</span><span class="ja">採用細則</span><span class="en">Rule details</span></h2></summary>
 <div class="sec-body">
 <ul>
