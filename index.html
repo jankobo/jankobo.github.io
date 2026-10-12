@@ -54,9 +54,9 @@
       .seo-intro {
         font-family: system-ui, sans-serif;
         position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
+        width: calc(1 * var(--desktop-px, 1px));
+        height: calc(1 * var(--desktop-px, 1px));
+        margin: calc(-1 * var(--desktop-px, 1px));
         padding: 0;
         border: 0;
         overflow: hidden;
@@ -85,19 +85,23 @@
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
       }
     </script>
-    <script type="module" crossorigin src="/assets/main-BHqIMz9i.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/content-readings-4t2ks0wG.js">
+    <style data-desktop-density="">:root {
+    --desktop-px: clamp(1px, calc(0.200000px + min(0.041666666666666664vw, 0.07407407407407407vh)), 4px);
+    font-size: clamp(100%, calc(20.000000% + min(0.6666666666666666vw, 1.1851851851851851vh)), 400%);
+  }</style>
+    <script type="module" crossorigin src="/assets/main-Cd4JRCe3.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/content-readings-qRQ_zL8C.js">
     <link rel="modulepreload" crossorigin href="/assets/assist-discard-Dt1u76JF.js">
     <link rel="modulepreload" crossorigin href="/assets/src-7R2r3dqp.js">
-    <link rel="modulepreload" crossorigin href="/assets/tokens-BbUigS9K.js">
+    <link rel="modulepreload" crossorigin href="/assets/tokens-8OD3AthR.js">
     <link rel="modulepreload" crossorigin href="/assets/tile-face-0a_Up9hf.js">
     <link rel="modulepreload" crossorigin href="/assets/save-location-ckXZKwqZ.js">
-    <link rel="modulepreload" crossorigin href="/assets/config-Dm7hmL8S.js">
-    <link rel="modulepreload" crossorigin href="/assets/score-calc-steps-woEcX-4W.js">
+    <link rel="modulepreload" crossorigin href="/assets/config-Clc474AP.js">
+    <link rel="modulepreload" crossorigin href="/assets/score-calc-steps-D4s6ynW8.js">
     <link rel="modulepreload" crossorigin href="/assets/number-field-CbKGqjkh.js">
-    <link rel="stylesheet" crossorigin href="/assets/content-readings-Bdb4IYOH.css">
-    <link rel="stylesheet" crossorigin href="/assets/tokens-J_CjJgxY.css">
-    <link rel="stylesheet" crossorigin href="/assets/main-BHaHX6JW.css">
+    <link rel="stylesheet" crossorigin href="/assets/content-readings-DSH6K3yw.css">
+    <link rel="stylesheet" crossorigin href="/assets/tokens-uUbNSE56.css">
+    <link rel="stylesheet" crossorigin href="/assets/main-COqK_rNP.css">
   </head>
   <body>
     <div id="app"></div>
