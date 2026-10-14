@@ -294,6 +294,8 @@
   /* 대기 형태 카드의 보유패/대기패 캡션 */
   .wgrp { display: inline-flex; flex-direction: column; align-items: flex-start; gap: calc(2 * var(--desktop-px, 1px)); }
   .wcap { font-size: var(--type-chip, calc(11 * var(--desktop-px, 1px))); color: var(--text-muted); line-height: 1.2; }
+  /* 책임지불 예시의 좌석별 지불(2026-10-15) — 금액은 rules-calc.ts가 core 정산(`paoExample`)으로 채운다. */
+  .pao-example { margin: 0; padding-left: calc(18 * var(--desktop-px, 1px)); font-variant-numeric: tabular-nums; }
   @media (max-width: 560px) {
     .hand { --tw: calc(26 * var(--desktop-px, 1px)); } .hand.big { --tw: calc(32 * var(--desktop-px, 1px)); } body { font-size: calc(14 * var(--desktop-px, 1px)); }
     /* 계산기 팔레트 탭 타깃 확대(#user QA — 29×36px가 44px 가이드 미달): 7열 + 여백 확대. */
@@ -353,13 +355,13 @@
     --desktop-px: clamp(1px, calc(0.200000px + min(0.041666666666666664vw, 0.07407407407407407vh)), 4px);
     font-size: clamp(100%, calc(20.000000% + min(0.6666666666666666vw, 1.1851851851851851vh)), 400%);
   }</style>
-  <script type="module" crossorigin src="/assets/rules-B1M2Oc19.js"></script>
+  <script type="module" crossorigin src="/assets/rules-fkKuLIvt.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/content-readings-DRQ22bfM.js">
-  <link rel="modulepreload" crossorigin href="/assets/assist-discard-4ifJmKdt.js">
-  <link rel="modulepreload" crossorigin href="/assets/en-DryZFEEn.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-3tXrdEXi.js">
-  <link rel="modulepreload" crossorigin href="/assets/tile-face-CLmDUQxE.js">
-  <link rel="modulepreload" crossorigin href="/assets/score-calc-steps-14LAWY85.js">
+  <link rel="modulepreload" crossorigin href="/assets/assist-discard-Bku1ZPrs.js">
+  <link rel="modulepreload" crossorigin href="/assets/en-CALitSbf.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-BcrJQTPQ.js">
+  <link rel="modulepreload" crossorigin href="/assets/tile-face-CHYeQ--H.js">
+  <link rel="modulepreload" crossorigin href="/assets/score-calc-steps-DiG9gLTG.js">
   <link rel="modulepreload" crossorigin href="/assets/save-location-ckXZKwqZ.js">
   <link rel="modulepreload" crossorigin href="/assets/document-readings-TEAKWv4v.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
@@ -606,7 +608,7 @@
 </div>
 </details>
 
-<details class="sec" data-terms="역패,부,기본점,하가,대가,리치봉,핑후,영상개화,파오,역만,대사희">
+<details class="sec" data-terms="역패,부,기본점,하가,대가,리치봉,핑후,영상개화,파오,역만,대사희,방총,자일색">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="score"><span class="ko">점수</span><span class="ja">点数</span><span class="en">Scoring</span></h2></summary>
 <div class="sec-body">
 <p>
@@ -711,25 +713,42 @@
 
 <h3 id="pao"><span class="ko">책임지불(파오) 자세히</span><span class="ja">包(責任払い)の詳細</span><span class="en">Pao (liability payment) in detail</span></h3>
 <p>
-  <span class="ko">특정 역만을 <strong>사실상 확정시켜주는 패를 내준 사람</strong>이 그 화료의 지불 책임을 지는 규칙입니다. 다음 세 경우에 발동합니다.</span>
-  <span class="ja">特定の役満を<strong>事実上確定させる牌を出した者</strong>がその和了の支払い責任を負うルール。以下の3つの場合に発動します。</span>
-  <span class="en">If your tile <strong>effectively locks in someone's yakuman</strong>, you become liable for the payout. It triggers in three cases.</span>
+  <span class="ko">특정 역만을 <strong>사실상 확정시켜주는 패를 내준 사람</strong>이 그 화료의 지불 책임을 지는 규칙입니다. 다음 네 경우에 발동합니다(스깡쯔는 룰 옵션이 켜져 있을 때만, 아래 참고).</span>
+  <span class="ja">特定の役満を<strong>事実上確定させる牌を出した者</strong>がその和了の支払い責任を負うルール。以下の4つの場合に発動します(四槓子はルールオプションがオンのときだけ。下記参照)。</span>
+  <span class="en">If your tile <strong>effectively locks in someone's yakuman</strong>, you become liable for the payout. It triggers in four cases (Suukantsu only when that rule option is on; see below).</span>
 </p>
 <div class="card">
-  <div class="tilerow"><span class="lbl"><span class="ko">대삼원</span><span class="ja">大三元</span><span class="en">Daisangen</span></span><span class="wgrp"><span class="wcap"><span class="ko">이미 공개된 커쯔</span><span class="ja">既に副露済み</span><span class="en">Already melded</span></span><span class="hand sm" data-t="555z 666z"></span></span><span class="arrow">+</span><span class="wgrp"><span class="wcap"><span class="ko">울려준 패</span><span class="ja">鳴かせた牌</span><span class="en">Tile you fed</span></span><span class="hand sm" data-t="7z"></span></span><span class="note"><span class="ko">삼원패 커쯔 2개를 공개한 사람에게 <strong>3번째 삼원패</strong>를 퐁이나 깡을 시켜 주면 파오</span><span class="ja">三元牌の刻子2組を晒した相手に<strong>3組目の三元牌</strong>をポン/カンさせると包</span><span class="en">Feeding the <strong>third dragon triplet</strong> to someone showing two makes you liable</span></span></div>
-  <div class="tilerow"><span class="lbl"><span class="ko">대사희</span><span class="ja">大四喜</span><span class="en">Daisuushi</span></span><span class="wgrp"><span class="wcap"><span class="ko">이미 공개된 커쯔</span><span class="ja">既に副露済み</span><span class="en">Already melded</span></span><span class="hand sm" data-t="111z 222z 333z"></span></span><span class="arrow">+</span><span class="wgrp"><span class="wcap"><span class="ko">울려준 패</span><span class="ja">鳴かせた牌</span><span class="en">Tile you fed</span></span><span class="hand sm" data-t="4z"></span></span><span class="note"><span class="ko">바람 커쯔 3개 공개에 <strong>4번째 바람</strong>을 울려주면 파오</span><span class="ja">風牌の刻子3組に<strong>4組目の風牌</strong>を鳴かせると包</span><span class="en">Feeding the <strong>fourth wind triplet</strong> to someone showing three</span></span></div>
+  <div class="tilerow"><span class="lbl"><span class="ko">대삼원</span><span class="ja">大三元</span><span class="en">Daisangen</span></span><span class="wgrp"><span class="wcap"><span class="ko">이미 보인 두 세트(안깡 포함)</span><span class="ja">既に見えている2組(暗槓も含む)</span><span class="en">Two sets already shown (a closed kan counts)</span></span><span class="hand sm" data-t="555z 6666z"></span></span><span class="arrow">+</span><span class="wgrp"><span class="wcap"><span class="ko">울려준 패</span><span class="ja">鳴かせた牌</span><span class="en">Tile you fed</span></span><span class="hand sm" data-t="7z"></span></span><span class="note"><span class="ko">삼원패 두 세트(퐁, 대명깡, 가깡, <strong>안깡도 포함</strong>)를 이미 내보인 사람에게 <strong>3번째 삼원패</strong>를 퐁이나 대명깡하게 해 주면 파오. 3번째 세트가 안깡이거나 손 안에 있으면 파오가 아닙니다.</span><span class="ja">三元牌2組(ポン、大明槓、加槓、<strong>暗槓も含む</strong>)をすでに見せている相手に<strong>3組目の三元牌</strong>をポンか大明槓させると包。3組目が暗槓か手の中なら包ではありません。</span><span class="en">Letting someone who already shows two dragon sets (pon, open kan, added kan, <strong>or a closed kan</strong>) pon or open-kan the <strong>third dragon set</strong> makes you liable. No pao if the third set is a closed kan or stays in the hand.</span></span></div>
+  <div class="tilerow"><span class="lbl"><span class="ko">대사희</span><span class="ja">大四喜</span><span class="en">Daisuushi</span></span><span class="wgrp"><span class="wcap"><span class="ko">이미 보인 세 세트(안깡 포함)</span><span class="ja">既に見えている3組(暗槓も含む)</span><span class="en">Three sets already shown (a closed kan counts)</span></span><span class="hand sm" data-t="111z 222z 3333z"></span></span><span class="arrow">+</span><span class="wgrp"><span class="wcap"><span class="ko">울려준 패</span><span class="ja">鳴かせた牌</span><span class="en">Tile you fed</span></span><span class="hand sm" data-t="4z"></span></span><span class="note"><span class="ko">바람 세 세트(안깡 포함)를 내보인 사람에게 <strong>4번째 바람</strong>을 퐁이나 대명깡하게 해 주면 파오. 4번째가 안깡이거나 손 안에 있으면 파오가 아닙니다.</span><span class="ja">風牌3組(暗槓も含む)を見せている相手に<strong>4組目の風牌</strong>をポンか大明槓させると包。4組目が暗槓か手の中なら包ではありません。</span><span class="en">Letting someone who shows three wind sets (a closed kan counts) pon or open-kan the <strong>fourth wind set</strong> makes you liable. No pao if the fourth is a closed kan or stays in the hand.</span></span></div>
+  <div class="tilerow"><span class="lbl"><span class="ko">스깡쯔</span><span class="ja">四槓子</span><span class="en">Suukantsu</span></span><span class="wgrp"><span class="wcap"><span class="ko">이미 한 깡 셋</span><span class="ja">既にした槓3つ</span><span class="en">Three kans already made</span></span><span class="hand sm" data-t="1111m 2222p 3333s"></span></span><span class="arrow">+</span><span class="wgrp"><span class="wcap"><span class="ko">대명깡시킨 패</span><span class="ja">大明槓させた牌</span><span class="en">Tile you let them kan</span></span><span class="hand sm" data-t="9s"></span></span><span class="note"><span class="ko">깡 셋(안깡, 대명깡, 가깡)을 이미 한 사람에게 <strong>4번째 깡을 대명깡</strong>하게 해 주면 파오. 4번째 깡이 가깡이나 안깡이면 파오가 아닙니다.</span><span class="ja">槓3つ(暗槓、大明槓、加槓)をすでにしている相手に<strong>4つ目の槓を大明槓</strong>させると包。4つ目が加槓か暗槓なら包ではありません。</span><span class="en">Letting someone who already has three kans (closed, open or added) make <strong>the fourth kan as an open kan</strong> makes you liable. No pao if the fourth kan is an added or closed kan.</span></span></div>
   <div class="tilerow"><span class="lbl"><span class="ko">대명깡 영상개화</span><span class="ja">大明槓の嶺上</span><span class="en">Kan → rinshan</span></span><span class="wgrp"><span class="wcap"><span class="ko">버린 패로 대명깡</span><span class="ja">捨て牌で大明槓</span><span class="en">Your discard kanned</span></span><span class="hand sm" data-t="8888p"></span></span><span class="note"><span class="ko">내가 버린 패로 대명깡 → <strong>그 영상패로 쯔모 화료(영상개화)</strong>하면 깡 제공자가 파오. 그 깡의 영상패에만 걸립니다. 이후 다른 깡의 영상패 화료에는 책임 없음.</span><span class="ja">自分の捨て牌で大明槓 → <strong>その嶺上牌でのツモ和了(嶺上開花)</strong>ならカン提供者が包。その槓の嶺上牌に限る。</span><span class="en">If your discard is open-kanned and the winner <strong>tsumos the replacement tile (rinshan)</strong>, you are liable, but only for that kan's replacement tile.</span></span></div>
 </div>
+<p class="note">
+  <span class="ko">대삼원, 대사희, 스깡쯔의 책임지불은 샌드박스의 세부 룰에서 하나씩 켜고 끌 수 있습니다. 기본값은 대삼원 있음, 대사희 있음, 스깡쯔 없음이고, JPML-A와 KML 룰은 셋 다 있음입니다. 대명깡 영상개화의 책임은 늘 적용됩니다.</span>
+  <span class="ja">大三元、大四喜、四槓子の責任払いはサンドボックスの詳細ルールで一つずつ切り替えられます。既定値は大三元あり、大四喜あり、四槓子なしで、JPML-AとKMLのルールでは3つともありです。大明槓の嶺上開花の責任は常に適用されます。</span>
+  <span class="en">Daisangen, Daisuushi and Suukantsu liability can each be turned on or off in the sandbox rule options. By default Daisangen and Daisuushi are on and Suukantsu is off; the JPML-A and KML rules turn all three on. Liability for a rinshan win off an open kan always applies.</span>
+</p>
 <ul>
-  <li><span class="ko"><strong>쯔모 화료</strong>면 파오자가 <strong>전액 단독 지불</strong>이고 나머지 두 명은 내지 않습니다.</span><span class="ja"><strong>ツモ和了</strong>なら包者が<strong>全額単独払い</strong>で、他の2人は支払いなし。</span><span class="en">On a <strong>tsumo</strong>, the liable player pays the <strong>entire amount alone</strong>, and the other two pay nothing.</span></li>
-  <li><span class="ko"><strong>론 화료</strong>면 방총자와 파오자가 <strong>반반</strong>(100점 단위 올림은 방총자 쪽). 방총자가 파오자 본인이면 그냥 전액.</span><span class="ja"><strong>ロン和了</strong>なら放銃者と包者で<strong>折半</strong>(100点単位の切り上げは放銃者側)。放銃者=包者なら全額。</span><span class="en">On a <strong>ron</strong>, the discarder and the liable player <strong>split it half-and-half</strong> (rounding to 100 falls on the discarder). If they're the same person, they just pay it all.</span></li>
+  <li><span class="ko"><strong>쯔모 화료</strong>면 파오자가 본장까지 <strong>전액 단독 지불</strong>이고 나머지 두 명은 내지 않습니다(역만이 하나일 때. 더블 역만 이상은 아래).</span><span class="ja"><strong>ツモ和了</strong>なら包者が積み棒まで<strong>全額単独払い</strong>で、他の2人は支払いなし(役満が一つのとき。ダブル役満以上は下記)。</span><span class="en">On a <strong>tsumo</strong>, the liable player pays the <strong>entire amount alone</strong>, honba included, and the other two pay nothing (for a single yakuman; double yakuman or more is below).</span></li>
+  <li><span class="ko"><strong>론 화료</strong>면 방총자와 파오자가 역만 점수를 <strong>반반</strong>(100점 단위 올림은 방총자 쪽) 내고, <strong>본장은 파오자</strong>가 냅니다. 방총자가 파오자 본인이면 본장까지 그냥 전액.</span><span class="ja"><strong>ロン和了</strong>なら放銃者と包者が役満の点数を<strong>折半</strong>(100点単位の切り上げは放銃者側)し、<strong>積み棒は包者</strong>が払います。放銃者=包者なら積み棒まで全額。</span><span class="en">On a <strong>ron</strong>, the discarder and the liable player <strong>split the yakuman half-and-half</strong> (rounding to 100 falls on the discarder), and <strong>the liable player pays the honba</strong>. If they're the same person, they just pay it all, honba included.</span></li>
+  <li><span class="ko"><strong>더블 역만 이상</strong>이면 울음으로 확정된 역만 몫과 본장만 위 규칙대로 내고, <strong>나머지 역만은 보통 화료처럼</strong> 나눠 냅니다(쯔모라면 파오자도 자기 몫을 더 냅니다). 책임 역만이 둘인데 책임자가 서로 다르면 먼저 확정된 쪽만 책임을 집니다.</span><span class="ja"><strong>ダブル役満以上</strong>なら、鳴きで確定した役満の分と積み棒だけを上のルールで払い、<strong>残りの役満は通常の和了と同じく</strong>分けて払います(ツモなら包者も自分の分を払います)。責任のある役満が2つで責任者が違うときは、先に確定したほうだけが責任を負います。</span><span class="en">With a <strong>double yakuman or more</strong>, only the yakuman the call confirmed and the honba follow the rule above; <strong>the other yakuman are paid as in a normal win</strong> (on a tsumo the liable player also pays their own share). If two liable yakuman point at different players, only the one confirmed first is liable.</span></li>
   <li><span class="ko">공탁(리치봉)은 평소처럼 화료자가 가져가며 파오와 무관합니다.</span><span class="ja">供託(リーチ棒)は通常どおり和了者へ。包とは無関係。</span><span class="en">Riichi deposits go to the winner as usual, unaffected by pao.</span></li>
   <li><span class="ko">취지: 역만이 눈에 보이는 상황에서 확정패를 내준 <strong>부주의에 대한 페널티</strong>입니다. 삼원패 커쯔 2개가 깔려 있으면 마지막 삼원패는 최대한 잡아두세요.</span><span class="ja">趣旨: 見えている役満に確定牌を差し出した<strong>不注意へのペナルティ</strong>。三元牌の刻子2組が見えたら最後の三元牌は絞りましょう。</span><span class="en">The point: it penalizes <strong>carelessly feeding</strong> an obvious yakuman. With two dragon triplets on display, hold that last dragon.</span></li>
 </ul>
+<p>
+  <span class="ko"><strong>예시</strong>(점수는 게임 엔진이 계산해 넣습니다): 1본장, 동가가 친. 남가가 백과 발과 중을 퐁했는데 3번째 중은 서가가 울려 줬습니다. 남가의 손은 대삼원과 자일색의 더블 역만입니다.</span>
+  <span class="ja"><strong>例</strong>(点数はゲームエンジンが計算して表示します): 1本場、東家が親。南家が白と發と中をポンし、3組目の中は西家が鳴かせました。南家の手は大三元と字一色のダブル役満です。</span>
+  <span class="en"><strong>Example</strong> (the game engine computes the points shown): 1 honba, East is the dealer. South pons white, green and red dragons, and West fed the third, the red dragon. South's hand is Daisangen plus Tsuuiisou, a double yakuman.</span>
+</p>
+<div class="card">
+  <div class="tilerow"><span class="lbl"><span class="ko">남가의 손</span><span class="ja">南家の手</span><span class="en">South's hand</span></span><span class="hand sm" data-t="11z 222z 555z 666z 777z"></span></div>
+  <div class="tilerow"><span class="lbl"><span class="ko">쯔모</span><span class="ja">ツモ</span><span class="en">Tsumo</span></span><ul id="pao-example-tsumo" class="pao-example"></ul><span class="note"><span class="ko">서가는 대삼원 몫과 본장을 혼자 내고, 남은 자일색은 보통 쯔모처럼 셋이 나눠 냅니다(서가도 자기 몫을 냅니다).</span><span class="ja">西家が大三元の分と積み棒を一人で払い、残りの字一色は通常のツモと同じく3人で分けて払います(西家も自分の分を払います)。</span><span class="en">West pays the Daisangen share and the honba alone, and the remaining Tsuuiisou is split by the three as a normal tsumo (West pays its share too).</span></span></div>
+  <div class="tilerow"><span class="lbl"><span class="ko">론(북가가 방총)</span><span class="ja">ロン(北家が放銃)</span><span class="en">Ron (North deals in)</span></span><ul id="pao-example-ron" class="pao-example"></ul><span class="note"><span class="ko">대삼원 몫은 북가와 서가가 반반, 본장은 서가, 남은 자일색은 북가가 냅니다.</span><span class="ja">大三元の分は北家と西家が折半、積み棒は西家、残りの字一色は北家が払います。</span><span class="en">North and West split the Daisangen share half-and-half, West pays the honba, and North pays the remaining Tsuuiisou.</span></span></div>
+</div>
 </div>
 </details>
 
-<details class="sec" data-terms="탕야오,쿠이탕,이페코,량페코,찬타,혼노두,준찬타,혼일색,청일색,청노두,나가시만관,소사희,녹일색,자일색,배패">
+<details class="sec" data-terms="탕야오,쿠이탕,이페코,량페코,찬타,혼노두,준찬타,혼일색,청일색,청노두,나가시만관,소사희,녹일색,배패">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="yaku"><span class="ko">역 일람</span><span class="ja">役一覧</span><span class="en">Yaku list</span></h2></summary>
 <div class="sec-body">
 <p class="note">
