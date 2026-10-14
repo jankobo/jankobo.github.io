@@ -4,13 +4,27 @@ THIRD-PARTY NOTICES
 This product bundles third-party software and fonts. The licence text of each
 bundled component is reproduced below, as required by its licence.
 
-Inventory (what actually ships in the web build, checked 2026-10-07):
+Inventory (what ships in the web build, checked 2026-10-07; the Mortal item
+is credited here, not shipped):
   * npm runtime dependency of apps/web: three (the only non-workspace one).
   * Vendored code: @kobalab/majiang-core, @kobalab/majiang-ai.
   * Build-tool runtime helpers emitted into the bundle: Vite (module preload
     helper and polyfill) and Rolldown (chunk runtime).
   * Fonts under /assets/fonts/: Space Grotesk; Ippatsu Sans KR / JP
     (modified subsets of IBM Plex Sans KR / JP).
+  * Mortal (https://github.com/Equim-chan/Mortal, AGPL-3.0-or-later) and the
+    community checkpoint VoidShine/mortal-298k (AGPL-3.0, trained on
+    tenhou.net game records): not bundled. The drill ships only discard
+    decisions computed offline with them. No affiliation with Mortal, its
+    authors, or tenhou.net.
+    From the model card (https://huggingface.co/VoidShine/mortal-298k,
+    read 2026-10-14), quoted verbatim (line breaks added):
+      "Training data sourced from [Tenhou](https://tenhou.net/) high-level
+      4-player hanchan games (2025–2026), stored under `dataset/4p_hanchan/`."
+      "This project is licensed under [AGPL-3.0](LICENSE), consistent with
+      [Mortal](https://github.com/Equim-chan/Mortal)."
+      "The dataset consists of game logs from [Tenhou](https://tenhou.net/).
+      Please respect Tenhou's terms of service when using this data."
 
 -------------------------------------------------------------------------------
 @kobalab/majiang-core 1.4.1
