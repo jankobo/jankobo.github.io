@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麻雀教室・何切る問題・友達とオンライン対局｜雀攻房の機能</title>
+<meta name="description" content="麻雀教室、800問の何切る問題、JPML-AとKMLのルール練習、友達とのオンライン対局、3Dの卓、カスタムテーマまで、雀攻房でできることを紹介します。">
+<link rel="canonical" href="https://jankobo.github.io/ja/features/">
+<link rel="alternate" hreflang="ko" href="https://jankobo.github.io/ko/features/">
+<link rel="alternate" hreflang="ja" href="https://jankobo.github.io/ja/features/">
+<link rel="alternate" hreflang="en" href="https://jankobo.github.io/en/features/">
+<link rel="alternate" hreflang="x-default" href="https://jankobo.github.io/en/features/">
+<link rel="icon" href="/icon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="雀攻房">
+<meta property="og:title" content="麻雀教室・何切る問題・友達とオンライン対局｜雀攻房の機能">
+<meta property="og:description" content="麻雀教室、800問の何切る問題、JPML-AとKMLのルール練習、友達とのオンライン対局、3Dの卓、カスタムテーマまで、雀攻房でできることを紹介します。">
+<meta property="og:url" content="https://jankobo.github.io/ja/features/">
+<meta property="og:image" content="https://jankobo.github.io/og.jpg?v=5">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="麻雀教室・何切る問題・友達とオンライン対局｜雀攻房の機能">
+<meta name="twitter:description" content="麻雀教室、800問の何切る問題、JPML-AとKMLのルール練習、友達とのオンライン対局、3Dの卓、カスタムテーマまで、雀攻房でできることを紹介します。">
+<meta name="twitter:image" content="https://jankobo.github.io/og.jpg?v=5">
+<style>:root{--surface-app:#1B251F;--surface-raised:#28362D;--accent:#45D29B;--accent-soft:rgb(69 210 155/12%);--text-strong:#EDEDE9;--text-body:#BEC4BF;--border-strong:rgb(226 236 230/18%);--font-sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+@media (orientation:landscape) and (min-width:1024px){:root{--type-chip:calc(13 * var(--desktop-px, 1px));--type-caption:calc(16 * var(--desktop-px, 1px));--type-label:calc(17 * var(--desktop-px, 1px));--type-body:calc(18 * var(--desktop-px, 1px));--type-lead:calc(19 * var(--desktop-px, 1px));--type-heading:calc(23 * var(--desktop-px, 1px));--type-title:calc(29 * var(--desktop-px, 1px));--type-display:calc(38 * var(--desktop-px, 1px))}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--surface-app);color:var(--text-body);font-family:var(--font-sans);line-height:1.7;font-size:var(--type-body,calc(16 * var(--desktop-px, 1px)));word-break:keep-all;overflow-wrap:break-word}
+html:lang(ja) body{word-break:normal}
+.wrap{max-width:calc(760 * var(--desktop-px, 1px));margin:0 auto;padding:calc(24 * var(--desktop-px, 1px)) calc(16 * var(--desktop-px, 1px)) calc(80 * var(--desktop-px, 1px))}
+header.top{display:flex;flex-wrap:wrap;align-items:center;gap:calc(12 * var(--desktop-px, 1px));padding:calc(6 * var(--desktop-px, 1px)) 0 calc(18 * var(--desktop-px, 1px));border-bottom:calc(1 * var(--desktop-px, 1px)) solid var(--border-strong)}
+.logo{font-size:var(--type-title,calc(24 * var(--desktop-px, 1px)));font-weight:800;color:var(--text-strong);text-decoration:none}.logo em{color:var(--accent);font-style:normal}
+.langs{margin-left:auto;display:flex;gap:calc(8 * var(--desktop-px, 1px))}.langs a{color:var(--text-body);text-decoration:none;border:calc(1 * var(--desktop-px, 1px)) solid var(--border-strong);border-radius:calc(999 * var(--desktop-px, 1px));padding:calc(5 * var(--desktop-px, 1px)) calc(12 * var(--desktop-px, 1px));font-size:var(--type-caption,calc(13 * var(--desktop-px, 1px)))}
+h1{color:var(--text-strong);font-size:var(--type-title,calc(28 * var(--desktop-px, 1px)));line-height:1.35;margin:calc(28 * var(--desktop-px, 1px)) 0 calc(12 * var(--desktop-px, 1px))}
+h2{color:var(--text-strong);font-size:var(--type-heading,calc(20 * var(--desktop-px, 1px)));margin:calc(36 * var(--desktop-px, 1px)) 0 calc(10 * var(--desktop-px, 1px))}
+h3{color:var(--text-strong);font-size:var(--type-lead,calc(17 * var(--desktop-px, 1px)));margin:calc(26 * var(--desktop-px, 1px)) 0 calc(6 * var(--desktop-px, 1px))}
+.lead{font-size:var(--type-lead,calc(17 * var(--desktop-px, 1px)));color:var(--text-strong)}
+.note{border-left:calc(3 * var(--desktop-px, 1px)) solid var(--border-strong);padding-left:calc(12 * var(--desktop-px, 1px));color:var(--text-body)}
+.more a,.cta{color:var(--accent)}
+.cta{display:inline-block;margin:calc(28 * var(--desktop-px, 1px)) 0 calc(8 * var(--desktop-px, 1px));border:calc(1 * var(--desktop-px, 1px)) solid var(--accent);border-radius:calc(999 * var(--desktop-px, 1px));padding:calc(12 * var(--desktop-px, 1px)) calc(24 * var(--desktop-px, 1px));text-decoration:none;font-weight:700;background:var(--accent-soft)}
+.cta-top{margin:calc(4 * var(--desktop-px, 1px)) 0 calc(20 * var(--desktop-px, 1px));padding:calc(9 * var(--desktop-px, 1px)) calc(20 * var(--desktop-px, 1px));font-size:var(--type-label,calc(15 * var(--desktop-px, 1px)))}
+ul{padding-left:calc(20 * var(--desktop-px, 1px))}li{margin:calc(4 * var(--desktop-px, 1px)) 0}
+figure{margin:calc(20 * var(--desktop-px, 1px)) 0}figure img{max-width:100%;height:auto;border:calc(1 * var(--desktop-px, 1px)) solid var(--border-strong);border-radius:calc(8 * var(--desktop-px, 1px));display:block}
+figcaption{font-size:var(--type-caption,calc(14 * var(--desktop-px, 1px)));margin-top:calc(8 * var(--desktop-px, 1px));color:var(--text-body)}
+.tiles{display:flex;flex-wrap:wrap;gap:calc(4 * var(--desktop-px, 1px));margin:calc(8 * var(--desktop-px, 1px)) 0}
+.tile{position:relative;display:inline-block;width:calc(34 * var(--desktop-px, 1px));height:calc(46 * var(--desktop-px, 1px))}
+.tile img{position:absolute;inset:0;width:100%;height:100%}
+.crosslinks{margin-top:calc(36 * var(--desktop-px, 1px));display:flex;flex-wrap:wrap;gap:calc(10 * var(--desktop-px, 1px))}
+.crosslinks a{color:var(--text-strong);text-decoration:none;border:calc(1 * var(--desktop-px, 1px)) solid var(--border-strong);border-radius:calc(8 * var(--desktop-px, 1px));padding:calc(8 * var(--desktop-px, 1px)) calc(14 * var(--desktop-px, 1px));font-size:var(--type-label,calc(14 * var(--desktop-px, 1px)))}
+footer{margin-top:calc(48 * var(--desktop-px, 1px));padding-top:calc(18 * var(--desktop-px, 1px));border-top:calc(1 * var(--desktop-px, 1px)) solid var(--border-strong);font-size:var(--type-caption,calc(14 * var(--desktop-px, 1px)))}
+footer a{color:var(--accent);margin-right:calc(14 * var(--desktop-px, 1px))}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://jankobo.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "雀攻房でできること",
+      "item": "https://jankobo.github.io/ja/features/"
+    }
+  ]
+}
+</script>
+  <style data-desktop-density="">:root {
+    --desktop-px: clamp(1px, calc(0.200000px + min(0.041666666666666664vw, 0.07407407407407407vh)), 4px);
+    font-size: clamp(100%, calc(20.000000% + min(0.6666666666666666vw, 1.1851851851851851vh)), 400%);
+  }</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="logo" href="/"><em>雀</em>攻房</a><nav class="langs"><a href="/ko/features/" lang="ko" hreflang="ko">한국어</a><a href="/en/features/" lang="en" hreflang="en">English</a></nav></header>
+<main>
+<h1>雀攻房でできること</h1>
+<p class="lead">雀攻房(ジャンコウボウ)は、ブラウザですぐ開けるリーチ麻雀の学習ツールです。初めての人向けの麻雀教室から、何切る問題、大会ルールを選んで打つ対局、友達と集まるオンラインの部屋、牌や卓の見た目を変えるテーマまで入っています。機能ごとに、最初の画面のどこから開くか、そこで何ができるかをまとめました。インストールもアカウントも不要で、無料です。</p>
+<p><a class="cta cta-top" href="/?from=features-ja-top&utm_source=docs&utm_campaign=features-ja-top">雀攻房を開く</a></p>
+<h2>学ぶ</h2>
+<h3 id="classroom">麻雀教室: 路線図をたどるリーチ麻雀の入門</h3>
+<p>最初の画面の「麻雀教室」を押すと、地下鉄の路線図のようなレッスンの地図が開きます。駅ひとつがレッスンひとつで、基礎、中級、上級の三段階に19の路線、90を超える駅があります。牌と卓から始まり、リーチ、鳴き、点数計算、シャンテンとテンパイ、役と役満の事典、サイコロと山、卓のマナーまで扱います。</p>
+<p>レッスンの多くは実際の対局画面で進みます。コーチがいま何をすればいいかを一行ずつ伝え、その牌やボタンを自分で押すと次へ進みます。符計算の表や点数表のように図で見たほうが早いテーマは、講義の画面で開きます。</p>
+<p>駅に鍵はかからないので、どの駅からでも入れます。初めての一局を終えたあと「すぐ実戦へ」を選べば、教室を飛ばして対局へ進むこともできます。初回から振り返りまでの流れは別のページにまとめています。</p><p class="more"><a href="/ja/learn/">麻雀をひとりでも練習する</a></p>
+<h3 id="nanikiru">何切る: 800問の「何を切る」問題</h3>
+<p>最初の画面の「問題に挑戦」から「何を切る？（何切る）」を選ぶと、打牌の手番が来た局面で一枚を選ぶ問題が出ます。全800問で、入門・基本・上級・最上級の四段に分かれています。ほとんどはボット四人が打った対局から切り出した局面で、リーチがかかった局面とそうでない局面が混ざっています。</p>
+<p>正解は、公開されている麻雀AIのMortalが選んだ牌です。Mortalの選択が100点、Mortalが二番目に挙げた牌が50点で、段はMortalの選択がどれだけはっきりしていたかで分けました。点数に入るのは最初の答えだけです。計算は前もって済ませてあり、Mortal自体はアプリに入っていません。</p>
+<p>答えると解説が開きます。「エンジン別の選択」では、Mortal、Mortalの二番手、kobalab、雀攻房の自前エンジン、そしてあなたの選択を並べ、テンパイまでの距離、受け入れの種類と枚数、狙える役を比べます。誰かがリーチしていれば安全度も並びます。</p>
+<figure><img src="/assets/seo/features-nanikiru-ja.jpg" alt="何切るの問題画面。左の2Dの卓で手牌を一枚選んだあと、中央にMortalとは違う牌を選んだという判定とMortalの選択、二番目の選択が出て、右ではエンジン別の選択が開き、候補ごとにテンパイまでの歩数と狙える役が見える" width="1280" height="720" loading="lazy" decoding="async"><figcaption>入門の最初の問題。選ぶと判定と解説が一緒に開きます。</figcaption></figure>
+<p>自分の対局から問題を作ることもできます。「牌譜から問題を拾う」を押すと直近の牌譜3件から問題を拾いますが、こちらはMortalではなくkobalabのエンジンが採点すると画面に書いてあります。</p>
+<h2>打つ</h2>
+<h3 id="table">オフラインの麻雀卓のように動く3D卓</h3>
+<p>対局の最初の局は、実際の卓のように始まります。東・南・西・北の牌を一枚ずつ引いて仮親を決め、サイコロを二度振って起家を決めます。続いてサイコロの目の数だけ数えて山を割り、割れ目から四枚ずつ配牌します。教室のレッスンではこの流れを省き、オンライン対局では短くします。設定の「局の開始演出」で「最初の局だけ」「毎局」「オフ」から選べます。</p>
+<p>リーチをかけるとリーチ棒が卓の上に投げ込まれます。和了ると和了牌が先に倒れ、光が広がってから残りの手牌が倒れ、点棒が一本ずつ飛んで受け取る人の山の横に積まれます。お釣りが要るときは100点棒か1,000点棒が戻ってきます。中央の点数表示は卓の上に寝かせてあり、それぞれの点数をその人の側に向けて見せ、局、残り枚数、本場、供託のリーチ棒も表示します。</p>
+<figure><img src="/assets/seo/features-table-ja.jpg" alt="横長の画面の3Dの卓。中央に寝かせた点数表示が東1局と残り牌、四人の点数を示し、そのまわりに四人の河と山、両脇に木のレール、手前に自分の手牌が見える" width="1280" height="720" loading="lazy" decoding="async"><figcaption>横長の画面で見た対局。点数表示は卓の上に寝かせてあり、河と山が実際の卓のように並びます。</figcaption></figure>
+<p>対局画面は、画面の形によって見え方が変わります。横長の画面(デスクトップのウィンドウや横にしたスマホ)では奥行きのある3Dの卓、縦に持ったスマホでは真上から見下ろす2Dの卓です。対局中にスマホを回せばその場で切り替わり、別に選ぶ設定はありません。牌譜の検討、反省ノート、何切るは、画面の形に関係なくいつも真上から見下ろす2Dの卓です。</p>
+<h3 id="rules">JPML-AルールとKMLルールで大会の練習</h3>
+<p>最初の画面の「つくる」にある「サンドボックス」では、ルールを自分で決めて対局を始められます。ルールは「基本ルール」「JPML-A」「KML」の三つのプリセットから選び、「詳細ルール」で一項目ずつ変えられます。</p>
+<p>プリセットごとに有効になる項目が違います。JPML-Aは一発・裏ドラ・カンドラ・赤ドラがなく、数え役満もありません。KMLは切り上げ満貫を使い、流し満貫・トビ・途中流局がなく、連風牌の雀頭を2符と数えます。「基本ルール」は赤ドラ3枚で一発・裏ドラ・カンドラをすべて使う、雀攻房の標準です。</p>
+<p>「詳細ルール」には喰いタン、一発、裏ドラとカンドラ、赤ドラの枚数、数え役満とダブル役満、切り上げ満貫、大三元・大四喜・四槓子の責任払い、流し満貫、「複数ロン」、途中流局、トビ、アガリやめ、「延長戦」などがあります。「複数ロン」は「頭ハネ」「ダブロン」「トリプルロン」から選び、「延長戦」を有効にすると、オーラスでトップが基準点に届かないときにサドンデスで最大一風まで続きます。基準はサンドボックスでは3万点、友達部屋ではホストが決めた「1位に必要な点数」です。</p>
+<p>席は四つで、「自分 1 + NPC 3」から「全部自分」まで、人とNPCの数を選びます。人が二人以上なら一つの画面で順番に打ちます。NPCの強さは席ごとに入門から最上級まで九段階で決められ、配牌や山を自分で決めて練習したい局面を作ることもできます。設定は5つまで保存して呼び出せます。</p>
+<p>友達部屋も同じルールを使えます。部屋を作るときに「詳細ルール変更」から、三つのプリセットと上の詳細ルールを同じように選べます。</p>
+<h3 id="online">オンライン友達部屋: 友達と打つオンライン麻雀</h3>
+<p>最初の画面の「オンライン友達部屋」で「部屋を作る」を押すと、6文字の部屋コードができます。友達は「部屋に参加」でそのコードを入れるか、あなたが「招待リンクをコピー」で送ったリンクを開けば、同じ部屋に座れます。アカウントもログインもなく、部屋で使うニックネームを決めるだけです。</p>
+<p>席は四つです。四人そろわなくても、ホストが「NPCを追加」で空席を二つまでNPCで埋められるので、二人や三人でも一局打てます。NPCの強さは席ごとに選びます。</p>
+<p>ホストは対局形式(東風戦・半荘戦)、開始点数、「1位に必要な点数」、「持ち時間（秒）」、それに「詳細ルール変更」のルールを決めます。持ち時間の20+5は手番ごとに5秒が与えられ、それを超えた分は局ごとに満タンに戻る20秒のバンクから減る方式です。60秒、300秒、600秒も選べます。</p>
+<p>決めた設定は「保存/読み込み」で5つまで残したりファイルで移したりでき、対局中も☰メニューの「部屋情報を確認」で部屋コードとルールを見直せます。「カスタム共有」を有効にすると、ホストのカスタムテーマとキャラクターが全員の画面に映ります。</p>
+<p>オンラインで何がサーバーに届き、何が残らないかは別のページにまとめています。</p><p class="more"><a href="/ja/privacy/">オンライン友達部屋の個人情報</a></p>
+<h2>飾る</h2>
+<h3 id="theme">カスタムテーマ: 麻雀牌と卓を好みの見た目に</h3>
+<p>最初の画面の「カスタムテーマ」で、牌や卓、画面の色を変えたテーマを作ります。牌は表面と裏面、厚みの色を決められ、37種類の牌の絵柄と裏面をコマごとに好きな画像に差し替えたり、コマごとに文字の色だけを変えたりもできます。卓には色のほかに画像を載せられ、動く画像も使えます。赤ドラ、ドラ表示、点棒、画面の背景、ボタン、文字の色と明るさも個別に選べます。</p>
+<p>テーマには「マイキャラクター」を6人まで入れられます。名前、肖像、打ち方、強さ、場面ごとのセリフを決めておけば、サンドボックスで対戦相手として座らせられます。卓に出す自分の肖像もテーマに入れます。</p>
+<p>テーマは3つまで保存して「適用」で切り替えます。「書き出し」を押すとJSONファイル一つになるので、友達に送って「読み込み」でそのまま適用してもらえます。作成と編集はデスクトップのブラウザだけで、スマホでは受け取ったテーマを読み込んで適用できます。</p>
+<p>テーマとは別に「マイプロフィール」で名前と肖像を決めます。友達部屋では、この名前と肖像が同じ部屋の人に表示されます。</p>
+<h2>正直に言っておくと</h2>
+<p class="note">オンラインは部屋コードで知り合い同士が集まる友達部屋だけです。知らない人とのマッチング、ランク戦、チャット、観戦はなく、対局中に送れるのは決まったエモート6種類だけです。</p>
+<p class="note">サンドボックスと友達部屋は四人で打つ四麻だけです。三人麻雀の対局はありません。</p>
+<p class="note">大会ルールのプリセットには順位ウマとオカの設定がありません。プリセットが変えるのは役、ドラ、流局、終局といった対局のルールで、大会の最終集計までは再現しません。</p>
+<p class="note">何切る800問の正解はMortalという一つのエンジンの選択で、その局面は人の対局ではなくボット同士の対局から切り出しています。牌譜から拾った問題は、Mortalではなくkobalabのエンジンが採点します。プロの牌譜で作った問題集とは性格が違います。</p>
+<p><a class="cta" href="/?from=features-ja&utm_source=docs&utm_campaign=features-ja">雀攻房を開く</a></p>
+</main>
+<nav class="crosslinks"><a href="/ja/learn/">麻雀をひとりでも練習する</a><a href="/ja/privacy/">オンライン友達部屋の個人情報</a><a href="/ja/license/">ライセンス案内</a></nav>
+<footer><a href="/">ホーム</a><a href="/rules.html?lang=ja">ルールブック</a><a href="/simulator.html?lang=ja">局面アナライザー</a><a href="/ja/license/">ライセンス</a></footer>
+</div>
+<script data-goatcounter="https://carrier.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
