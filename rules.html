@@ -162,6 +162,12 @@
     .hand-ex .ex-note { grid-column: 2 / -1; }
   }
   .ex-yaku { color: var(--text-strong); font-weight: 700; }
+  /* 후리텐 예(2026-10-19) — 버림패 속 대기패에 테두리, 판정 글자, 벗어나기 문단(rules-calc.ts가 core 값으로 채운다). */
+  .furi-ex { row-gap: calc(6 * var(--desktop-px, 1px)); }
+  .hand .tile.furi { outline: calc(2 * var(--desktop-px, 1px)) solid var(--danger); outline-offset: calc(1 * var(--desktop-px, 1px)); border-radius: calc(4 * var(--desktop-px, 1px)); }
+  .furi-verdict { align-self: flex-end; font-size: var(--type-caption, calc(13 * var(--desktop-px, 1px))); color: var(--text-strong); font-weight: 700; }
+  .furi-verdict.bad { color: var(--danger); }
+  .furi-fix { margin: calc(-6 * var(--desktop-px, 1px)) 0 calc(6 * var(--desktop-px, 1px)); font-size: var(--type-caption, calc(13 * var(--desktop-px, 1px))); color: var(--text-body); line-height: 1.55; }
   /* ── 표 ── */
   .tblwrap { overflow-x: auto; margin: calc(10 * var(--desktop-px, 1px)) 0; }
   table { border-collapse: collapse; width: 100%; font-size: var(--type-caption, calc(13.5 * var(--desktop-px, 1px))); }
@@ -377,7 +383,7 @@
     --desktop-px: clamp(1px, calc(0.200000px + min(0.041666666666666664vw, 0.07407407407407407vh)), 4px);
     font-size: clamp(100%, calc(20.000000% + min(0.6666666666666666vw, 1.1851851851851851vh)), 400%);
   }</style>
-  <script type="module" crossorigin src="/assets/rules-54nrZdGw.js"></script>
+  <script type="module" crossorigin src="/assets/rules--nzWX3R8.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/content-readings-D1hqdGRB.js">
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-BNLutnKb.js">
   <link rel="modulepreload" crossorigin href="/assets/en-QP3Y7b9l.js">
@@ -509,7 +515,7 @@
 </div>
 </details>
 
-<details class="sec" data-terms="슌쯔,커쯔,화료,머리,텐파이,치또이쯔,국사무쌍">
+<details class="sec" data-terms="슌쯔,커쯔,화료,머리,텐파이,치또이쯔,국사무쌍,멘젠,일발,대기,후리텐">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="goal"><span class="ko">이기는 모양: 몸통 4 + 머리 1 + 역</span><span class="ja">和了の条件: 4面子1雀頭+役</span><span class="en">Winning: 4 sets + 1 pair + a yaku</span></h2></summary>
 <div class="sec-body">
 <p>
@@ -522,23 +528,24 @@
   <div class="tilerow"><span class="lbl"><span class="ko">커쯔(같은 패 3)</span><span class="ja">刻子</span><span class="en">Triplet</span></span><span class="hand" data-t="777s"></span></div>
   <div class="tilerow"><span class="lbl"><span class="ko">깡쯔(같은 패 4)</span><span class="ja">槓子</span><span class="en">Kan</span></span><span class="hand" data-t="1111z"></span></div>
   <div class="tilerow"><span class="lbl"><span class="ko">머리</span><span class="ja">雀頭</span><span class="en">Pair</span></span><span class="hand" data-t="99s"></span></div>
-  <!-- 완성 예·역 없는 완성 예(2026-10-18 #user): 줄마다 손(data-t) + 화료패(data-t) + 조건 data-* 넷.
-       역 이름은 rules-calc.ts가 core score()로 채운다(손으로 적지 않는다) — rules-page.test.ts J절이 같은 줄을 다시 채점한다.
+  <!-- 완성 예·론으로는 역이 없는 완성 예(2026-10-18 · 10-19 #user): 줄마다 손(data-t) + 화료패(data-t) + 조건 data-* 둘(자풍·장풍).
+       역 이름은 rules-calc.ts가 core score()로 론과 쯔모를 따로 채운다(손으로 적지 않는다, 리치·일발은 뺀다)
+       — rules-page.test.ts J절이 같은 줄을 다시 채점한다.
        표기 `'`는 그 패를 눕힌다(후로로 가져온 패 — rules-hand-examples.ts). -->
   <p class="ex-head"><span class="ko">완성 예</span><span class="ja">和了例</span><span class="en">Complete hands</span></p>
   <p class="ex-cap">
-    <span class="ko">같은 모양이라도 론인지 쯔모인지, 리치를 걸었는지, 자풍과 장풍이 무엇인지에 따라 역이 달라서 조건을 함께 적었습니다. + 뒤의 패가 화료패입니다. 눕힌 패는 후로로 가져온 패이고, 눕힌 자리가 그 패를 준 사람 쪽입니다(왼쪽은 왼쪽 자리, 가운데는 맞은편, 오른쪽은 오른쪽 자리).</span>
-    <span class="ja">同じ形でも、ロンかツモか、リーチの有無、自風と場風で役が変わるため条件も記した。+の後ろが和了牌。横向きの牌は鳴いて取った牌で、横にした位置が出した人の方向(左は上家、中央は対面、右は下家)。</span>
-    <span class="en">The same shape can score different yaku depending on ron or tsumo, riichi, and the seat and round winds, so each example lists its conditions. The tile after + is the winning tile. A sideways tile was taken by a call, and its position points to the player who gave it (left: the player on your left, middle: across, right: on your right).</span>
+    <span class="ko">같은 모양이라도 론인지 쯔모인지, 자풍과 장풍이 무엇인지에 따라 역이 달라서, 줄마다 장풍과 자풍을 적고 론과 쯔모의 역이 갈리면 둘 다 적었습니다. 리치와 일발은 빼고 셌습니다(멘젠이면 리치를 걸어 더할 수 있습니다). + 뒤의 패가 화료패입니다. 눕힌 패는 후로로 가져온 패이고, 눕힌 자리가 그 패를 준 사람 쪽입니다(왼쪽은 왼쪽 자리, 가운데는 맞은편, 오른쪽은 오른쪽 자리).</span>
+    <span class="ja">同じ形でも、ロンかツモか、自風と場風で役が変わるため、場風と自風を記し、ロンとツモで役が分かれるときは両方を記した。リーチと一発は除いて数えている(門前ならリーチで加えられる)。+の後ろが和了牌。横向きの牌は鳴いて取った牌で、横にした位置が出した人の方向(左は上家、中央は対面、右は下家)。</span>
+    <span class="en">The same shape can score different yaku depending on ron or tsumo and on the seat and round winds, so each example lists the winds, and gives ron and tsumo separately when they differ. Riichi and ippatsu are left out (a closed hand can add them by declaring riichi). The tile after + is the winning tile. A sideways tile was taken by a call, and its position points to the player who gave it (left: the player on your left, middle: across, right: on your right).</span>
   </p>
-  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">슌쯔 넷</span><span class="ja">順子4つ</span><span class="en">Four runs</span></span><span class="hand sm" data-t="34m 678m 345p 678s 99s"></span><span class="arrow">+</span><span class="hand sm" data-t="2m"></span></div>
-  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">바람패 커쯔</span><span class="ja">風牌の刻子</span><span class="en">A wind triplet</span></span><span class="hand sm" data-t="234m 567p 78s 55s 222z"></span><span class="arrow">+</span><span class="hand sm" data-t="6s"></span></div>
-  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">삼원패 커쯔</span><span class="ja">三元牌の刻子</span><span class="en">A dragon triplet</span></span><span class="hand sm" data-t="33m 78m 123p 456s 777z"></span><span class="arrow">+</span><span class="hand sm" data-t="9m"></span></div>
-  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">커쯔 넷</span><span class="ja">刻子4つ</span><span class="en">Four triplets</span></span><span class="hand sm" data-t="222m 88m 444p 55p 666s"></span><span class="arrow">+</span><span class="hand sm" data-t="8m"></span></div>
-  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">커쯔와 슌쯔</span><span class="ja">刻子と順子</span><span class="en">Triplets and runs</span></span><span class="hand sm" data-t="34m 888m 22p 555p 678s"></span><span class="arrow">+</span><span class="hand sm" data-t="2m"></span></div>
-  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">슌쯔, 커쯔, 삼원패, 바람패</span><span class="ja">順子・刻子・三元牌・風牌</span><span class="en">Run, triplet, dragon and wind</span></span><span class="hand sm" data-t="23m 777p 55s 111z 666z"></span><span class="arrow">+</span><span class="hand sm" data-t="1m"></span></div>
-  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">후로한 슌쯔</span><span class="ja">チーした順子</span><span class="en">Called run (chii)</span></span><span class="hand sm" data-t="234m 55p 567p 78s 4'56s"></span><span class="arrow">+</span><span class="hand sm" data-t="6s"></span></div>
-  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">후로한 커쯔</span><span class="ja">ポンした刻子</span><span class="en">Called triplet (pon)</span></span><span class="hand sm" data-t="33m 456m 123p 89s 66'6z"></span><span class="arrow">+</span><span class="hand sm" data-t="7s"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-seat="S" data-round="E"><span class="lbl"><span class="ko">슌쯔 넷</span><span class="ja">順子4つ</span><span class="en">Four runs</span></span><span class="hand sm" data-t="34m 678m 345p 678s 99s"></span><span class="arrow">+</span><span class="hand sm" data-t="2m"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-seat="S" data-round="E"><span class="lbl"><span class="ko">바람패 커쯔</span><span class="ja">風牌の刻子</span><span class="en">A wind triplet</span></span><span class="hand sm" data-t="234m 567p 78s 55s 222z"></span><span class="arrow">+</span><span class="hand sm" data-t="6s"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-seat="S" data-round="E"><span class="lbl"><span class="ko">삼원패 커쯔</span><span class="ja">三元牌の刻子</span><span class="en">A dragon triplet</span></span><span class="hand sm" data-t="33m 78m 123p 456s 777z"></span><span class="arrow">+</span><span class="hand sm" data-t="9m"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-seat="S" data-round="E"><span class="lbl"><span class="ko">커쯔 넷</span><span class="ja">刻子4つ</span><span class="en">Four triplets</span></span><span class="hand sm" data-t="222m 88m 444p 55p 666s"></span><span class="arrow">+</span><span class="hand sm" data-t="8m"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-seat="S" data-round="E"><span class="lbl"><span class="ko">커쯔와 슌쯔</span><span class="ja">刻子と順子</span><span class="en">Triplets and runs</span></span><span class="hand sm" data-t="34m 888m 22p 555p 678s"></span><span class="arrow">+</span><span class="hand sm" data-t="2m"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-seat="S" data-round="E"><span class="lbl"><span class="ko">슌쯔, 커쯔, 삼원패, 바람패</span><span class="ja">順子・刻子・三元牌・風牌</span><span class="en">Run, triplet, dragon and wind</span></span><span class="hand sm" data-t="23m 777p 55s 111z 666z"></span><span class="arrow">+</span><span class="hand sm" data-t="1m"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-seat="S" data-round="E"><span class="lbl"><span class="ko">후로한 슌쯔</span><span class="ja">チーした順子</span><span class="en">Called run (chii)</span></span><span class="hand sm" data-t="234m 55p 567p 78s 4'56s"></span><span class="arrow">+</span><span class="hand sm" data-t="6s"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-seat="S" data-round="E"><span class="lbl"><span class="ko">후로한 커쯔</span><span class="ja">ポンした刻子</span><span class="en">Called triplet (pon)</span></span><span class="hand sm" data-t="33m 456m 123p 89s 66'6z"></span><span class="arrow">+</span><span class="hand sm" data-t="7s"></span></div>
 </div>
 <div class="callout">
   <span class="ko"><strong>역이 최소 1개 필요합니다.</strong> 형태만 완성해도 역이 하나도 없으면 화료할 수 없습니다(형식 텐파이, 바로 아래 예). 아래 <a href="#yaku">역 일람</a> 참고. 도라는 역이 아니므로 도라만으로는 화료 불가.</span>
@@ -546,16 +553,16 @@
   <span class="en"><strong>You need at least one yaku to win.</strong> A complete shape with no yaku cannot be declared (formal tenpai only; examples just below). See the <a href="#yaku">yaku list</a>. Dora are not yaku.</span>
 </div>
 <div class="card">
-  <p class="ex-head"><span class="ko">역 없는 완성 예</span><span class="ja">役なしの完成形</span><span class="en">Complete, but no yaku</span></p>
+  <p class="ex-head"><span class="ko">론으로는 역이 없는 완성 예</span><span class="ja">ロンでは役がない完成形</span><span class="en">Complete, but no yaku for ron</span></p>
   <p class="ex-cap">
-    <span class="ko">모양은 완성됐지만 적힌 조건에서 역이 하나도 없어 화료를 선언할 수 없는 예입니다(위 상자의 형식 텐파이).</span>
-    <span class="ja">形は完成していても、記した条件では役が一つも無く和了を宣言できない例(上の形式テンパイ)。</span>
-    <span class="en">The shape is complete, but under the listed conditions there is no yaku, so the win cannot be declared (the formal tenpai above).</span>
+    <span class="ko">모양은 완성됐지만 론으로는 역이 하나도 없어 론을 선언할 수 없는 예입니다(위 상자의 형식 텐파이). 멘젠이면 쯔모로 났을 때 멘젠쯔모가 역이 되어 화료할 수 있고, 리치를 걸어도 역이 생깁니다. 후로한 손은 쯔모로도 역이 생기지 않습니다. 역이 있어도 화료할 수 없는 때(후리텐)는 <a href="#waits">대기 형태와 후리텐</a>을 읽어 보세요.</span>
+    <span class="ja">形は完成していても、ロンでは役が一つも無くロンを宣言できない例(上の形式テンパイ)。門前ならツモ和了で門前清自摸和が役になって和了でき、リーチをかけても役が付く。鳴いた手はツモでも役が付かない。役があっても和了できない場合(フリテン)は<a href="#waits">待ちの形とフリテン</a>を参照。</span>
+    <span class="en">The shape is complete, but a ron has no yaku, so a ron cannot be declared (the formal tenpai above). A closed hand can still win by tsumo, with Menzen Tsumo as the yaku, or by declaring riichi. A hand with calls gets no yaku from tsumo either. For hands that cannot win even with a yaku (furiten), read <a href="#waits">Waits and furiten</a>.</span>
   </p>
-  <div class="tilerow hand-ex" data-ex="noyaku" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">슌쯔 넷, 화료패만 다름</span><span class="ja">順子4つ、和了牌だけ違う</span><span class="en">Four runs, other winning tile</span></span><span class="hand sm" data-t="234m 68m 345p 678s 99s"></span><span class="arrow">+</span><span class="hand sm" data-t="7m"></span></div>
-  <div class="tilerow hand-ex" data-ex="noyaku" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">역이 안 되는 바람패</span><span class="ja">役にならない風牌</span><span class="en">A wind with no value</span></span><span class="hand sm" data-t="23m 456p 789p 55s 444z"></span><span class="arrow">+</span><span class="hand sm" data-t="1m"></span></div>
-  <div class="tilerow hand-ex" data-ex="noyaku" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">삼원패는 머리뿐</span><span class="ja">三元牌は雀頭だけ</span><span class="en">Dragons only as the pair</span></span><span class="hand sm" data-t="234m 567p 345s 78s 55z"></span><span class="arrow">+</span><span class="hand sm" data-t="6s"></span></div>
-  <div class="tilerow hand-ex" data-ex="noyaku" data-by="tsumo" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">후로한 손의 쯔모</span><span class="ja">鳴いた手のツモ</span><span class="en">Tsumo on a called hand</span></span><span class="hand sm" data-t="99m 456p 56s 789s 1'23m"></span><span class="arrow">+</span><span class="hand sm" data-t="4s"></span></div>
+  <div class="tilerow hand-ex" data-ex="noyaku" data-seat="S" data-round="E"><span class="lbl"><span class="ko">슌쯔 넷, 화료패만 다름</span><span class="ja">順子4つ、和了牌だけ違う</span><span class="en">Four runs, other winning tile</span></span><span class="hand sm" data-t="234m 68m 345p 678s 99s"></span><span class="arrow">+</span><span class="hand sm" data-t="7m"></span></div>
+  <div class="tilerow hand-ex" data-ex="noyaku" data-seat="S" data-round="E"><span class="lbl"><span class="ko">역이 안 되는 바람패</span><span class="ja">役にならない風牌</span><span class="en">A wind with no value</span></span><span class="hand sm" data-t="23m 456p 789p 55s 444z"></span><span class="arrow">+</span><span class="hand sm" data-t="1m"></span></div>
+  <div class="tilerow hand-ex" data-ex="noyaku" data-seat="S" data-round="E"><span class="lbl"><span class="ko">삼원패는 머리뿐</span><span class="ja">三元牌は雀頭だけ</span><span class="en">Dragons only as the pair</span></span><span class="hand sm" data-t="234m 567p 345s 78s 55z"></span><span class="arrow">+</span><span class="hand sm" data-t="6s"></span></div>
+  <div class="tilerow hand-ex" data-ex="noyaku" data-seat="S" data-round="E"><span class="lbl"><span class="ko">후로한 손의 쯔모</span><span class="ja">鳴いた手のツモ</span><span class="en">Tsumo on a called hand</span></span><span class="hand sm" data-t="99m 456p 56s 789s 1'23m"></span><span class="arrow">+</span><span class="hand sm" data-t="4s"></span></div>
 </div>
 <p>
   <span class="ko">특수형 2가지: <strong>치또이쯔</strong>(서로 다른 2장짝 7개)와 <strong>국사무쌍</strong>(1, 9, 자패 13종 + 아무 1종 중복).</span>
@@ -581,7 +588,7 @@
 </div>
 </details>
 
-<details class="sec" data-terms="치,퐁,깡,멘젠,영상패,상가,대기">
+<details class="sec" data-terms="치,퐁,깡,영상패,상가">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="calls"><span class="ko">남의 패 가져오기: 치, 퐁, 깡</span><span class="ja">他家の牌をもらう: チー・ポン・カン</span><span class="en">Taking a tile from someone: chi, pon, kan</span></h2></summary>
 <div class="sec-body">
 <div class="card">
@@ -603,7 +610,7 @@
 </div>
 </details>
 
-<details class="sec" data-terms="판,일발,쯔모기리">
+<details class="sec" data-terms="판,쯔모기리">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="riichi"><span class="ko">리치</span><span class="ja">立直</span><span class="en">Riichi</span></h2></summary>
 <div class="sec-body">
 <ul>
@@ -614,7 +621,7 @@
 </div>
 </details>
 
-<details class="sec" data-terms="양면,변짱,간짱,샤보,단기,후리텐">
+<details class="sec" data-terms="양면,변짱,간짱,샤보,단기">
 <summary class="sec-head"><span class="sec-mark" aria-hidden="true">▶</span><h2 id="waits"><span class="ko">대기 형태와 후리텐</span><span class="ja">待ちの形とフリテン</span><span class="en">Waits and furiten</span></h2></summary>
 <div class="sec-body">
 <p>
@@ -633,6 +640,37 @@
   <span class="ko"><strong>후리텐</strong>: 대기패 중 <strong>하나라도</strong> 자기 버림패에 있으면 <strong>모든 대기패</strong>에 대해 론 불가(쯔모는 가능). 대기패는 한 묶음이라 일부만 후리텐일 수 없습니다. 예를 들어 3만과 6만 양면 대기에서 3만을 이미 버렸다면 6만이 나와도 론할 수 없습니다. 남의 화료패를 론하지 않고 넘겨도 그 순 동안 후리텐(동순 후리텐. 자기 쯔모나 자기 콜로 풀린다), 리치 중 넘기면 그 국 내내 후리텐입니다. 창깡(깡 가로채기) 기회를 넘겨도 같은 후리텐이 걸립니다.</span>
   <span class="ja"><strong>フリテン</strong>: 待ち牌の<strong>どれか1つでも</strong>自分の河にあると<strong>すべての待ち牌</strong>でロン不可(ツモは可)。待ちはひとまとまりで、一部だけフリテンにはなりません。例えば3萬・6萬の両面待ちで3萬を既に捨てていれば、6萬が出てもロンできません。見逃しは同巡フリテン(自分のツモ・鳴きで解消)、立直中の見逃しは永続。槍槓の見逃しも同様。</span>
   <span class="en"><strong>Furiten</strong>: if <strong>even one</strong> of your waits is in your own discards, you cannot ron on <strong>any</strong> of them (tsumo is fine). Waits are all-or-nothing. Example: waiting on 3m/6m, having discarded 3m earlier means you can't ron a 6m either. Passing on a winnable discard makes you temporarily furiten (cleared by your next draw or call); during riichi it lasts the whole hand. Passing a chankan chance counts too.</span>
+</div>
+<!-- 후리텐 예(2026-10-19 #user): 줄마다 손패 13장(data-t) + 버림패(data-t). 대기패와 후리텐 판정은 rules-calc.ts가
+     core ukeire로 채운다(손으로 적지 않는다) — rules-page.test.ts K절이 같은 줄을 다시 잰다.
+     data-furi="fix" 줄은 바로 앞 후리텐 줄에서 data-draw를 가져오고 data-cut을 버린 손이다. -->
+<div class="card">
+  <p class="ex-head"><span class="ko">후리텐 예</span><span class="ja">フリテンの例</span><span class="en">Furiten examples</span></p>
+  <p class="ex-cap">
+    <span class="ko">대기패는 손패에서 계산한 것이고, 버림패 가운데 대기패에는 테두리를 둘렀습니다. 예마다 아래에 후리텐에서 벗어나는 길을 적었습니다.</span>
+    <span class="ja">待ち牌は手牌から計算したもの。河にある待ち牌は枠で囲んだ。各例の下にフリテンから抜ける方法を記した。</span>
+    <span class="en">The waits are worked out from the hand, and wait tiles in your discards are outlined. Under each example is the way out of furiten.</span>
+  </p>
+  <div class="tilerow furi-ex" data-furi="furiten"><span class="lbl"><span class="ko">양면 대기</span><span class="ja">両面待ち</span><span class="en">Open wait</span></span><span class="wgrp"><span class="wcap"><span class="ko">손패</span><span class="ja">手牌</span><span class="en">Hand</span></span><span class="hand sm" data-t="45m 234p 678p 456s 88s"></span></span><span class="wgrp"><span class="wcap"><span class="ko">버림패</span><span class="ja">河</span><span class="en">Discards</span></span><span class="hand sm" data-t="1z 9p 3m 2z"></span></span></div>
+  <p class="furi-fix">
+    <span class="ko"><strong>벗어나기</strong>: 쯔모로는 지금 그대로 화료할 수 있습니다(3만이든 6만이든). 론을 하려면 대기를 바꾸어야 합니다. 7만을 가져와 4만을 버리면 6만 간짱 대기가 되고, 6만은 버림패에 없으므로 후리텐이 풀립니다(아래 줄). 리치를 건 뒤에는 대기를 바꿀 수 없어 쯔모만 남습니다.</span>
+    <span class="ja"><strong>抜け方</strong>: ツモならこのまま和了できる(3萬でも6萬でも)。ロンするには待ちを変える。7萬を引いて4萬を切れば6萬の嵌張待ちになり、6萬は河に無いのでフリテンが解ける(下の行)。リーチ後は待ちを変えられないのでツモだけになる。</span>
+    <span class="en"><strong>Way out</strong>: a tsumo still wins as is (3m or 6m). To ron, change the wait: draw a 7m and discard the 4m, and you wait on the 6m alone (closed wait). There is no 6m in your discards, so you are out of furiten (row below). After riichi you cannot change the wait, so only tsumo is left.</span>
+  </p>
+  <div class="tilerow furi-ex" data-furi="fix" data-draw="7m" data-cut="4m"><span class="lbl"><span class="ko">바꾼 대기</span><span class="ja">待ち替え後</span><span class="en">After the change</span></span><span class="wgrp"><span class="wcap"><span class="ko">손패</span><span class="ja">手牌</span><span class="en">Hand</span></span><span class="hand sm" data-t="57m 234p 678p 456s 88s"></span></span><span class="wgrp"><span class="wcap"><span class="ko">버림패</span><span class="ja">河</span><span class="en">Discards</span></span><span class="hand sm" data-t="1z 9p 3m 2z 4m"></span></span></div>
+  <div class="tilerow furi-ex" data-furi="furiten"><span class="lbl"><span class="ko">국사무쌍 13면 대기</span><span class="ja">国士無双13面待ち</span><span class="en">Thirteen Orphans, 13-way wait</span></span><span class="wgrp"><span class="wcap"><span class="ko">손패</span><span class="ja">手牌</span><span class="en">Hand</span></span><span class="hand sm" data-t="19m 19p 19s 1234567z"></span></span><span class="wgrp"><span class="wcap"><span class="ko">버림패</span><span class="ja">河</span><span class="en">Discards</span></span><span class="hand sm" data-t="1m 5p 6s 2m"></span></span></div>
+  <p class="furi-fix">
+    <span class="ko"><strong>벗어나기</strong>: 국사무쌍을 지킨 채로는 대기를 바꿀 수 없습니다. 13종 중 어느 패를 가져와도 그대로 화료이므로 쯔모로 화료합니다. 13종 가운데 한 종이라도 버린 적이 있으면 나머지 12종도 론할 수 없습니다.</span>
+    <span class="ja"><strong>抜け方</strong>: 国士無双のままでは待ちを変えられない。13種のどれを引いてもそのまま和了なので、ツモで和了する。13種のうち1種でも捨てていれば、残り12種もロンできない。</span>
+    <span class="en"><strong>Way out</strong>: while you keep the Thirteen Orphans shape there is no way to change the wait. Any of the 13 kinds you draw wins as is, so win by tsumo. If even one of the 13 kinds is in your discards, you cannot ron the other 12 either.</span>
+  </p>
+  <div class="tilerow furi-ex" data-furi="furiten"><span class="lbl"><span class="ko">대기패 3종</span><span class="ja">3種の待ち</span><span class="en">Three kinds of waits</span></span><span class="wgrp"><span class="wcap"><span class="ko">손패</span><span class="ja">手牌</span><span class="en">Hand</span></span><span class="hand sm" data-t="23456m 234p 678s 66p"></span></span><span class="wgrp"><span class="wcap"><span class="ko">버림패</span><span class="ja">河</span><span class="en">Discards</span></span><span class="hand sm" data-t="1z 9s 7m 4z"></span></span></div>
+  <p class="furi-fix">
+    <span class="ko"><strong>벗어나기</strong>: 버린 것은 7만 한 종뿐이지만 1만과 4만으로도 론할 수 없습니다. 쯔모는 가능합니다. 리치 전이라면 3만을 가져와 2만을 버려 3만과 6통의 샤보 대기로 바꾸면, 둘 다 버림패에 없어 후리텐이 풀립니다(아래 줄). 리치를 건 뒤에는 쯔모만 남습니다.</span>
+    <span class="ja"><strong>抜け方</strong>: 捨てたのは7萬の1種だけでも、1萬と4萬でもロンできない。ツモは可。リーチ前なら3萬を引いて2萬を切り、3萬と6筒のシャンポン待ちに変えれば、どちらも河に無いのでフリテンが解ける(下の行)。リーチ後はツモだけになる。</span>
+    <span class="en"><strong>Way out</strong>: only the 7m was discarded, yet you cannot ron a 1m or a 4m either. Tsumo is fine. Before riichi, draw a 3m and discard the 2m to switch to a dual pair wait on 3m and 6p; neither is in your discards, so you are out of furiten (row below). After riichi only tsumo is left.</span>
+  </p>
+  <div class="tilerow furi-ex" data-furi="fix" data-draw="3m" data-cut="2m"><span class="lbl"><span class="ko">바꾼 대기</span><span class="ja">待ち替え後</span><span class="en">After the change</span></span><span class="wgrp"><span class="wcap"><span class="ko">손패</span><span class="ja">手牌</span><span class="en">Hand</span></span><span class="hand sm" data-t="33m 456m 234p 678s 66p"></span></span><span class="wgrp"><span class="wcap"><span class="ko">버림패</span><span class="ja">河</span><span class="en">Discards</span></span><span class="hand sm" data-t="1z 9s 7m 4z 2m"></span></span></div>
 </div>
 </div>
 </details>
