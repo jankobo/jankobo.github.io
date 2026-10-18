@@ -140,6 +140,28 @@
   .arrow { color: var(--accent); font-weight: 700; margin: 0 calc(6 * var(--desktop-px, 1px)); align-self: center; }
   .tilerow { display: flex; flex-wrap: wrap; gap: calc(12 * var(--desktop-px, 1px)); align-items: center; margin: calc(8 * var(--desktop-px, 1px)) 0 calc(14 * var(--desktop-px, 1px)); }
   .lbl { min-width: calc(88 * var(--desktop-px, 1px)); font-size: var(--type-caption, calc(13 * var(--desktop-px, 1px))); color: var(--text-strong); font-weight: 700; }
+  /* 눕힌 패(후로로 가져온 패 — data-t 표기 `'`, 2026-10-18). 상자를 가로(4:3)로 눕히고 몸체·글리프를 −90° 돌린다.
+     % 값은 세운 패의 치수를 눕힌 상자 기준으로 옮긴 것: 몸체 폭 tw = 75%·높이 4/3 tw = 133.33%, 글리프 78%×78% → 58.5%×104%.
+     아래 끝을 세운 패와 맞춘다(실물 후로처럼 눕힌 패가 낮다). */
+  .tile.rot { width: calc(var(--tw, calc(34 * var(--desktop-px, 1px))) * 4 / 3); aspect-ratio: 4 / 3; align-self: flex-end; }
+  .tile.rot .tf, .tile.rot .tg { inset: auto; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-90deg); }
+  .tile.rot .tf { width: 75%; height: 133.333%; }
+  .tile.rot .tg { width: 58.5%; height: 104%; }
+  /* 완성 예·역 없는 완성 예 — 묶음 제목·설명·줄마다 붙는 조건/역(rules-calc.ts가 core 값으로 채운다). */
+  .ex-head { margin: calc(14 * var(--desktop-px, 1px)) 0 calc(2 * var(--desktop-px, 1px)); font-size: var(--type-label, calc(14 * var(--desktop-px, 1px))); font-weight: 800; color: var(--accent); }
+  .card > .ex-head:first-child { margin-top: 0; }
+  .ex-cap { margin: 0 0 calc(6 * var(--desktop-px, 1px)); font-size: var(--type-caption, calc(13 * var(--desktop-px, 1px))); color: var(--text-muted); line-height: 1.5; }
+  .hand-ex { row-gap: calc(4 * var(--desktop-px, 1px)); }
+  .ex-note { display: flex; flex-wrap: wrap; gap: calc(1 * var(--desktop-px, 1px)) calc(12 * var(--desktop-px, 1px)); min-width: 0; }
+  /* 넓은 화면은 표처럼 — 라벨 열을 고정해 패가 한 열에 서고, 조건·역은 늘 패 바로 아래(줄마다 오른쪽/아래로 갈리지 않게).
+     패 열은 minmax(0, max-content)라 좁아지면 묶음 단위로 꺾인다(가로 넘침 0). 560px 이하는 위 flex 흐름 그대로. */
+  @media (min-width: 561px) {
+    .hand-ex { display: grid; grid-template-columns: 9.5em minmax(0, max-content) auto auto 1fr; column-gap: calc(12 * var(--desktop-px, 1px)); }
+    .hand-ex .lbl { min-width: 0; }
+    .hand-ex .hand { margin: calc(2 * var(--desktop-px, 1px)) 0; }
+    .hand-ex .ex-note { grid-column: 2 / -1; }
+  }
+  .ex-yaku { color: var(--text-strong); font-weight: 700; }
   /* ── 표 ── */
   .tblwrap { overflow-x: auto; margin: calc(10 * var(--desktop-px, 1px)) 0; }
   table { border-collapse: collapse; width: 100%; font-size: var(--type-caption, calc(13.5 * var(--desktop-px, 1px))); }
@@ -355,13 +377,13 @@
     --desktop-px: clamp(1px, calc(0.200000px + min(0.041666666666666664vw, 0.07407407407407407vh)), 4px);
     font-size: clamp(100%, calc(20.000000% + min(0.6666666666666666vw, 1.1851851851851851vh)), 400%);
   }</style>
-  <script type="module" crossorigin src="/assets/rules-B99H0oYg.js"></script>
+  <script type="module" crossorigin src="/assets/rules-54nrZdGw.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/content-readings-D1hqdGRB.js">
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-BNLutnKb.js">
-  <link rel="modulepreload" crossorigin href="/assets/en-oVsyc3tA.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-cA2VEtRK.js">
-  <link rel="modulepreload" crossorigin href="/assets/tile-face-Jefv1AZ6.js">
-  <link rel="modulepreload" crossorigin href="/assets/score-calc-steps-PwMhYQ-W.js">
+  <link rel="modulepreload" crossorigin href="/assets/en-QP3Y7b9l.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-fvnCsMnw.js">
+  <link rel="modulepreload" crossorigin href="/assets/tile-face-CENnGsGG.js">
+  <link rel="modulepreload" crossorigin href="/assets/score-calc-steps-BNoJZ1kJ.js">
   <link rel="modulepreload" crossorigin href="/assets/save-location-ckXZKwqZ.js">
   <link rel="modulepreload" crossorigin href="/assets/document-readings-haVUdNQ_.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
@@ -500,12 +522,40 @@
   <div class="tilerow"><span class="lbl"><span class="ko">커쯔(같은 패 3)</span><span class="ja">刻子</span><span class="en">Triplet</span></span><span class="hand" data-t="777s"></span></div>
   <div class="tilerow"><span class="lbl"><span class="ko">깡쯔(같은 패 4)</span><span class="ja">槓子</span><span class="en">Kan</span></span><span class="hand" data-t="1111z"></span></div>
   <div class="tilerow"><span class="lbl"><span class="ko">머리</span><span class="ja">雀頭</span><span class="en">Pair</span></span><span class="hand" data-t="99s"></span></div>
-  <div class="tilerow"><span class="lbl"><span class="ko">완성 예</span><span class="ja">和了例</span><span class="en">Example</span></span><span class="hand" data-t="234m 678m 345p 678s 99s"></span></div>
+  <!-- 완성 예·역 없는 완성 예(2026-10-18 #user): 줄마다 손(data-t) + 화료패(data-t) + 조건 data-* 넷.
+       역 이름은 rules-calc.ts가 core score()로 채운다(손으로 적지 않는다) — rules-page.test.ts J절이 같은 줄을 다시 채점한다.
+       표기 `'`는 그 패를 눕힌다(후로로 가져온 패 — rules-hand-examples.ts). -->
+  <p class="ex-head"><span class="ko">완성 예</span><span class="ja">和了例</span><span class="en">Complete hands</span></p>
+  <p class="ex-cap">
+    <span class="ko">같은 모양이라도 론인지 쯔모인지, 리치를 걸었는지, 자풍과 장풍이 무엇인지에 따라 역이 달라서 조건을 함께 적었습니다. + 뒤의 패가 화료패입니다. 눕힌 패는 후로로 가져온 패이고, 눕힌 자리가 그 패를 준 사람 쪽입니다(왼쪽은 왼쪽 자리, 가운데는 맞은편, 오른쪽은 오른쪽 자리).</span>
+    <span class="ja">同じ形でも、ロンかツモか、リーチの有無、自風と場風で役が変わるため条件も記した。+の後ろが和了牌。横向きの牌は鳴いて取った牌で、横にした位置が出した人の方向(左は上家、中央は対面、右は下家)。</span>
+    <span class="en">The same shape can score different yaku depending on ron or tsumo, riichi, and the seat and round winds, so each example lists its conditions. The tile after + is the winning tile. A sideways tile was taken by a call, and its position points to the player who gave it (left: the player on your left, middle: across, right: on your right).</span>
+  </p>
+  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">슌쯔 넷</span><span class="ja">順子4つ</span><span class="en">Four runs</span></span><span class="hand sm" data-t="34m 678m 345p 678s 99s"></span><span class="arrow">+</span><span class="hand sm" data-t="2m"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">바람패 커쯔</span><span class="ja">風牌の刻子</span><span class="en">A wind triplet</span></span><span class="hand sm" data-t="234m 567p 78s 55s 222z"></span><span class="arrow">+</span><span class="hand sm" data-t="6s"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">삼원패 커쯔</span><span class="ja">三元牌の刻子</span><span class="en">A dragon triplet</span></span><span class="hand sm" data-t="33m 78m 123p 456s 777z"></span><span class="arrow">+</span><span class="hand sm" data-t="9m"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">커쯔 넷</span><span class="ja">刻子4つ</span><span class="en">Four triplets</span></span><span class="hand sm" data-t="222m 88m 444p 55p 666s"></span><span class="arrow">+</span><span class="hand sm" data-t="8m"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">커쯔와 슌쯔</span><span class="ja">刻子と順子</span><span class="en">Triplets and runs</span></span><span class="hand sm" data-t="34m 888m 22p 555p 678s"></span><span class="arrow">+</span><span class="hand sm" data-t="2m"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">슌쯔, 커쯔, 삼원패, 바람패</span><span class="ja">順子・刻子・三元牌・風牌</span><span class="en">Run, triplet, dragon and wind</span></span><span class="hand sm" data-t="23m 777p 55s 111z 666z"></span><span class="arrow">+</span><span class="hand sm" data-t="1m"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">후로한 슌쯔</span><span class="ja">チーした順子</span><span class="en">Called run (chii)</span></span><span class="hand sm" data-t="234m 55p 567p 78s 4'56s"></span><span class="arrow">+</span><span class="hand sm" data-t="6s"></span></div>
+  <div class="tilerow hand-ex" data-ex="complete" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">후로한 커쯔</span><span class="ja">ポンした刻子</span><span class="en">Called triplet (pon)</span></span><span class="hand sm" data-t="33m 456m 123p 89s 66'6z"></span><span class="arrow">+</span><span class="hand sm" data-t="7s"></span></div>
 </div>
 <div class="callout">
-  <span class="ko"><strong>역이 최소 1개 필요합니다.</strong> 형태만 완성해도 역이 하나도 없으면 화료할 수 없습니다(형식 텐파이). 아래 <a href="#yaku">역 일람</a> 참고. 도라는 역이 아니므로 도라만으로는 화료 불가.</span>
-  <span class="ja"><strong>最低1つの役が必要です。</strong>形だけ完成しても役が無ければ和了できません(形式テンパイ)。<a href="#yaku">役一覧</a>参照。ドラは役ではありません。</span>
-  <span class="en"><strong>You need at least one yaku to win.</strong> A complete shape with no yaku cannot be declared (formal tenpai only). See the <a href="#yaku">yaku list</a>. Dora are not yaku.</span>
+  <span class="ko"><strong>역이 최소 1개 필요합니다.</strong> 형태만 완성해도 역이 하나도 없으면 화료할 수 없습니다(형식 텐파이, 바로 아래 예). 아래 <a href="#yaku">역 일람</a> 참고. 도라는 역이 아니므로 도라만으로는 화료 불가.</span>
+  <span class="ja"><strong>最低1つの役が必要です。</strong>形だけ完成しても役が無ければ和了できません(形式テンパイ、すぐ下の例)。<a href="#yaku">役一覧</a>参照。ドラは役ではありません。</span>
+  <span class="en"><strong>You need at least one yaku to win.</strong> A complete shape with no yaku cannot be declared (formal tenpai only; examples just below). See the <a href="#yaku">yaku list</a>. Dora are not yaku.</span>
+</div>
+<div class="card">
+  <p class="ex-head"><span class="ko">역 없는 완성 예</span><span class="ja">役なしの完成形</span><span class="en">Complete, but no yaku</span></p>
+  <p class="ex-cap">
+    <span class="ko">모양은 완성됐지만 적힌 조건에서 역이 하나도 없어 화료를 선언할 수 없는 예입니다(위 상자의 형식 텐파이).</span>
+    <span class="ja">形は完成していても、記した条件では役が一つも無く和了を宣言できない例(上の形式テンパイ)。</span>
+    <span class="en">The shape is complete, but under the listed conditions there is no yaku, so the win cannot be declared (the formal tenpai above).</span>
+  </p>
+  <div class="tilerow hand-ex" data-ex="noyaku" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">슌쯔 넷, 화료패만 다름</span><span class="ja">順子4つ、和了牌だけ違う</span><span class="en">Four runs, other winning tile</span></span><span class="hand sm" data-t="234m 68m 345p 678s 99s"></span><span class="arrow">+</span><span class="hand sm" data-t="7m"></span></div>
+  <div class="tilerow hand-ex" data-ex="noyaku" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">역이 안 되는 바람패</span><span class="ja">役にならない風牌</span><span class="en">A wind with no value</span></span><span class="hand sm" data-t="23m 456p 789p 55s 444z"></span><span class="arrow">+</span><span class="hand sm" data-t="1m"></span></div>
+  <div class="tilerow hand-ex" data-ex="noyaku" data-by="ron" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">삼원패는 머리뿐</span><span class="ja">三元牌は雀頭だけ</span><span class="en">Dragons only as the pair</span></span><span class="hand sm" data-t="234m 567p 345s 78s 55z"></span><span class="arrow">+</span><span class="hand sm" data-t="6s"></span></div>
+  <div class="tilerow hand-ex" data-ex="noyaku" data-by="tsumo" data-riichi="0" data-seat="S" data-round="E"><span class="lbl"><span class="ko">후로한 손의 쯔모</span><span class="ja">鳴いた手のツモ</span><span class="en">Tsumo on a called hand</span></span><span class="hand sm" data-t="99m 456p 56s 789s 1'23m"></span><span class="arrow">+</span><span class="hand sm" data-t="4s"></span></div>
 </div>
 <p>
   <span class="ko">특수형 2가지: <strong>치또이쯔</strong>(서로 다른 2장짝 7개)와 <strong>국사무쌍</strong>(1, 9, 자패 13종 + 아무 1종 중복).</span>
