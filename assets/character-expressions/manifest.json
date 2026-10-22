@@ -1060,7 +1060,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "0d931bf8ce3274e88dd9820add85a4035816cdbc0dd31e4e901efa23a3592ec6",
+    "sourceSha256": "dc6748d20b538512491c658d595c3c88e00033d57559cc5be0204ae6ce229901",
     "url": "/assets/character-expressions/seoul-seoyeon/greet.webp"
   },
   {
@@ -1068,7 +1068,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "ac075b0b16f5c0330f041892a808bda20214c2442bf11e93089a03e6b5a82725",
+    "sourceSha256": "e44305a6290954e230062f4a19db861d7ce6ab442f44e4334b6a2583c2f28f1e",
     "url": "/assets/character-expressions/seoul-seoyeon/riichi.webp"
   },
   {
@@ -1076,7 +1076,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "0f3f79ad031d2c27193eee10facdbc5ffe98f0b3b10ace1c4887732a35186932",
+    "sourceSha256": "f6fe8f5b2e0db2f4470b058cc22d69a1df7984a2b7c57633c477fa8ef3e863d7",
     "url": "/assets/character-expressions/seoul-seoyeon/win.webp"
   },
   {
@@ -1084,7 +1084,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "4d2f54c72528a176d7f8b5b2e584223a771e222bd853e70105e7fd6b19dd8aa1",
+    "sourceSha256": "b272fae304eee4ba2698f863ae65cdc1c404e9d74671dc1107ff20c530ddf3b6",
     "url": "/assets/character-expressions/seoul-seoyeon/deal-in.webp"
   },
   {
@@ -1092,7 +1092,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "eb262af8e8ee552f8669af6df596b840344e7c39f68818c1ff0be29881ed299b",
+    "sourceSha256": "f3719b1990b998d2329ee11b483bfc6f548c9e88f277682110f50caf0b0291e0",
     "url": "/assets/character-expressions/seoul-seoyeon/danger.webp"
   },
   {
@@ -1100,7 +1100,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "97a2b019eec3d328d3c0e21e71e880eab6a846393f84124d1eee24a37370ac31",
+    "sourceSha256": "19a8e0f036a614186d09adb6d6eb44f724868ae23c1b82af09e96a10edc51a6f",
     "url": "/assets/character-expressions/seoul-seoyeon/call.webp"
   },
   {
