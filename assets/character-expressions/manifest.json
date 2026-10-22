@@ -964,7 +964,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "b1657bc13ef0113fb5fc852bc6608be3d27c5d6103b566f9f7e6f073b2acd6e6",
+    "sourceSha256": "ffd86276d57f6c8b44ee2bdfd385f80b5bbd6094506a334aa4e22edbe39f3dfc",
     "url": "/assets/character-expressions/seoul-jun/greet.webp"
   },
   {
@@ -972,7 +972,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "94b19484a5810a889d29906f967d8a2cb4631874ff4693845298b4d788171a70",
+    "sourceSha256": "79afbd6430b0d29163fbde0965ac1ddd179f945d31d5713b1ee4d8b6c20abf10",
     "url": "/assets/character-expressions/seoul-jun/riichi.webp"
   },
   {
@@ -980,7 +980,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "ebe96725b14318390efdad886188641b02af3a3c9865861bbb12a270ec3c2ad5",
+    "sourceSha256": "e9a722e9f00bb150bba681453f4c3439a5140f9c0f12f414756ded4290286ad9",
     "url": "/assets/character-expressions/seoul-jun/win.webp"
   },
   {
@@ -988,7 +988,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "b09c6f72de9c8434d3007d398839ddb0be9af152f0ce56c2e64abd3366ca7bb4",
+    "sourceSha256": "3daa9906c434294d8bebba594c94bdfb5e42f03652a58f2dc5e7e880ad423cd8",
     "url": "/assets/character-expressions/seoul-jun/deal-in.webp"
   },
   {
@@ -996,7 +996,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "16eee4f5f746c035a5ce1da84f35681161d09b0dbc2b3d90200a38d0909750db",
+    "sourceSha256": "149932e3e40a13b1dd9c403156565bb09daa5dc4559e131bdae81713b8c66a7f",
     "url": "/assets/character-expressions/seoul-jun/danger.webp"
   },
   {
@@ -1004,7 +1004,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "e8780c0c66eec77582f3952fa33e1f31f18ecb3b1c791249e9cf05742ea3cd2c",
+    "sourceSha256": "9032ef21719cb335018aaf58ec008ebc0da469ca4700f015de3d99a716b87a69",
     "url": "/assets/character-expressions/seoul-jun/call.webp"
   },
   {
