@@ -484,7 +484,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "76078fd879424ff56dfb8edb6642d4b24839619794b087a6e6e5033ee8042561",
+    "sourceSha256": "085e69b9a54d5e14db3c90f39c492cb6d68057f6863825e1ca9ea44d5c82cd1c",
     "url": "/assets/character-expressions/incheon-serin/greet.webp"
   },
   {
@@ -492,7 +492,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "0d3bbd74d2168b4d1cdcb2ce1351af486812d4707cac6f6077eb0b8d8aaf8316",
+    "sourceSha256": "3356b03272dd63968af1ae51039765ab1739613062344b217d387a5e5630a5a3",
     "url": "/assets/character-expressions/incheon-serin/riichi.webp"
   },
   {
@@ -500,7 +500,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "281cc9725c9eb3a5a7fc1eb8a477d5f928d005af282967766de7b61658d142be",
+    "sourceSha256": "2671c45cef216c8c7dee03eb519ee4001d697a3ef1f22916204241bcce9b8d13",
     "url": "/assets/character-expressions/incheon-serin/win.webp"
   },
   {
@@ -508,7 +508,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "ca14b4dcb3d3bb9a00f028be589649e9810a9a415bdf5c8a0a01a3b785739fce",
+    "sourceSha256": "37eae0bc5756dc5bcacacf10d6ca7bd82f5487242e6c27cbe7bfe3b8cd375a15",
     "url": "/assets/character-expressions/incheon-serin/deal-in.webp"
   },
   {
@@ -516,7 +516,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "96e036debab3130d0b66ff9f34f53f148104fc839f2687d22c3f34bbfd8d7595",
+    "sourceSha256": "a41f57a8605452757910db938b6c914059d570e6773007c51904ecd9036229fc",
     "url": "/assets/character-expressions/incheon-serin/danger.webp"
   },
   {
@@ -524,7 +524,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "9b685e3b7806119d91f142fcd8a0e5528382c4e8137e2e3859eef6211108c52c",
+    "sourceSha256": "6fef037c1a10ebbcdbbed30e604ecfbad6fbff8c49ce97d83143c1f170e56e75",
     "url": "/assets/character-expressions/incheon-serin/call.webp"
   },
   {
@@ -580,7 +580,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "9015d322d6aebabbbeec46c486886c52e8b7e9068449ca2935c315d53df5cf96",
+    "sourceSha256": "7dbd91ab11f7bb5234e854a0abdf798254a647c15c23fe5ddb7282b9ac20ffc6",
     "url": "/assets/character-expressions/osaka-akari/greet.webp"
   },
   {
@@ -588,7 +588,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "a4a1b0a898f005f77a5a595841ad7611bd1fca365359bb139e504eac70d001ca",
+    "sourceSha256": "e26f42ade5bd96e60d7379e5e1c38818294f206e96b4d21950590c5714fa2c08",
     "url": "/assets/character-expressions/osaka-akari/riichi.webp"
   },
   {
@@ -596,7 +596,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "10499cd668b66c64e6114cd46bea82680d9494d45c5baa930d8af4030ea3d806",
+    "sourceSha256": "e5aa4b6fef9c2ab19fcb18b92dc52293102074c1d7c7cd1a7a6fb26ede613c96",
     "url": "/assets/character-expressions/osaka-akari/win.webp"
   },
   {
@@ -604,7 +604,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "db49e22ef41cc5244fa307125c0a82439b50273e2e4330deef5e5010e9d3c4e2",
+    "sourceSha256": "e042dccbd46b2e43b6a0090d85505c879c7080df063bc34329fd8f38b97d089c",
     "url": "/assets/character-expressions/osaka-akari/deal-in.webp"
   },
   {
@@ -612,7 +612,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "fa292e21c613c0bf9c13cfba8bb48a12dd4bc6a3a581c8fafe31e46f2b21d733",
+    "sourceSha256": "fa358486bdc5e500453e36cb2d1b040e75615eeea0bd150f7a3519699b65d777",
     "url": "/assets/character-expressions/osaka-akari/danger.webp"
   },
   {
@@ -620,7 +620,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "cd5f56ded0fd90cfa1bd4db7fdc65987184fe86c758b5ac39e334426051201f2",
+    "sourceSha256": "b77e8f0df1cfa541b6c567866f527eacca40539930c9bc783c74c9d0ec7fb056",
     "url": "/assets/character-expressions/osaka-akari/call.webp"
   },
   {
