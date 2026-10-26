@@ -4,27 +4,27 @@
   <link rel="self" type="application/atom+xml" href="https://jankobo.github.io/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://jankobo.github.io/"/>
   <id>https://jankobo.github.io/</id>
-  <updated>2026-10-25T00:00:00Z</updated>
+  <updated>2026-10-26T00:00:00Z</updated>
   <author><name>Jankobo</name></author>
   <entry xml:lang="ko">
     <title>리치 마작 튜토리얼과 친구 대국: 작공방(雀攻房) 기능 안내</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/features/"/>
     <id>https://jankobo.github.io/ko/features/</id>
-    <updated>2026-10-25T00:00:00Z</updated>
+    <updated>2026-10-26T00:00:00Z</updated>
     <summary>마작 교실 튜토리얼, 나니키루 문제 800개, KML과 JPML-A 룰 연습, 친구와 온라인 대국, 3D 작탁, 커스텀 테마까지 소개합니다.</summary>
   </entry>
   <entry xml:lang="ja">
     <title>麻雀教室・何切る問題・友達とオンライン対局｜雀攻房の機能</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/ja/features/"/>
     <id>https://jankobo.github.io/ja/features/</id>
-    <updated>2026-10-25T00:00:00Z</updated>
+    <updated>2026-10-26T00:00:00Z</updated>
     <summary>麻雀教室、800問の何切る問題、JPML-AとKMLのルール練習、友達とのオンライン対局、3Dの卓、カスタムテーマまで、雀攻房でできることを紹介します。</summary>
   </entry>
   <entry xml:lang="en">
     <title>Riichi Mahjong Tutorial, Nanikiru and Online Rooms | Jankobo</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/en/features/"/>
     <id>https://jankobo.github.io/en/features/</id>
-    <updated>2026-10-25T00:00:00Z</updated>
+    <updated>2026-10-26T00:00:00Z</updated>
     <summary>A riichi mahjong tutorial classroom, 800 nanikiru problems, JPML-A and KML rule presets, online rooms to play with friends, a 3D table and custom tile themes.</summary>
   </entry>
   <entry xml:lang="ko">
