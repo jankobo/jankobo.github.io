@@ -52,7 +52,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "1b39b480dc1bf7837ae3305e654c7708cd8f9f83ae1061da6d196ace688cec9b",
+    "sourceSha256": "b0407a2d5d4caa24b23a054a2548477fdda77351782cff55c2a837cf6169e4eb",
     "url": "/assets/character-expressions/busan-gangmin/greet.webp"
   },
   {
@@ -60,7 +60,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "cc82a028321dd5a1c425486aef9bdcc39c1fae29ae9c090d7f936d4de43da7c6",
+    "sourceSha256": "c5512188aa3c466e9c925673b03d3adfd98c9a37a0f2d1bea2145551e38d99be",
     "url": "/assets/character-expressions/busan-gangmin/riichi.webp"
   },
   {
@@ -68,7 +68,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "e362cac8b180554d282e29315232f6f9722a5d2314e6512b5805a9a5493a1bbe",
+    "sourceSha256": "499c31f2af964338482b7a8b35c90867cf2e8563a6549b5c4c643a7c556e543b",
     "url": "/assets/character-expressions/busan-gangmin/win.webp"
   },
   {
@@ -76,7 +76,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "9f47c3eae7a6490fb609dadeadbf9ae6e9ef5bdee07fea83ced02725a55d9359",
+    "sourceSha256": "3df41f170a09b4c17e7ce559eb81dbb713edc3ab01b15f5befcaaf950a667ca5",
     "url": "/assets/character-expressions/busan-gangmin/deal-in.webp"
   },
   {
@@ -84,7 +84,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "bb87bb26d1df5367246e058015fe14b99d43d0c62d7f0fcca74ae39457509b91",
+    "sourceSha256": "5728173c696ffceb350441d6fa411594c762219ddb56d148de41d0ebde20bcf7",
     "url": "/assets/character-expressions/busan-gangmin/danger.webp"
   },
   {
@@ -92,7 +92,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "5c36f8841fde21bc07c916b12991765d1c674138987c06d98785b3bdbd2576ba",
+    "sourceSha256": "f19c5e15ee99fc68b9da4cda2a96c055bae5490d05a3303bb5741c8ee6bdd678",
     "url": "/assets/character-expressions/busan-gangmin/call.webp"
   },
   {
@@ -100,7 +100,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "8a997557b7f20eb11823466efe27cff6943f17b183536ddccb088113a58c53d8",
+    "sourceSha256": "581e1acc64a9af414c62b115bd5b92abce8975a1afa93769298cbb7f1b68c7c4",
     "url": "/assets/character-expressions/busan-jaehee/greet.webp"
   },
   {
@@ -108,7 +108,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "609d5c048de3889d3d134c65d244a4044f13a3106b77514860e773202ac1d2d1",
+    "sourceSha256": "f541505d92f734e11eaac1091f137f6134a6efc6d60731ef228c8d0bee272498",
     "url": "/assets/character-expressions/busan-jaehee/riichi.webp"
   },
   {
@@ -116,7 +116,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "3aa51f11c3efde7f58b7a27f51c440b404b82c93a7482611cd8eb4bcfb11b230",
+    "sourceSha256": "26555bb0107ec10b2e6c3789d8d1ed740dd68d88f4674c661f1ddb90e7d9c58b",
     "url": "/assets/character-expressions/busan-jaehee/win.webp"
   },
   {
@@ -124,7 +124,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "96a293607621b6f2792829cf8ba1f0e3de384ca51d82d8cc691cc231a2aec5d9",
+    "sourceSha256": "5a86528eb729bea9244fcd2b6fe87cbe6ca6c4bc4277ef044694e168fb486cd9",
     "url": "/assets/character-expressions/busan-jaehee/deal-in.webp"
   },
   {
@@ -132,7 +132,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "95ab05861f68a64c2338802580e2aacd070412ff07c1a7845ba4e06911d3e644",
+    "sourceSha256": "c00eb39c2cdb558779a9f315364fadac3dc48ea735ed5f15c2baa9bc67356b46",
     "url": "/assets/character-expressions/busan-jaehee/danger.webp"
   },
   {
@@ -140,7 +140,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "7240ac28d9962584ed24515107c2386bfd1445a9b3da739a13727fe370043956",
+    "sourceSha256": "0cb2f480238814c918d3d4beaa7e86524d77c18a5491e17c896ecc8ea3537f78",
     "url": "/assets/character-expressions/busan-jaehee/call.webp"
   },
   {
@@ -148,7 +148,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "3cbcef3274aeb406102f88d716c656877398cf3571c30ac2c192613139b9b764",
+    "sourceSha256": "bde1c2f34b1bae71569161a015bcbf8d4cfd61646d08511b795a3f5b44b02b7e",
     "url": "/assets/character-expressions/busan-mira/greet.webp"
   },
   {
@@ -156,7 +156,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "2eea90498581948f047f2bb9357bdbecec9be1aad36cc867114a7a8275208e7c",
+    "sourceSha256": "130265c8e769493ebdf670167750dfb88c281cf1feedb61efaf08b03f028c784",
     "url": "/assets/character-expressions/busan-mira/riichi.webp"
   },
   {
@@ -164,7 +164,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "2c6ddbac2659fca0e2811c738ad1a01830afa09e2acd4749e0466c898e8bfbc3",
+    "sourceSha256": "42c6cca5d542caad1a59783d675b05f5238d35f973759eeee023b4e774929201",
     "url": "/assets/character-expressions/busan-mira/win.webp"
   },
   {
@@ -172,7 +172,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "24f9c967aa0951351e45efad2d092748067ad2f6a2eb36f9e3aeb5015bab6199",
+    "sourceSha256": "4ac3560f8f51c9fd2c8d9c70950aa94286418f38f8f3f7583c67602d8a635dc2",
     "url": "/assets/character-expressions/busan-mira/deal-in.webp"
   },
   {
@@ -180,7 +180,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "c5d9e4acb37b31ff4273ac807be49249c9338d9796d64a756f40b3d0e70c3eee",
+    "sourceSha256": "1eda42fd202ae7fee86cf1690ae2d87f2add391ffc484f41abd1a780515b089f",
     "url": "/assets/character-expressions/busan-mira/danger.webp"
   },
   {
@@ -188,7 +188,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "905f41a2e8cd2b0ffc221bc076b51f472f8ebaefe85089c19eaa42cf30357efb",
+    "sourceSha256": "addeb992463b631fd8a1d48d8c189abf677db96828bce962dcd928f1e42748a9",
     "url": "/assets/character-expressions/busan-mira/call.webp"
   },
   {
@@ -196,7 +196,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "64e9ffcaece011a577d6056fb60cacd5ed6ffa04b024db0ee9bf557faac8a7ef",
+    "sourceSha256": "e8da892cdb6b6dae4184875c04bcc99cd9ec5f30c53a53daaf89074d3de3032e",
     "url": "/assets/character-expressions/busan-taeho/greet.webp"
   },
   {
@@ -204,7 +204,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "fef369b61d6682fe14e0b5d53c5027657ad5efe870f78b14cd5b218d4763da97",
+    "sourceSha256": "96c9da9d7ff53736d4080ccb44daf042cf27fd3ac4b798c9c7bb2c1b33735717",
     "url": "/assets/character-expressions/busan-taeho/riichi.webp"
   },
   {
@@ -212,7 +212,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "6562b2e3b5000630f14961f63cad15e2d1af607bf282e28771fe86c516fd7b21",
+    "sourceSha256": "2b6f07ace9566851e6d4bcb361132be13805f6cea0af2a44ed0527bbf45bddf7",
     "url": "/assets/character-expressions/busan-taeho/win.webp"
   },
   {
@@ -220,7 +220,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "12bb95188c6d49b22d7477dea7c684e74b5857a8b72c27938ab5ee3038eb3ce9",
+    "sourceSha256": "a8444dc13916bdc5a6dbbca2a8068350284d3ac62b717a4a009f8de126b909c0",
     "url": "/assets/character-expressions/busan-taeho/deal-in.webp"
   },
   {
@@ -228,7 +228,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "5b15e36ace86c77afa298618556003418b97a4da3f51255ff58dd92f225dc1b2",
+    "sourceSha256": "a32c71e95a23e05ef291673b96dc3062dc25ab8aaea8daeb71d7d899e0e71904",
     "url": "/assets/character-expressions/busan-taeho/danger.webp"
   },
   {
@@ -236,7 +236,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "475421eb1caf112b273a6c94c9111126297934bf26a7a12680ec0cc35b908c5c",
+    "sourceSha256": "f806bc820415808be1f2f8fd0e2b337444fb3d95fb08c867e410a3ed778c7781",
     "url": "/assets/character-expressions/busan-taeho/call.webp"
   },
   {
@@ -628,7 +628,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "0755f126b21f92d01cc9c9bbe387e5fa20dc7ffa23f979a41e38422bd483025a",
+    "sourceSha256": "fe1a4a9efcb570a760b26145793d7d693d7a3e92a37621e129ec325a72170022",
     "url": "/assets/character-expressions/osaka-chihiro/greet.webp"
   },
   {
@@ -636,7 +636,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "5b5f69f57ff8c5914dc3fff8c7d230178e4d542e99d37daf96fb110d99c6c7a2",
+    "sourceSha256": "e8ba26ac9258d5d683a92c51e94f0ee5c889342941e762f2b8bef8699bc65e48",
     "url": "/assets/character-expressions/osaka-chihiro/riichi.webp"
   },
   {
@@ -644,7 +644,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "d87112830be7ff2a73bdf25982ff9b9d83dd08b088c48320f6a96f91f924bf36",
+    "sourceSha256": "050db23dfe382528e015588fff48aecc0cf0f5e032f99d436a926559f1f7d3d2",
     "url": "/assets/character-expressions/osaka-chihiro/win.webp"
   },
   {
@@ -652,7 +652,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "3f87710c8abfcc258b46d7ddf1a8d7dfab5aef756391663c3f68608def3dc0f3",
+    "sourceSha256": "dda7961e9cf0bd05711b15e4cda868bee65328f1ef0b0253fdc45e5ec64ccc99",
     "url": "/assets/character-expressions/osaka-chihiro/deal-in.webp"
   },
   {
@@ -660,7 +660,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "f67246d57bdb654e6dc62e74334120c879b145bd4d96a204ed4166b5c42377b4",
+    "sourceSha256": "935fe3dbd2bc40612d40f353c90ca7074dbc921ec5658fe17c3d88dd8b855c12",
     "url": "/assets/character-expressions/osaka-chihiro/danger.webp"
   },
   {
@@ -668,7 +668,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "ad88e96cf51ae3165a04bed30ca0669a44823c811ba46133c9ffec14aa27fb0e",
+    "sourceSha256": "ba04a248bea4dd54f94d6e9ddb8a103034d9d25d42679a024363e67619192fbf",
     "url": "/assets/character-expressions/osaka-chihiro/call.webp"
   },
   {
@@ -964,7 +964,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "ffd86276d57f6c8b44ee2bdfd385f80b5bbd6094506a334aa4e22edbe39f3dfc",
+    "sourceSha256": "ea460a220648edf34ca66cddca862fcb85aad85fa7926d5ad758cc637986a10c",
     "url": "/assets/character-expressions/seoul-jun/greet.webp"
   },
   {
@@ -972,7 +972,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "79afbd6430b0d29163fbde0965ac1ddd179f945d31d5713b1ee4d8b6c20abf10",
+    "sourceSha256": "ee14afa34d9f8742e75592de146406ad8663537aaf1fa0ee8e97c24f8949f4f1",
     "url": "/assets/character-expressions/seoul-jun/riichi.webp"
   },
   {
@@ -980,7 +980,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "e9a722e9f00bb150bba681453f4c3439a5140f9c0f12f414756ded4290286ad9",
+    "sourceSha256": "b972ac4c9b725a9c184b98503914b3453c2857b8271b31c624d24d5467aaf3a6",
     "url": "/assets/character-expressions/seoul-jun/win.webp"
   },
   {
@@ -988,7 +988,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "3daa9906c434294d8bebba594c94bdfb5e42f03652a58f2dc5e7e880ad423cd8",
+    "sourceSha256": "bdc824cba45ee7885dc3dd3ec351d7ea52b0dacc21e4eec5e5ea21e90c7219f6",
     "url": "/assets/character-expressions/seoul-jun/deal-in.webp"
   },
   {
@@ -996,7 +996,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "149932e3e40a13b1dd9c403156565bb09daa5dc4559e131bdae81713b8c66a7f",
+    "sourceSha256": "5f72811eb3b92778e174e05c8b6aee6b38d8890b138d30c623ccc00e67833dee",
     "url": "/assets/character-expressions/seoul-jun/danger.webp"
   },
   {
@@ -1004,7 +1004,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "9032ef21719cb335018aaf58ec008ebc0da469ca4700f015de3d99a716b87a69",
+    "sourceSha256": "b06bb92e97525c075cfc397fbb54e349b944c53defa54a1a027d4cea5cacbfbb",
     "url": "/assets/character-expressions/seoul-jun/call.webp"
   },
   {
