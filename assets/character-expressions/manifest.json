@@ -836,7 +836,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "d15200f8e3018cb644777e25db3059c6739debd8b363884f1a8b7967c918e9ad",
+    "sourceSha256": "420013d01c2d4549f87103b97643edfe3db59ce958940cba02829a2f39878c69",
     "url": "/assets/character-expressions/osaka-yui/win.webp"
   },
   {
@@ -1156,7 +1156,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "a190f053291b27b3fee32455c922dfd955a8cc511d7b94187529dc18afa81eff",
+    "sourceSha256": "29f2a42517820aa4155cc8d4ab3abe97ae6335844b2032798c465b2dc8904b97",
     "url": "/assets/character-expressions/tokyo-kai/greet.webp"
   },
   {
@@ -1164,7 +1164,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "a42c2a3eda6aff701a77f773c7e02ab8aea660147b56bba1d9361f90ba9a657c",
+    "sourceSha256": "875417ea192b2ad5950dbc4c3f3f353f78711a1e97aacd05faf6e18258f89262",
     "url": "/assets/character-expressions/tokyo-kai/riichi.webp"
   },
   {
@@ -1172,7 +1172,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "6b08f3d4c1fda9ee97c5eef5344fcb6f9b8d802d8ce7720b4724722c5eb05c97",
+    "sourceSha256": "a660fbec58aede64eef7e5a243946410d983c2d7c63239fd4b63509f3c2aace9",
     "url": "/assets/character-expressions/tokyo-kai/win.webp"
   },
   {
@@ -1180,7 +1180,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "be75bcb98face3c0b2ba97c3880ecd2d427368ac21284ffadb7e59c3a1af0dc0",
+    "sourceSha256": "cd6606b4c955f3a835fecd7e059f65f15355cb279b5f84b3ac1060c141c2196f",
     "url": "/assets/character-expressions/tokyo-kai/deal-in.webp"
   },
   {
@@ -1188,7 +1188,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "1453f4f2a784bcbb259bf9da6089614b2371d4ee3de0959893a9ccddfffa27a8",
+    "sourceSha256": "b9c0b788f70a67cb08ea5b747e22d27ea9b6ab81efc549227d0ff4422b1e345d",
     "url": "/assets/character-expressions/tokyo-kai/danger.webp"
   },
   {
@@ -1196,7 +1196,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "c7980903e54308da9436f5bd1eb5926fe81f1679b83a00abc60942026ac910ef",
+    "sourceSha256": "5cedd7203ad9c11ebe4736783228dd13390e5229a9a89d8c3aa4873295c1d493",
     "url": "/assets/character-expressions/tokyo-kai/call.webp"
   },
   {
@@ -1204,7 +1204,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "3bb66d0651c44afe238802b49b2a6459d4dd4c539e6d8e7bd80cc88ec9ceca55",
+    "sourceSha256": "bb9339d50c458260fbc3cd262a20d3bb2b50c0e84a4f561a08c11d4cd00cb8d3",
     "url": "/assets/character-expressions/tokyo-mei/greet.webp"
   },
   {
@@ -1212,7 +1212,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "cc74b2c1285345e17b1ec2072404bdff08509b0ff3b1c00446433d7a40512abc",
+    "sourceSha256": "1f5fe8c01b1efa7c07f86101ba74e97a533e95c92f1c20837f2cbabecbf32630",
     "url": "/assets/character-expressions/tokyo-mei/riichi.webp"
   },
   {
@@ -1220,7 +1220,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "16f51103d7b07654c2509f41f9e3cc0e563395bc20e342a0980ab90498532069",
+    "sourceSha256": "e111e4bf93cffd60b483bdb35501edebeec19dee9ac76f39ad61c8deb91e643f",
     "url": "/assets/character-expressions/tokyo-mei/win.webp"
   },
   {
@@ -1228,7 +1228,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "982adef245e0c11246c5e28aaa90a4e45428f1c12f5ad2b9306657499ad97eda",
+    "sourceSha256": "6af4e2b43add8285e05dee19d717c9b0ef38b218734c2e7ceef1da4ba1894bf6",
     "url": "/assets/character-expressions/tokyo-mei/deal-in.webp"
   },
   {
@@ -1236,7 +1236,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "5a94890156245b92ab4a38849865d9f9b7911faec32e67cee1042ef90fb4a24e",
+    "sourceSha256": "41b45c195e3eae2fc8db865d26b46f5524b3daf6600188b5b459b3a47bd8096c",
     "url": "/assets/character-expressions/tokyo-mei/danger.webp"
   },
   {
@@ -1244,7 +1244,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "1e3aaa4e160a47cf79bc5a6d35cdb75c0b8684078378476173fa23b6bec300fa",
+    "sourceSha256": "cf9f5351e18e6992d39a7cf909a34d35276d0f41cb11700aed7fe9fff631b11f",
     "url": "/assets/character-expressions/tokyo-mei/call.webp"
   },
   {
