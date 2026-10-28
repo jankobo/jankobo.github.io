@@ -1396,7 +1396,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "2373d3a35f38ea37a675f3ac584b5183680df1b25649fea4a2b5406361bc7413",
+    "sourceSha256": "5375917af7960773f346e94ca39cfb4acc7a8a8e4abeef83b5ef5c6c3a326bde",
     "url": "/assets/character-expressions/tokyo-sota/greet.webp"
   },
   {
@@ -1404,7 +1404,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "0d04d3b7017ce92f9b1b9f454ee9377ac625b3de5fded90f6a9a51011c8241e4",
+    "sourceSha256": "c07bfdbe06f5d1afbcc98cd4c30881cb2a10452674339e8e63b171dcc17c319b",
     "url": "/assets/character-expressions/tokyo-sota/riichi.webp"
   },
   {
@@ -1412,7 +1412,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "7eaf60f19755b66f4327d59e6e0f839d48b8709b86875844e175d7a58396e0d0",
+    "sourceSha256": "ab499030e6b8e7a1fbdceb4fdaa2e858ea0890043fff93348f67e453cc9348db",
     "url": "/assets/character-expressions/tokyo-sota/win.webp"
   },
   {
@@ -1420,7 +1420,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "f11941ab4e9445385f7c63029ee6b36dbbfeaae5b209f4388cb442079a800618",
+    "sourceSha256": "bf14b31f4b728905740dc9ea2f6cc52ebabb3e50d70721abe779c8d8a820fc2b",
     "url": "/assets/character-expressions/tokyo-sota/deal-in.webp"
   },
   {
@@ -1428,7 +1428,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "685bd504c7ac584eca10062cc9bbd6335a5dcd29f8140c9b929d2234b0e95964",
+    "sourceSha256": "17f43a6daa4aedd611885cca45dd261cb28f485b1283fa25367ea4d01f27f52c",
     "url": "/assets/character-expressions/tokyo-sota/danger.webp"
   },
   {
@@ -1436,7 +1436,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "af3e77f8e72f5f0deb6b945e84850b91785d45347caaf15da7b7f78bee3c7a4a",
+    "sourceSha256": "5194ad89ed218fa644405031413d9de147b3bce11e07f0b500e5d5319f7d941d",
     "url": "/assets/character-expressions/tokyo-sota/call.webp"
   }
 ]
