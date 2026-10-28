@@ -1252,7 +1252,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "b96bb3e8d72a40dcf8c7a71828c988594133faf1c3f49e4a5eaf55fb92b1e95a",
+    "sourceSha256": "bcbd75839fd6a879a054ac3de836804780c21bce081b61c614c4db1033d174f6",
     "url": "/assets/character-expressions/tokyo-reika/greet.webp"
   },
   {
@@ -1260,7 +1260,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "0974647256c8ac4df0e6c0263345b039d0ac90598d548e68d93151a39fb53576",
+    "sourceSha256": "81aaa4bb10096e5b59d60d18b252fdb2885eeea0f607ea7b6d24e0b7351e5081",
     "url": "/assets/character-expressions/tokyo-reika/riichi.webp"
   },
   {
@@ -1268,7 +1268,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "19b5dff491c8598071ae661475cafb2ab9784669af0ec515fc33d093e27787a9",
+    "sourceSha256": "7d874bb08083f7bdc00578fe6dc17163cf9778a10ee504ef5f672f380c5f8f1e",
     "url": "/assets/character-expressions/tokyo-reika/win.webp"
   },
   {
@@ -1276,7 +1276,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "a79f1f1409948527b3b51b2024e503aa9475a9e196ddd8a2a50f9cba0a9d72d5",
+    "sourceSha256": "44ce12d20de1d9289cdd34452dd48fc065586fd0e248d5e8ddb0fad37b73db8a",
     "url": "/assets/character-expressions/tokyo-reika/deal-in.webp"
   },
   {
@@ -1284,7 +1284,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "4a15b5f84f10a71dd3b2616e325f552534096cd80f486f7b8f026413bfd685b5",
+    "sourceSha256": "f617af6c533c8d992ec937bc880afab27ce23d8baeeec1e4a6b059b27bd4173d",
     "url": "/assets/character-expressions/tokyo-reika/danger.webp"
   },
   {
@@ -1292,7 +1292,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "92ec540ca43d6e34b8f79b8c119ba4006d93d768ba486db92bdfd0d3dde28831",
+    "sourceSha256": "3184573e7d9cb3b9064610c2ddec480f674b90687853aad4d9cff1eb1cfad41c",
     "url": "/assets/character-expressions/tokyo-reika/call.webp"
   },
   {
@@ -1300,7 +1300,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "3f521951dff1995da47517735c54510b21190eb1024e1f591b0410eeb08d7a7d",
+    "sourceSha256": "b39fc876e3127c0bec73964f3dea0d7135ef15165c54653ab5f3a4d0f12acc43",
     "url": "/assets/character-expressions/tokyo-rina/greet.webp"
   },
   {
@@ -1308,7 +1308,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "f6d492be163bac8392c55fab6daad53b62729a1763061a980e0bfb3c4e8326bb",
+    "sourceSha256": "c97cb9b31a5a41022574fa357615c3acf58ab9fe25282d9dea4ee8b241b14861",
     "url": "/assets/character-expressions/tokyo-rina/riichi.webp"
   },
   {
@@ -1316,7 +1316,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "3c45363b8334bcead928fdc9c409aeae4007d38e295984b36319ccc219860748",
+    "sourceSha256": "cff3e70ea49f1fa7382089133d39be716880ae3df136d92ca0a12580c9e61c81",
     "url": "/assets/character-expressions/tokyo-rina/win.webp"
   },
   {
@@ -1324,7 +1324,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "b618dfe0321be5d2673de9c0d874c2034602186838bd2493e537ce5d528c86e3",
+    "sourceSha256": "c619b3e818352d3b4283232496e1d7f53ca8ffe07293bcb306cfdee90c0e9c8b",
     "url": "/assets/character-expressions/tokyo-rina/deal-in.webp"
   },
   {
@@ -1332,7 +1332,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "76479aee3babe4fd5b5c2dba1c91754bedcdc1f58ff9c46d63114dd575c45946",
+    "sourceSha256": "eea8fd9e7bd6c6eb188c56817b89ac94b1a9cee5be2bc9e9225128ee95f7e533",
     "url": "/assets/character-expressions/tokyo-rina/danger.webp"
   },
   {
@@ -1340,7 +1340,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "6e3b294ac722ef69b777ad37a638c622983645cdc6dff98b92d7306c92a7da2b",
+    "sourceSha256": "377c58ed985ac570df24061a2fcdc8d9d4ee9a8de407a5d8106a016664507a0f",
     "url": "/assets/character-expressions/tokyo-rina/call.webp"
   },
   {
@@ -1348,7 +1348,7 @@
     "expression": "greet",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "97f3bc61c9b3081472f0888a22f542364e2adc305a8cf2ad8ff06370c4f42223",
+    "sourceSha256": "07127155c574a17f3b788e1f5b8a12910186bba4bf7c38d6c96e292159a96ecf",
     "url": "/assets/character-expressions/tokyo-shun/greet.webp"
   },
   {
@@ -1356,7 +1356,7 @@
     "expression": "riichi",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "1045032b2a3fd7ebd522851562ca28ebab148df7287b5249667cb3dc26448e9e",
+    "sourceSha256": "0a7215daafdf5f9da4de0fe632e6a7dc716e3075f23bf5ccfce662c3239154b2",
     "url": "/assets/character-expressions/tokyo-shun/riichi.webp"
   },
   {
@@ -1364,7 +1364,7 @@
     "expression": "win",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "6de0e14d3cd56d8caa5d8b92afd54f8fc8494176ef2c4c5e800daf5bef610498",
+    "sourceSha256": "a65505f41a6300e175dbacbece625713555f58fc8cf8ebe7f5a6141eb371c128",
     "url": "/assets/character-expressions/tokyo-shun/win.webp"
   },
   {
@@ -1372,7 +1372,7 @@
     "expression": "deal-in",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "9706bab8de0f305c13b5b8185cb1c30557ab3b44b367da604b67ca99aac95f63",
+    "sourceSha256": "2ae8528a9c09798b9c2f31a198568761a5c604c372f89e590175dedc591651b4",
     "url": "/assets/character-expressions/tokyo-shun/deal-in.webp"
   },
   {
@@ -1380,7 +1380,7 @@
     "expression": "danger",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "f3aa65608794e20fc9dc93fa11b685b4f618dcc8830bd8de20f3890e97865ee9",
+    "sourceSha256": "b4985ca71b9e0da649fda550c6827af3e96fb2c2fa794fea68e682582a340f1c",
     "url": "/assets/character-expressions/tokyo-shun/danger.webp"
   },
   {
@@ -1388,7 +1388,7 @@
     "expression": "call",
     "width": 1024,
     "height": 1536,
-    "sourceSha256": "44f8ddf59a5f06eb2895bd79430e4f600cb36a5d76cd0c8cf666fcabeaa2693a",
+    "sourceSha256": "6d72128780aa3a024b4db94e859bec077d1e88090774fe0099f4555d2e7ab107",
     "url": "/assets/character-expressions/tokyo-shun/call.webp"
   },
   {
