@@ -207,6 +207,30 @@
   .pal .tile { width: 100%; display: block; }
   .pal:hover { border-color: var(--accent-line); background: var(--accent-soft); }
   .pal:disabled { opacity: .25; cursor: default; background: none; border-color: transparent; }
+  /* 표기 입력칸 + 「?」(2026-10-28 #user). 칸 글자는 16px 아래로 내리지 않는다(iOS가 포커스 때 화면을 확대한다).
+     ⚠ `.help-btn`·`.help-bubble`·`.help-line`은 앱 `style.css`의 사본이다 — 이 MPA는 style.css를 안 싣는다. 한쪽을 고치면 둘 다. */
+  .calc-notation { display: flex; flex-wrap: wrap; align-items: center; gap: calc(6 * var(--desktop-px, 1px)) calc(8 * var(--desktop-px, 1px)); max-width: calc(460 * var(--desktop-px, 1px)); margin: calc(10 * var(--desktop-px, 1px)) 0 0; }
+  .calc-notation-label { color: var(--text-muted); font-size: var(--type-caption, calc(12 * var(--desktop-px, 1px))); }
+  .calc-notation-input { flex: 1 1 calc(160 * var(--desktop-px, 1px)); min-width: 0; padding: calc(6 * var(--desktop-px, 1px)) calc(10 * var(--desktop-px, 1px)); color: var(--text-strong); font: inherit; font-size: calc(16 * var(--desktop-px, 1px)); background: var(--surface-app); border: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); border-radius: calc(8 * var(--desktop-px, 1px)); }
+  .calc-notation-input:focus-visible { outline: calc(2 * var(--desktop-px, 1px)) solid var(--accent); outline-offset: calc(1 * var(--desktop-px, 1px)); }
+  .calc-notation-input[aria-invalid="true"] { border-color: var(--danger); }
+  .calc-notation-msg { flex: 1 1 100%; display: flex; flex-wrap: wrap; align-items: center; gap: calc(4 * var(--desktop-px, 1px)); color: var(--danger); font-size: var(--type-caption, calc(12 * var(--desktop-px, 1px))); }
+  .calc-notation-msg:empty { display: none; }
+  .calc-notation-msg .tile { width: calc(18 * var(--desktop-px, 1px)); }
+  .help-btn { width: calc(28 * var(--desktop-px, 1px)); height: calc(28 * var(--desktop-px, 1px)); flex: none; padding: 0; color: var(--text-body); font-family: var(--font-display); font-size: var(--type-label, calc(13 * var(--desktop-px, 1px))); font-weight: 700; line-height: 1; border: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); border-radius: 50%; background: var(--surface-panel); cursor: pointer; }
+  .help-btn:hover, .help-btn[aria-expanded="true"] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+  .help-bubble { position: fixed; z-index: 40; width: min(calc(320 * var(--desktop-px, 1px)), calc(100vw - calc(24 * var(--desktop-px, 1px)))); display: flex; flex-direction: column; gap: calc(7 * var(--desktop-px, 1px)); padding: calc(11 * var(--desktop-px, 1px)) calc(13 * var(--desktop-px, 1px)); color: var(--text-body); font-size: var(--type-body, calc(12.5 * var(--desktop-px, 1px))); line-height: 1.6; text-align: left; border: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); border-radius: var(--radius-md); background: var(--surface-overlay); backdrop-filter: blur(calc(14 * var(--desktop-px, 1px))); box-shadow: var(--shadow-lg); }
+  .help-bubble.is-capped { overflow-y: auto; overscroll-behavior: contain; }
+  .help-bubble.is-capped::before { display: none; }
+  .help-bubble::before { content: ""; position: absolute; top: calc(-5 * var(--desktop-px, 1px)); left: var(--tail-x, calc(22 * var(--desktop-px, 1px))); width: calc(9 * var(--desktop-px, 1px)); height: calc(9 * var(--desktop-px, 1px)); transform: translateX(-50%) rotate(45deg); border-top: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); border-left: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); background: var(--surface-overlay); }
+  .help-bubble.above::before { top: auto; bottom: calc(-5 * var(--desktop-px, 1px)); transform: translateX(-50%) rotate(225deg); }
+  .help-line { margin: 0; }
+  /* 말풍선 안의 표기 줄 — 샌드박스 `.free-notation-*`와 같은 꼴(코드, 패그림, 설명). */
+  .notation-row { display: flex; flex-wrap: wrap; align-items: center; gap: calc(4 * var(--desktop-px, 1px)) calc(6 * var(--desktop-px, 1px)); }
+  .notation-code { flex: none; min-width: calc(20 * var(--desktop-px, 1px)); padding: calc(1 * var(--desktop-px, 1px)) calc(5 * var(--desktop-px, 1px)); color: var(--accent); font-size: var(--type-chip, calc(11.5 * var(--desktop-px, 1px))); text-align: center; background: color-mix(in srgb, var(--accent) 12%, transparent); border-radius: var(--radius-sm); }
+  .notation-row .tile { width: calc(18 * var(--desktop-px, 1px)); }
+  .notation-text { flex: 1 1 100%; font-size: var(--type-caption, calc(11.5 * var(--desktop-px, 1px))); line-height: 1.45; }
+  .notation-example .notation-code { flex: 1 1 100%; text-align: left; }
   .calc-opts { display: flex; flex-wrap: wrap; gap: calc(6 * var(--desktop-px, 1px)); align-items: center; margin: calc(12 * var(--desktop-px, 1px)) 0 calc(8 * var(--desktop-px, 1px)); }
   .optgrp { display: inline-flex; border: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); border-radius: calc(999 * var(--desktop-px, 1px)); overflow: hidden; }
   .opt { background: var(--surface-app); color: var(--text-body); border: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); border-radius: calc(999 * var(--desktop-px, 1px)); padding: calc(5 * var(--desktop-px, 1px)) calc(13 * var(--desktop-px, 1px)); font-size: var(--type-label, calc(13 * var(--desktop-px, 1px))); cursor: pointer; }
@@ -383,13 +407,13 @@
     --desktop-px: clamp(1px, calc(0.200000px + min(0.041666666666666664vw, 0.07407407407407407vh)), 4px);
     font-size: clamp(100%, calc(20.000000% + min(0.6666666666666666vw, 1.1851851851851851vh)), 400%);
   }</style>
-  <script type="module" crossorigin src="/assets/rules-BF5bWKQ1.js"></script>
+  <script type="module" crossorigin src="/assets/rules-CpT47lTN.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/content-readings-CBTi2Jpo.js">
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-arT4JacM.js">
-  <link rel="modulepreload" crossorigin href="/assets/en-TwAG4lio.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-Dkds5E6M.js">
-  <link rel="modulepreload" crossorigin href="/assets/tile-face-BbK_rEFv.js">
-  <link rel="modulepreload" crossorigin href="/assets/score-calc-steps-D8qsBJX7.js">
+  <link rel="modulepreload" crossorigin href="/assets/en-DrEmnNUk.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-vNNVTuPX.js">
+  <link rel="modulepreload" crossorigin href="/assets/tile-face-bUQ-XHzV.js">
+  <link rel="modulepreload" crossorigin href="/assets/help-bubble-position-DECt8FyY.js">
   <link rel="modulepreload" crossorigin href="/assets/save-location-ckXZKwqZ.js">
   <link rel="modulepreload" crossorigin href="/assets/document-readings-DBEYZdCd.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
@@ -465,6 +489,12 @@
 </p>
 <div class="card">
   <div class="calc-palette" id="calc-palette"></div>
+  <div class="calc-notation">
+    <label class="calc-notation-label" for="calc-notation-input"><span class="ko">표기로 입력</span><span class="ja">表記で入力</span><span class="en">Type notation</span></label>
+    <input class="calc-notation-input" id="calc-notation-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="123m456p789s11222z" aria-describedby="calc-notation-msg">
+    <span id="calc-notation-help"></span>
+    <span class="calc-notation-msg" id="calc-notation-msg" role="status"></span>
+  </div>
   <div class="calc-opts">
     <span class="optgrp">
       <button type="button" class="opt on" id="opt-tsumo"><span class="ko">쯔모</span><span class="ja">ツモ</span><span class="en">Tsumo</span></button>

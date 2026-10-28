@@ -28,18 +28,18 @@
     <summary>A riichi mahjong tutorial classroom, 800 nanikiru problems, JPML-A and KML rule presets, online rooms to play with friends, a 3D table and custom tile themes.</summary>
   </entry>
   <entry xml:lang="ko">
-    <title>온라인 친구방 개인정보: 계정도 추적도 없는 작공방(雀攻房)</title>
+    <title>온라인 대탁 개인정보: 계정도 추적도 없는 작공방(雀攻房)</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/privacy/"/>
     <id>https://jankobo.github.io/ko/privacy/</id>
     <updated>2026-10-25T00:00:00Z</updated>
-    <summary>온라인 친구방에서는 닉네임과 접속 IP가 서버에 닿습니다. 로그에는 방 코드도 닉도 IP도 남지 않고, 기보는 각자의 브라우저에 남습니다.</summary>
+    <summary>온라인 대탁에서는 닉네임과 접속 IP가 서버에 닿습니다. 로그에는 방 코드도 닉도 IP도 남지 않고, 기보는 각자의 브라우저에 남습니다.</summary>
   </entry>
   <entry xml:lang="ja">
-    <title>オンライン友達部屋の個人情報｜サーバーに届くもの｜雀攻房</title>
+    <title>オンライン代卓の個人情報｜サーバーに届くもの｜雀攻房</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/ja/privacy/"/>
     <id>https://jankobo.github.io/ja/privacy/</id>
     <updated>2026-10-25T00:00:00Z</updated>
-    <summary>オンライン友達部屋ではニックネームと接続元IPがサーバーに届きます。ログに部屋コードもニックネームもIPも残さず、牌譜は各自のブラウザに残ります。</summary>
+    <summary>オンライン代卓ではニックネームと接続元IPがサーバーに届きます。ログに部屋コードもニックネームもIPも残さず、牌譜は各自のブラウザに残ります。</summary>
   </entry>
   <entry xml:lang="en">
     <title>Online Privacy: What the Friend Room Server Sees | Jankobo</title>
@@ -53,7 +53,7 @@
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/"/>
     <id>https://jankobo.github.io/</id>
     <updated>2026-10-16T00:00:00Z</updated>
-    <summary>리치 마작 공부와 리치 마작 배우기를 위한 학습기 작공방(雀攻房). 마작 교실 튜토리얼, 나니키루 문제, KML과 JPML-A 룰 연습, 온라인 친구방, 리치 마작 AI와 두는 싱글 리치 마작까지 브라우저에서 바로. 麻雀教室、何切る問題、JPML-Aルール練習、友達とのオンライン対局まで揃う立直麻雀学習ツール「雀攻房」。 Jankobo: riichi mahjong tutorial, nanikiru practice, JPML-A and KML presets, online friend rooms, riichi mahjong with bots. 한국어·일본어·English, 무료.</summary>
+    <summary>리치 마작 공부와 리치 마작 배우기를 위한 학습기 작공방(雀攻房). 마작 교실 튜토리얼, 나니키루 문제, KML과 JPML-A 룰 연습, 온라인 대탁, 리치 마작 AI와 두는 싱글 리치 마작까지 브라우저에서 바로. 麻雀教室、何切る問題、JPML-Aルール練習、友達とのオンライン対局まで揃う立直麻雀学習ツール「雀攻房」。 Jankobo: riichi mahjong tutorial, nanikiru practice, JPML-A and KML presets, online friend rooms, riichi mahjong with bots. 한국어·일본어·English, 무료.</summary>
   </entry>
   <entry>
     <title>리치 마작 룰북과 점수 계산기 | ルールブック・点数計算機 | Rulebook &amp; Score Calculator | 작공방 雀攻房</title>
