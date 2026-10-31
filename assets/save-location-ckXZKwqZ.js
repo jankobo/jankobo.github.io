@@ -1,1 +1,0 @@
-var e=`ippatsu`,t=`game-state`,n=`primary`;export{n,t as r,e as t};
