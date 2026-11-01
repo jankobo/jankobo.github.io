@@ -225,6 +225,11 @@
   .tour-btn { background: var(--sim-deep); color: var(--text-body); border: calc(1 * var(--desktop-px, 1px)) solid var(--border-strong); border-radius: calc(8 * var(--desktop-px, 1px)); padding: calc(6 * var(--desktop-px, 1px)) calc(13 * var(--desktop-px, 1px)); font: inherit; font-size: var(--type-label, calc(12.5 * var(--desktop-px, 1px))); cursor: pointer; }
   .tour-btn:hover:not(:disabled) { border-color: var(--accent); }
   .tour-btn:disabled { opacity: .4; cursor: default; }
+  /* 온라인 대국 중 잠금(2026-11-01 #user) — 같은 브라우저의 다른 탭이 온라인 판을 두는 동안 페이지 전체를 덮는다. 본문은 `inert`
+     (simulator.ts `syncOnlineLock`). 투어 덮개(120)와 필름 그레인(200)보다 위다. 색은 tokens.css 토큰만(배선 자가 리터럴을 막는다). */
+  .sim-online-lock { position: fixed; inset: 0; z-index: 250; display: grid; place-items: center; padding: calc(24 * var(--desktop-px, 1px)) calc(16 * var(--desktop-px, 1px)); background: var(--scrim-strong); backdrop-filter: blur(calc(8 * var(--desktop-px, 1px))); }
+  .sim-online-lock:focus { outline: none; }
+  .sim-online-lock p { box-sizing: border-box; max-width: min(34em, 100%); margin: 0; padding: calc(18 * var(--desktop-px, 1px)) calc(22 * var(--desktop-px, 1px)); color: var(--text-strong); font-size: var(--type-lead, calc(16 * var(--desktop-px, 1px))); line-height: 1.65; text-align: center; background: var(--surface-raised); border: calc(1 * var(--desktop-px, 1px)) solid var(--accent-line); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
   .tour-btn.primary { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
   .tour-skip { color: var(--text-muted); background: none; border: none; font: inherit; font-size: var(--type-caption, calc(12 * var(--desktop-px, 1px))); cursor: pointer; padding: calc(4 * var(--desktop-px, 1px)); }
   .tour-skip:hover { color: var(--text-body); }
@@ -617,12 +622,12 @@
     --desktop-px: clamp(1px, calc(0.200000px + min(0.041666666666666664vw, 0.07407407407407407vh)), 4px);
     font-size: clamp(100%, calc(20.000000% + min(0.6666666666666666vw, 1.1851851851851851vh)), 400%);
   }</style>
-  <script type="module" crossorigin src="/assets/simulator-nW1AlslC.js"></script>
+  <script type="module" crossorigin src="/assets/simulator-u8bhhhEL.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/content-readings-D674O6xj.js">
-  <link rel="modulepreload" crossorigin href="/assets/assist-discard-arT4JacM.js">
-  <link rel="modulepreload" crossorigin href="/assets/en-DofhAKHg.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-BWpprnPr.js">
-  <link rel="modulepreload" crossorigin href="/assets/number-field-CDbo83su.js">
+  <link rel="modulepreload" crossorigin href="/assets/assist-discard-DZatABUq.js">
+  <link rel="modulepreload" crossorigin href="/assets/en-DcXYR-rC.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-BAn860QE.js">
+  <link rel="modulepreload" crossorigin href="/assets/number-field-j4bJt9O8.js">
   <link rel="modulepreload" crossorigin href="/assets/save-location-skxqGFzg.js">
   <link rel="modulepreload" crossorigin href="/assets/document-readings-DYmEMmPl.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
