@@ -864,6 +864,54 @@
     "url": "/assets/character-expressions/osaka-yui/call.webp"
   },
   {
+    "id": "player-default",
+    "expression": "greet",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6e7221d41b1a7732bccbc8ef4a854f8ff5e13c173fa55509a4578062a6612872",
+    "url": "/assets/character-expressions/player-default/greet.webp"
+  },
+  {
+    "id": "player-default",
+    "expression": "riichi",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "f89c9497a00c4eeaa1189b57c4f9c46da729bb881820e0b440a255539cfa304d",
+    "url": "/assets/character-expressions/player-default/riichi.webp"
+  },
+  {
+    "id": "player-default",
+    "expression": "win",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "6b32557eea0a85b55b67cafe3f7931e3ab7e9ebaa7f55dadbd7b4e67d6ebac94",
+    "url": "/assets/character-expressions/player-default/win.webp"
+  },
+  {
+    "id": "player-default",
+    "expression": "deal-in",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "f73c11aa89be7bff79abb86979a7d430a64f013f67c9e3bc80e050bbc3c9bb04",
+    "url": "/assets/character-expressions/player-default/deal-in.webp"
+  },
+  {
+    "id": "player-default",
+    "expression": "danger",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "2532a8eaa07aaf60eb2dee9cdc3e6ced216e2fb2d14f367f73caa2f1ebedbe66",
+    "url": "/assets/character-expressions/player-default/danger.webp"
+  },
+  {
+    "id": "player-default",
+    "expression": "call",
+    "width": 1024,
+    "height": 1536,
+    "sourceSha256": "7761a22234d77e89a687232ecc646978cf55ca85ba25df18c41857ad77d41a0e",
+    "url": "/assets/character-expressions/player-default/call.webp"
+  },
+  {
     "id": "seoul-dohyun",
     "expression": "greet",
     "width": 1024,
