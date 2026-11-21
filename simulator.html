@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>리치 마작 시뮬레이터, 무엇을 버릴까 국면 분석기 | 何切る・局面アナライザー | Riichi Mahjong Simulator | 작공방 雀攻房</title>
+<title>리치 마작 시뮬레이터, 무엇을 버릴까 국면 분석기 | 何切る局面アナライザー | Riichi Mahjong Simulator | 작공방 雀攻房</title>
 <meta name="keywords" content="리치 마작 시뮬레이터, 리치 마작 공부, 무엇을 버릴까, 마작 국면 분석기, riichi mahjong simulator, 何切る">
-<meta name="description" content="리치 마작 시뮬레이터. 손패와 버림패, 도라를 입력하면 유효패와 점수, 그리고 무엇을 버릴지(패효율과 안전도)를 알려주는 마작 국면 분석기. 4인과 3인 지원. 牌姿を入力して受け入れ・点数・何切るを確認できる局面アナライザー(四麻/三麻)。 Riichi mahjong position analyzer: outs, score, and what to discard.">
+<meta name="description" content="리치 마작 시뮬레이터. 손패와 버림패, 도라를 입력하면 유효패와 점수, 그리고 무엇을 버릴지(패효율과 안전도)를 알려주는 마작 국면 분석기. 4인과 3인 지원. 牌姿を入力して受け入れ、点数、何切るを確認できる局面アナライザー(四麻/三麻)。 Riichi mahjong position analyzer: outs, score, and what to discard.">
 <link rel="canonical" href="https://jankobo.github.io/simulator.html">
 <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
 <!-- 디자인 토큰은 **앱과 같은 파일 하나**다(2026-09-12 요구: 「다른 화면과 동일한 방식의 디자인」).
@@ -622,11 +622,11 @@
     --desktop-px: clamp(1px, calc(0.200000px + min(0.041666666666666664vw, 0.07407407407407407vh)), 4px);
     font-size: clamp(100%, calc(20.000000% + min(0.6666666666666666vw, 1.1851851851851851vh)), 400%);
   }</style>
-  <script type="module" crossorigin src="/assets/simulator-Ca4mgNBQ.js"></script>
+  <script type="module" crossorigin src="/assets/simulator-jCRhm7TY.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/save-location-BhVO-URI.js">
   <link rel="modulepreload" crossorigin href="/assets/assist-discard-DKFRilaS.js">
-  <link rel="modulepreload" crossorigin href="/assets/src-Dp43_qpv.js">
-  <link rel="modulepreload" crossorigin href="/assets/tokens-DCNgszmK.js">
+  <link rel="modulepreload" crossorigin href="/assets/src-s07loQ__.js">
+  <link rel="modulepreload" crossorigin href="/assets/tokens-CcR7Pscp.js">
   <link rel="modulepreload" crossorigin href="/assets/document-readings-Cjg7L4_k.js">
   <link rel="modulepreload" crossorigin href="/assets/mpa-return-C3KhUZt6.js">
   <link rel="modulepreload" crossorigin href="/assets/number-field-B1jiaZkf.js">
@@ -639,7 +639,7 @@
   <div class="logo">雀攻房 <em>Jankobo</em> <span class="ko">국면 분석기</span><span class="ja">局面アナライザー</span><span class="en">Position Analyzer</span><button type="button" class="logo-help" id="btn-what" aria-expanded="false" aria-label="이 도구는? / What is this?">?</button></div>
   <div class="what-pop" id="what-pop" hidden role="tooltip">
     <span class="ko">한 국면을 입력해 유효패와 점수, 추천 타패를 분석합니다. 턴을 이어서 진행하진 않습니다.</span>
-    <span class="ja">一つの局面を入力して有効牌・点数・推奨打牌を分析します。ターンを続けて進めるものではありません。</span>
+    <span class="ja">一つの局面を入力して有効牌、点数、推奨打牌を分析します。ターンを続けて進めるものではありません。</span>
     <span class="en">Analyze one board position: outs, score, and discard advice. It does not play turns forward.</span>
   </div>
   <div class="langs">
@@ -650,7 +650,7 @@
   <button type="button" class="back" id="btn-sim-help"><span class="ko">도움말</span><span class="ja">ヘルプ</span><span class="en">Help</span></button>
   <!-- 룰북은 «되돌아가는 길»이 아니라 옆으로 가는 길이다 — 여기 들어온 사람은 룰북에서 온 게
        아니라 앱에서 왔다(요구 21 실측: 종전 「← 룰북으로」는 목적지가 아예 틀렸다). 화살표를 뺀다. -->
-  <a class="back" href="/rules.html"><span class="ko">룰북과 역 일람</span><span class="ja">ルールブック・役一覧</span><span class="en">Rulebook &amp; Yaku List</span></a>
+  <a class="back" href="/rules.html"><span class="ko">룰북과 역 일람</span><span class="ja">ルールブックと役一覧</span><span class="en">Rulebook &amp; Yaku List</span></a>
   <!-- 되돌아가는 길 — 앱이 새 탭으로 열었으면 「탭 닫기」, 직접 들어왔으면 「게임 첫 화면」.
        판정·배선은 src/mpa-return.ts(simulator.ts가 부른다). 둘 중 하나만 보인다. -->
   <a class="back" id="nav-back" href="/">← <span class="ko">첫 화면</span><span class="ja">タイトル画面</span><span class="en">Start screen</span></a>

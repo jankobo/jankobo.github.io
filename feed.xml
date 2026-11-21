@@ -14,7 +14,7 @@
     <summary>마작 교실 튜토리얼, 나니키루 문제 800개, KML과 JPML-A 룰 연습, 친구와 온라인 대국, 3D 작탁, 커스텀 테마까지 소개합니다.</summary>
   </entry>
   <entry xml:lang="ja">
-    <title>麻雀教室・何切る問題・友達とオンライン対局｜雀攻房の機能</title>
+    <title>麻雀教室、何切る問題、友達とオンライン対局｜雀攻房の機能</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/ja/features/"/>
     <id>https://jankobo.github.io/ja/features/</id>
     <updated>2026-11-13T00:00:00Z</updated>
@@ -49,28 +49,28 @@
     <summary>In an online friend room your nickname and connecting IP reach the server. The log keeps no room code, nickname or IP, and replays stay in your browser.</summary>
   </entry>
   <entry>
-    <title>작공방(雀攻房) — 초중급자를 위한 리치 마작 학습기 / 立直麻雀学習ツール</title>
+    <title>작공방(雀攻房) | 초중급자를 위한 리치 마작 학습기 / 立直麻雀学習ツール</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/"/>
     <id>https://jankobo.github.io/</id>
     <updated>2026-10-16T00:00:00Z</updated>
-    <summary>리치 마작 공부와 리치 마작 배우기를 위한 학습기 작공방(雀攻房). 마작 교실 튜토리얼, 나니키루 문제, KML과 JPML-A 룰 연습, 온라인 대탁, 리치 마작 AI와 두는 싱글 리치 마작까지 브라우저에서 바로. 麻雀教室、何切る問題、JPML-Aルール練習、友達とのオンライン対局まで揃う立直麻雀学習ツール「雀攻房」。 Jankobo: riichi mahjong tutorial, nanikiru practice, JPML-A and KML presets, online friend rooms, riichi mahjong with bots. 한국어·일본어·English, 무료.</summary>
+    <summary>리치 마작 공부와 리치 마작 배우기를 위한 학습기 작공방(雀攻房). 마작 교실 튜토리얼, 나니키루 문제, KML과 JPML-A 룰 연습, 온라인 대탁, 리치 마작 AI와 두는 싱글 리치 마작까지 브라우저에서 바로. 麻雀教室、何切る問題、JPML-Aルール練習、友達とのオンライン対局まで揃う立直麻雀学習ツール「雀攻房」。 Jankobo: riichi mahjong tutorial, nanikiru practice, JPML-A and KML presets, online friend rooms, riichi mahjong with bots. 한국어, 일본어, English 지원, 무료.</summary>
   </entry>
   <entry>
-    <title>리치 마작 룰북과 점수 계산기 | ルールブック・点数計算機 | Rulebook &amp; Score Calculator | 작공방 雀攻房</title>
+    <title>리치 마작 룰북과 점수 계산기 | ルールブックと点数計算機 | Rulebook &amp; Score Calculator | 작공방 雀攻房</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/rules.html"/>
     <id>https://jankobo.github.io/rules.html</id>
     <updated>2026-10-16T00:00:00Z</updated>
-    <summary>리치 마작 배우기의 첫걸음. 리치 마작의 규칙과 역 일람, 그리고 손패를 직접 조립해 판과 부, 점수를 계산해 보는 점수 계산기. リーチ麻雀のルールと役一覧、手牌を組んで翻・符・点数を計算できる点数計算機。 Riichi mahjong rules, full yaku list, and an interactive score calculator.</summary>
+    <summary>리치 마작 배우기의 첫걸음. 리치 마작의 규칙과 역 일람, 그리고 손패를 직접 조립해 판과 부, 점수를 계산해 보는 점수 계산기. リーチ麻雀のルールと役一覧、手牌を組んで翻、符、点数を計算できる点数計算機。 Riichi mahjong rules, full yaku list, and an interactive score calculator.</summary>
   </entry>
   <entry>
-    <title>리치 마작 시뮬레이터, 무엇을 버릴까 국면 분석기 | 何切る・局面アナライザー | Riichi Mahjong Simulator | 작공방 雀攻房</title>
+    <title>리치 마작 시뮬레이터, 무엇을 버릴까 국면 분석기 | 何切る局面アナライザー | Riichi Mahjong Simulator | 작공방 雀攻房</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/simulator.html"/>
     <id>https://jankobo.github.io/simulator.html</id>
     <updated>2026-10-16T00:00:00Z</updated>
-    <summary>리치 마작 시뮬레이터. 손패와 버림패, 도라를 입력하면 유효패와 점수, 그리고 무엇을 버릴지(패효율과 안전도)를 알려주는 마작 국면 분석기. 4인과 3인 지원. 牌姿を入力して受け入れ・点数・何切るを確認できる局面アナライザー(四麻/三麻)。 Riichi mahjong position analyzer: outs, score, and what to discard.</summary>
+    <summary>리치 마작 시뮬레이터. 손패와 버림패, 도라를 입력하면 유효패와 점수, 그리고 무엇을 버릴지(패효율과 안전도)를 알려주는 마작 국면 분석기. 4인과 3인 지원. 牌姿を入力して受け入れ、点数、何切るを確認できる局面アナライザー(四麻/三麻)。 Riichi mahjong position analyzer: outs, score, and what to discard.</summary>
   </entry>
   <entry xml:lang="ko">
-    <title>마작 혼자서도 배우기: 복기·오답노트가 있는 작공방(雀攻房)</title>
+    <title>마작 혼자서도 배우기: 복기와 오답노트가 있는 작공방(雀攻房)</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/learn/"/>
     <id>https://jankobo.github.io/ko/learn/</id>
     <updated>2026-10-16T00:00:00Z</updated>
@@ -102,10 +102,10 @@
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/ko/license/"/>
     <id>https://jankobo.github.io/ko/license/</id>
     <updated>2026-10-16T00:00:00Z</updated>
-    <summary>작공방의 코드와 그림·소리는 비상업 목적이면 쓰고 고치고 나눌 수 있고 상업적 이용은 안 됩니다. 그림·소리는 CC BY-NC 4.0입니다.</summary>
+    <summary>작공방의 코드와 그림, 소리는 비상업 목적이면 쓰고 고치고 나눌 수 있고 상업적 이용은 안 됩니다. 그림과 소리는 CC BY-NC 4.0입니다.</summary>
   </entry>
   <entry xml:lang="ja">
-    <title>ライセンス案内｜非商用なら使える・直せる・配れる｜雀攻房</title>
+    <title>ライセンス案内｜非商用なら使えて直せて配れる｜雀攻房</title>
     <link rel="alternate" type="text/html" href="https://jankobo.github.io/ja/license/"/>
     <id>https://jankobo.github.io/ja/license/</id>
     <updated>2026-10-16T00:00:00Z</updated>
